@@ -1,0 +1,31 @@
+---
+layout: base.njk
+---
+{% if collections.upcoming and collections.upcoming.length > 0 %}
+  {% for newsItem in collections.upcoming %}
+    <div class="news-container">
+      <p class="news-item title">{{ newsItem.data.title }}</p>
+      <p class="news-item">{{ newsItem.data.location }}</p>
+      <p class="news-item">{{ newsItem.data.opening or "not specified" }}</p>
+      <p class="news-item web"><a href="{{ newsItem.data.web }}" target="_blank">{{ newsItem.data.web }}</a></p>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No upcoming exhibitions.</p>
+{% endif %}
+
+{% if collections.recent and collections.recent.length > 0 %}
+  {% for newsItem in collections.recent %}
+    <div class="news-container">
+      {% if loop.first %}
+        <p class="recent">RECENT</p>
+      {% endif %}
+      <p class="news-item"><em>{{ newsItem.data.title }}</em></p>
+      <p class="news-item">{{ newsItem.data.location }}</p>
+      <p class="news-item">{{ newsItem.data.opening }}</p>
+      <p class="news-item web"><a href="{{ newsItem.data.web }}" target="_blank">{{ newsItem.data.web }}</a></p>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No recent exhibitions.</p>
+{% endif %}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/rix7dpg.css">
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.27/dist/fancybox.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0.27/dist/fancybox.umd.js"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="/carousel.css">
+
+</head>
+<body>
+   <header>
+      <nav class="navbar navbar-light bg-light">
+        <div class="brand-container">
+          <a class="navbar-brand" id="navbar-home" href="{{ '/' | url }}">Julius Heinemann</a>
+        </div>
+        <span class="current-page-name">
+          {% if page.url != '/' %}
+
+            {{ page.url | replace('/', '') | capitalize }}
+          {% endif %}
+        </span>
+        <button class="navbar-toggler" type="button" id="navToggle">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+
+
+      <div class="fullscreen-menu" id="fullscreenMenu">
+      <button class="close-btn" id="closeMenu"><img src="/images/xmark.svg"></button>
+        <ul class="nav-list">
+         <li class="nav-item {% if page.url == '/about/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/news/' | url }}">News</a>
+          </li>
+          <li class="nav-item {% if page.url == '/exhibitions/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/exhibitions/' | url }}">Exhibitions</a>
+          </li>
+          <li class="nav-item {% if page.url == '/works/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/works/' | url }}">Works</a>
+          </li>
+          <li class="nav-item {% if page.url == '/publications/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/publications/' | url }}">Publications</a>
+          </li>
+
+          <li class="nav-item {% if page.url == '/about/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/about/' | url }}">About</a>
+          </li>
+          <li class="nav-item {% if page.url == '/contact/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/contact/' | url }}">Contact</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>-->
+        </ul>
+      </div>
+
+      </nav>
+    </header>
+    <div class="main-container {% if removeMainPadding %} no-padding{% endif %}">
+      <main>
+          {{ content | safe }}
+
+
+      </main>
+
+      <footer>
+          <!-- Add footer content -->
+      </footer>
+    </div>
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/carousel.js"></script>
+    <script src="/exhibitions.js"></script>
+    <script src="/works.js"></script>
+    <script src="/navbar.js"></script>
+     <script src="/about.js"></script>
+
+       <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Fancybox.bind("[data-fancybox]", {
+        // Optional Fancybox settings
+      });
+    });
+  </script>
+<script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+</body>
+</html>

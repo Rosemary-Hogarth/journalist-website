@@ -1,0 +1,82 @@
+---
+layout: base.njk
+pagination:
+  data: collections.exhibitions
+  size: 1
+  alias: exhibition
+---
+
+<div id="exhibitions-main" class="exhibitions-container">
+  <div id="content-area">
+    <div id="exhibition-grid" class="exhibition-grid">
+      {% for exhibition in collections.exhibitions %}
+        <div class="exhibition-item">
+          <!-- Carousel (clickable) -->
+          <div class="carousel-card">
+            <div id="carouselExampleControls-{{ exhibition.fileSlug }}" class="carousel slide"
+            data-interval="false">
+              <div class="carousel-inner">
+                {% for image in exhibition.data.images %}
+                  <div class="carousel-item  {% if loop.first %}active{% endif %}">
+                    <img
+                      class="carousel-image d-block w-300"
+                      src="{{ (image | replace('/upload/', '/upload/w_1600,q_auto,f_auto/')) }}"
+                      alt="Image from {{ exhibition.data.title }}" loading="lazy">
+                  </div>
+
+                {% endfor %}
+
+              </div>
+                <div class="carousel-click-area left"></div>
+                <div class="carousel-click-area right"></div>
+            </div>
+          </div>
+
+          <!-- Exhibition details (not clickable) -->
+          <div class="caption">
+            <div class="exhibition-details">
+              <div class="exhibition-title">{{ exhibition.data.title }}</div>
+              <div class="exhibition-location">{{ exhibition.data.locationDate }}</div>
+              <div class="exhibition-category">{{ exhibition.data.category }}</div>
+            </div>
+
+            <!-- This is being rendered by javascript -->
+            <div class="text-link">
+              <div class="show-text"
+                data-exhibition-text="{{ exhibition.data.exhibitionText | markdownify | safe }}"
+                data-exhibition-text-title="{{ exhibition.data.exhibitionTextTitle | escape }}"
+                data-exhibition-text-location="{{ exhibition.data.exhibitionTextLocation | escape }}"
+                data-exhibition-text-dates="{{ exhibition.data.exhibitionTextDates | escape }}">
+                <div class="more-info">more info</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+  <div id="exhibition-text" style="display: none;">
+    <div id="back-to-grid"><img src="/images/close-thick.svg"></div>
+  <div id="text-content" class="narrow-container">
+    <div class="row">
+      <div class="column left-column">
+        <!-- Left column content -->
+      </div>
+      <div class="column right-column">
+        <!-- Right column content -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+{% block scripts %}
+  <script src="/exhibitions.js"></script>
+  <script src="/carousel.js"></script>
+{% endblock %}

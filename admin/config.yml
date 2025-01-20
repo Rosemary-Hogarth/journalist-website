@@ -1,0 +1,180 @@
+backend:
+  name: git-gateway
+  repo: Rosemary-Hogarth/art-website
+  branch: master
+  baseUrl: https://courageous-bonbon-e9ab9d.netlify.app/
+
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dyciaxri0
+    api_key: 923446252637638
+
+
+collections:
+  - name: "exhibitions"
+    label: "Exhibitions"
+    folder: "exhibitions"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order", "title"]
+    fields:
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the exhibitions as you want them displayed." }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Location Date", name: "locationDate", widget: "string", required: false}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Category", name: "category", widget: "select", options: ["Solo show", "Group show"], required: false}
+      - {label: "View", name: "view", widget: "select", options: ["Installation view"], required: false}
+      - {label: "Year", name: "year", widget: "string", required: false}
+      - {label: "Cover Image", name: "coverImage", widget: "image", required: false}
+      - {label: "Permalink", name: "permalink", widget: "hidden", default: "/exhibitions/{{ title | slugify }}/"}
+      - label: "Gallery Images"
+        name: "images"
+        widget: "list"
+        field:
+          {label: "Image", name: "image", widget: "image"}
+      - {label: "Exhibition Text Title", name: "exhibitionTextTitle", widget: "string"}
+      - {label: "Exhibition Text Location", name: "exhibitionTextLocation", widget: "string"}
+      - {label: "Exhibition Text Dates", name: "exhibitionTextDates", widget: "string"}
+      - {label: "Exhibition Text", name: "exhibitionText", widget: "markdown"}
+
+
+# New "Works" Collection
+  - name: "works"
+    label: "Works"
+    folder: "works"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order"]
+    fields:
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the exhibitions as you want them displayed." }
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Year", name: "year", widget: "number"}
+      - {label: "Extra Info", name: "extra", widget: "string", required: false}
+      - {label: "Dimensions", name: "dimensions", widget: "string"}
+      - {label: "Medium", name: "medium", widget: "string"}
+      - {label: "Category", name: "category", widget: "select", options: ["Installation", "Painting", "Watercolour", "Collage", "Drawing", "Object"]} # Filter category
+      - {label: "Type", name: "type", widget: "select", options: ["Single", "Installation"], default: "Single"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Permalink", name: "permalink", widget: "hidden", default: "/works/{{ name | slugify }}/"}
+      - label: "Installation Images"
+        name: "installationImages"
+        widget: "list"
+        fields:
+          - {label: "Image", name: "image", widget: "image"}
+        required: false
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - { label: "Press Release", name: "pressRelease", widget: "markdown", required: false, hint: "Add detailed press release or description text here." }
+
+
+  - name: "homepage_slideshow"
+    label: "Homepage Slideshow"
+    folder: "homepage_slideshow"
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Order", name: "order", widget: "number", default: 1}
+
+
+  - name: "publications"
+    label: "Publications"
+    folder: "publications"
+    create: true
+    slug: '{{publicationTitle | slugify}}'
+    fields:
+      - {label: "Publication Title", name: "publicationTitle", widget: "string", required: true}
+      - {label: "Main Image", name: "mainImage", widget: "image", required: true}
+      - label: "Gallery Images"
+        name: "galleryImages"
+        widget: "list"
+        required: false
+        fields:
+          - {label: "Image", name: "image", widget: "image", required: true}
+          - {label: "Caption", name: "caption", widget: "string", required: false}
+      - {label: "Publication Text Author", name: "publicationTextAuthor", widget: "string", required: false}
+      - {label: "Publication Details", name: "publicationDetails", widget: "text", required: false}
+      - {label: "Designed by", name: "designedBy", widget: "string", required: false}
+      - {label: "Published by", name: "publishedBy", widget: "string", required: false}
+      - {label: "ISBN", name: "isbn", widget: "string", required: false}
+      - {label: "Publication Price", name: "publicationPrice", widget: "string", required: false}
+
+
+
+
+
+
+  - name: "about"
+    label: "About"
+    folder: "about"
+    create: true
+    slug: '{{title | slugify}}'
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - { label: "Quote", name: "quote", widget: "string", required: false }
+      - { label: "Practice", name: "practice", widget: "markdown", required: true }
+      - { label: "CV", name: "cv", widget: "markdown", required: true }
+      - { label: "Texts", name: "texts", widget: "markdown", required: true }
+
+
+
+  - name: "contact"
+    label: "Contact"
+    folder: "contact"
+    create: true
+    slug: '{{title | slugify}}'
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - { label: "Contact name", name: "contactName", widget: "text" }
+      - { label: "Contact address", name: "contactAddress", widget: "text" }
+      - { label: "Contact email", name: "contactEmail", widget: "text" }
+      - { label: "Contact artist", name: "contactArtist", widget: "text" }
+
+
+  - name: "imprint"
+    label: "Imprint"
+    folder: "imprint"
+    create: true
+    slug: '{{title | slugify}}'
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Text", name: "text", widget: "markdown", required: true }
+
+  - name: "privacy"
+    label: "Privacy"
+    folder: "privacy"
+    create: true
+    slug: '{{title | slugify}}'
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Body", name: "body", widget: "markdown", required: true }
+
+
+
+  - name: "upcoming"
+    label: "Upcoming Exhibitions"
+    folder: "news/upcoming"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Location", name: "location", widget: "string", required: true }
+      - { label: "Opening", name: "opening", widget: "string" }
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the exhibitions as you want them displayed." }
+      - { label: "Web", name: "web", widget: "string", required: true }
+
+  - name: "recent"
+    label: "Recent Exhibitions"
+    folder: "news/recent"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Location", name: "location", widget: "string", required: true }
+      - { label: "Opening", name: "opening", widget: "string", required: false }
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the exhibitions as you want them displayed." }
+      - { label: "Web", name: "web", widget: "string", required: true }

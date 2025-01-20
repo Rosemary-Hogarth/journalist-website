@@ -1,0 +1,39 @@
+{
+  "name": "art-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel css eleventy browsersync",
+    "build": "cross-env NODE_ENV=production eleventy",
+    "debug": "set DEBUG=* & eleventy",
+    "css": "postcss src/static/css/main.css --o _site/static/css/style.css --watch",
+    "eleventy": "eleventy --watch",
+    "browsersync": "browser-sync start --server _site --files _site --port 8080 --no-notify --no-open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+    "autoprefixer": "^10.4.2",
+    "browser-sync": "^2.27.7",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.0.15",
+    "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.80.6"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-bundle": "^3.0.0",
+    "bootstrap": "^5.3.3",
+    "cloudinary": "^2.5.1",
+    "decap-cms-app": "^3.0.0",
+    "dotenv": "^16.4.5",
+    "markdown-it": "^14.1.0",
+    "slugify": "^1.6.6"
+  }
+}

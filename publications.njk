@@ -1,0 +1,68 @@
+---
+layout: base.njk
+pagination:
+  data: collections.publications
+  size: 100
+  alias: publications
+---
+<div id="publications-main" class="publications-container">
+
+  <div class="publications-grid">
+    {% for publication in publications %}
+      <div class="publication-item" data-category="{{ publication.data.category }}">
+
+        <div class="publication-image-container">
+          {% if publication.data.images %}
+            {% for image in publication.data.images %}
+              <a href="{{ (image.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
+                 data-fancybox="publication-{{ forloop.parentloop.index }}"
+                 data-caption="{{ publication.data.publicationTitle }}">
+                {% if image.displayOnPage %}
+                  <img src="{{ (image.image | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}"
+                       alt="{{ publication.data.publicationTitle }}">
+                {% endif %}
+              </a>
+            {% endfor %}
+          {% elif publication.data.image %}
+            <a href="{{ (publication.data.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
+               data-fancybox="publication-gallery"
+               data-caption="{{ publication.data.publicationTitle }}">
+              <img src="{{ (publication.data.image | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}"
+                   alt="{{ publication.data.publicationTitle }}">
+            </a>
+          {% endif %}
+        </div>
+
+        <div class="publication-text">
+          <h2 class="pubTitle">{{ publication.data.publicationTitle }}</h2>
+          {% if publication.data.publicationTextAuthor %}
+            <p class="pubMainInfo">{{ publication.data.publicationTextAuthor }}</p>
+          {% endif %}
+          <p class="pubDetails">{{ publication.data.publicationDetails }}</p>
+          {% if publication.data.publicationEdition %}
+            <p class="pubMainInfo">{{ publication.data.publicationEdition }}</p>
+          {% endif %}
+          {% if publication.data.designedBy %}
+            <p class="pubMainInfo">{{ publication.data.designedBy }}</p>
+          {% endif %}
+          {% if publication.data.publishedBy %}
+            <p class="pubMainInfo">{{ publication.data.publishedBy }}</p>
+          {% endif %}
+          {% if publication.data.isbn %}
+            <p class="pubMainInfo">{{ publication.data.isbn }}</p>
+          {% endif %}
+          {% if publication.data.publicationPrice %}
+            <p class="price">{{ publication.data.publicationPrice }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+{% block scripts %}
+  <script src="/publications.js"></script>
+{% endblock %}

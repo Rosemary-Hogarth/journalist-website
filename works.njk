@@ -1,0 +1,103 @@
+---
+layout: base.njk
+title: "Works"
+pagination:
+  data: collections.works
+  size: 100
+  alias: work
+---
+<!--<div id="works-intro" class="works-intro hidden">
+  <h1 id="works-heading" class="works-heading">Works</h1>
+</div>-->
+
+<div id="works-main" class="works-container">
+  <!-- Filter Buttons -->
+  <div id="filter-buttons" class="filter-buttons">
+    <button class="filter-button active" data-filter="">All</button>
+    <!-- Categories will be populated here by JavaScript -->
+  </div>
+
+<div class="works-grid">
+  {% for work in collections.works %}
+    <div class="work-item" data-category="{{ work.data.category }}" data-medium="{{ work.data.medium }}">
+      {% if work.data.type == "Installation" %}
+
+        <a href="{{ (work.data.installationImages[0].image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
+           data-fancybox="all-installations"
+           data-caption="
+           <div class='artwork-details-works'>
+             <span class='caption-title'><em>{{ work.data.name }}</em></span>,
+             <span class='caption-year'>
+               {{ work.data.year | default('Unknown Year') }}
+               {% if work.data.extra %}
+               &nbsp;&middot;&nbsp;
+               {{ work.data.extra }}
+               {% endif %}
+             </span>,
+             <span class='caption-medium'>{{ work.data.medium }}</span>,
+             <span class='caption-location'>{{ work.data.location }}</span>
+           </div>">
+          <img
+            src="{{ (work.data.installationImages[0].image | replace('/upload/', '/upload/w_500,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}"
+            alt="{{ work.data.name }}">
+        </a>
+
+        <!-- More Info Button appears on hover
+        <div class="work-item-content">
+          <div class="more-info-btn-wrapper">
+            <a href="javascript:void(0);" class="more-info-btn" data-work="{{ work.url }}">More Info</a>
+          </div>
+        </div> -->
+
+        {% for image in work.data.installationImages %}
+          {% if not forloop.first %}
+            <a href="{{ (image.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
+               data-fancybox="all-installations"
+               data-caption="
+               <div class='artwork-details-works'>
+                 <span class='caption-title'><em>{{ work.data.name | default('Untitled') }}</em></span>,
+                 <span class='caption-year'>
+                   {{ work.data.year | default('Unknown Year') }}
+                   {% if work.data.extra %}
+                   &nbsp;&middot;&nbsp;
+                   {{ work.data.extra }}
+                   {% endif %}
+                 </span>,
+                 <span class='caption-medium'>{{ work.data.medium }}</span>,
+                 <span class='caption-location'>{{ work.data.location | default('Unknown Location') }}</span>
+               </div>"
+               {% if forloop.index == 2 %}class="carousel-main-image"{% else %}style="display: none;"{% endif %}>
+               <img src="{{ (image.image | replace('/upload/', '/upload/w_500,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}" alt="{{ work.data.name }}">
+            </a>
+          {% endif %}
+        {% endfor %}
+
+      {% else %}
+        <a href="{{ (work.data.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
+           data-fancybox="gallery"
+           data-caption="
+           <div class='artwork-details-works'>
+             <span class='caption-title'><em>{{ work.data.name }}</em></span>,
+             <span class='caption-year'>{{ work.data.year }}</span>,
+             <span class='caption-dimensions'>{{ work.data.dimensions }}</span>,
+             <span class='caption-medium'>{{ work.data.medium }}</span>
+           </div>">
+          <img
+            src="{{ (work.data.image | replace('/upload/', '/upload/w_500,g_center,q_auto,f_auto,dpr_auto/')) }}"
+            alt="{{ work.data.name }}">
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<!-- The press text will be swapped in here -->
+<div id="press-text-container" class="hidden">
+  <!-- Press text will be dynamically inserted here -->
+</div>
+
+
+
+{% block scripts %}
+  <script src="/works.js"></script>
+{% endblock %}

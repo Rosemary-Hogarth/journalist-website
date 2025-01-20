@@ -1,0 +1,42 @@
+---
+layout: base.njk
+pagination:
+  data: collections.about
+  size: 1
+  alias: about
+---
+
+
+<div class="text-container">
+  <div class="row">
+    <!-- Tab Buttons -->
+    <div class="tabs">
+      <button class="tab-button" data-target="practice">Practice</button>
+      <button class="tab-button" data-target="cv">CV</button>
+      <button class="tab-button" data-target="texts">Texts</button>
+    </div>
+
+    <!-- Content Sections - add 'markdownify | safe to format markdown-->
+    <div id="content">
+
+  <div id="practice" class="about-content active">
+    {% if about.data.quote %}
+    <blockquote class="quote">
+      <em>{{ about.data.quote }}</em>
+    </blockquote>
+  {% endif %}
+    {{ about.data.practice | markdownify | safe }}
+  </div>
+  <div id="cv" class="about-content">
+    {{ about.data.cv | markdownify | safe }}
+  </div>
+  <div id="texts" class="about-content">
+    {{ about.data.texts | markdownify | safe }}
+  </div>
+</div>
+
+
+
+{% block scripts %}
+  <script src="/about.js"></script>
+{% endblock %}
