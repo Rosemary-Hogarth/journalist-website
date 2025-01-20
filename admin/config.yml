@@ -116,7 +116,16 @@ collections:
       - { label: "Quote", name: "quote", widget: "string", required: false }
       - { label: "Practice", name: "practice", widget: "markdown", required: true }
       - { label: "CV", name: "cv", widget: "markdown", required: true }
-      - { label: "Texts", name: "texts", widget: "markdown", required: true }
+      - label: "Exhibition Texts"
+        name: "exhibitionTexts"
+        widget: "list"
+        fields:
+          - {label: "Text Title", name: "textTitle", widget: "string", required: true}
+          - {label: "Author", name: "author", widget: "string", required: true}
+          - {label: "Description", name: "description", widget: "string", required: false}
+          - {label: "Exhibition Text", name: "text", widget: "markdown", required: true}
+
+
 
 
 

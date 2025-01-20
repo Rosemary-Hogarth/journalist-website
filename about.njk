@@ -35,7 +35,26 @@ pagination:
   </div>
 </div>
 
+<div id="texts" class="about-content">
+  <ul class="exhibition-texts-list">
+    {% for text in about.data.exhibitionTexts %}
+    <li>
+      <button class="exhibition-text-button"
+              data-about-text="{{ text.text | safe }}"
+              data-about-text-title="{{ text.textTitle }}"
+              data-about-text-author="{{ text.author }}"
+              data-about-text-description="{{ text.description }}">
+        {{ text.textTitle }}
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 
+<div id="about-exhibition-text" style="display: none;">
+  <div id="back-to-grid"><img src="/images/close-thick.svg" onclick="returnToGridView()"></div>
+  <div id="about-text-content" class="narrow-container"></div>
+</div>
 
 {% block scripts %}
   <script src="/about.js"></script>

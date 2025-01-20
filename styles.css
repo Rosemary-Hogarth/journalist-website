@@ -7,6 +7,32 @@
 @import "./components/home.css";
 @import "./components/contact.css"; */
 
+.exhibition-texts-list {
+  list-style: none;
+  padding: 0;
+}
+
+.exhibition-texts-list li {
+  margin: 1rem 0;
+}
+
+.exhibition-text-button {
+  background: none;
+  border: none;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#about-exhibition-text {
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+#back-to-grid {
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
 
 body, html {
   font-family: "minion-3", serif !important;

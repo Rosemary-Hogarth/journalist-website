@@ -24,4 +24,59 @@ document.addEventListener("DOMContentLoaded", () => {
 tabs[0].classList.add("active");
 contents[0].classList.add("active")
 
+
+const aboutExhibitionText = document.getElementById('about-exhibition-text');
+const aboutTextContent = document.getElementById('about-text-content');
+const aboutTextContainer = document.getElementById('text-container')
+
+function showAboutText(button) {
+  // Save the current scroll position of the grid (in memory)
+  lastScrollPosition = window.scrollY;
+  console.log('Saved scroll position:', lastScrollPosition);
+
+
+  const text = button.dataset.aboutText;
+  const title = button.dataset.aboutTextTitle;
+  const author = button.dataset.aboutTextAuthor;
+  const description = button.dataset.aboutTextDescription;
+
+
+
+  renderText(title, author, description, text);
+  aboutTextContainer.style.display = 'none';
+  aboutExhibitionText.style.display = 'block';
+
+  document.body.offsetHeight;
+
+    // Scroll to the top of the exhibition text
+  // Delay the scroll to top
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+}, 0);
+
+
+  // Optionally update URL without page reload
+  history.pushState(null, '', '/about');
+}
+
+function returnToGridView() {
+  console.log('Returning to position:', lastScrollPosition);
+  aboutTextContainer.style.display = 'block';
+  aboutExhibitionText.style.display = 'none';
+
+
+    // Use setTimeout to ensure the scroll happens after the display change
+setTimeout(() => {
+  window.scrollTo({
+    top: lastScrollPosition,
+    behavior: 'smooth'
+  });
+  console.log('Scrolled to:', window.scrollY);
+}, 0);
+
+
+  // Optionally update URL back to exhibitions
+  history.pushState(null, '', '/about');
+}
+
 })
