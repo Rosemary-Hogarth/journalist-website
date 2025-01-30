@@ -1,0 +1,124 @@
+
+.work-caption {
+  display: none;
+}
+
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 80px;
+  row-gap: 80px;
+
+}
+
+
+
+.work-item {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%; /* This creates a square aspect ratio */
+  overflow: hidden;
+}
+
+
+/* keeps actual image size */
+.work-item img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+.works-card a {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hover effect for works card */
+.works-card:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Ensure image inside the works card scales correctly */
+.works-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the image stays within the bounds of the card */
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect on image */
+.works-card:hover img {
+  transform: scale(1.1); /* Zoom in on hover */
+}
+
+/* Work Info Styling */
+.work-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the filter buttons (if needed) */
+.filter {
+  font-size: 0.8em;
+  margin-bottom: 1.5em;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 2.5em auto 3em auto;
+}
+
+.filter-button  {
+  border: none;
+  cursor: pointer;
+  color: #9d9d9c;
+  font-size: 1.6em;
+  padding-right: 11px;
+  padding-left: 11px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin: 0;
+  background-color: white;
+  outline: none;
+}
+
+.filter-button:focus:not(:focus-visible) {
+  outline: none; /* Removes outline for mouse interactions */
+}
+
+.filter-button.active, .filter-button:hover {
+
+  color: black;
+}

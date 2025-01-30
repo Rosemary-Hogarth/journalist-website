@@ -118,12 +118,19 @@ module.exports = function(eleventyConfig) {
 
 
   // Passthrough copy for assets
-  eleventyConfig.addPassthroughCopy("*.css");
+  eleventyConfig.addPassthroughCopy("styles", {
+    debug: (content, outputPath) => {
+      console.log(`Copying: ${outputPath}`);
+    }
+  });
+
+  eleventyConfig.addPassthroughCopy("styles");
 
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("*.js");
   eleventyConfig.addPassthroughCopy("admin");
-  // eleventyConfig.addPassthroughCopy("images/uploads");
+
+  eleventyConfig.addWatchTarget("styles");
 
 
   // Set custom directory structure

@@ -4,32 +4,33 @@ pagination:
   data: collections.publications
   size: 100
   alias: publications
+  css: publications
 ---
 <div id="publications-main" class="publications-container">
-
   <div class="publications-grid">
     {% for publication in publications %}
       <div class="publication-item" data-category="{{ publication.data.category }}">
 
         <div class="publication-image-container">
-          {% if publication.data.images %}
-            {% for image in publication.data.images %}
-              <a href="{{ (image.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
-                 data-fancybox="publication-{{ forloop.parentloop.index }}"
-                 data-caption="{{ publication.data.publicationTitle }}">
-                {% if image.displayOnPage %}
-                  <img src="{{ (image.image | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}"
-                       alt="{{ publication.data.publicationTitle }}">
-                {% endif %}
-              </a>
-            {% endfor %}
-          {% elif publication.data.image %}
-            <a href="{{ (publication.data.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/')) }}"
-               data-fancybox="publication-gallery"
-               data-caption="{{ publication.data.publicationTitle }}">
-              <img src="{{ (publication.data.image | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/')) }}"
-                   alt="{{ publication.data.publicationTitle }}">
-            </a>
+          {% if publication.data.mainImage %}
+            <!-- Use catalogueId for grouping Fancybox -->
+            <a href="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
+   data-fancybox="catalogue-{{ publication.data.catalogueId }}"
+   data-caption="{{ publication.data.publicationTitle }}">
+  <img src="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/') }}"
+       alt="{{ publication.data.publicationTitle }}">
+</a>
+
+{% for galleryImage in publication.data.galleryImages %}
+  <a href="{{ galleryImage.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
+     data-fancybox="catalogue-{{ publication.data.catalogueId }}"
+     data-caption="{{ galleryImage.caption }}"
+     style="display: none;">
+  </a>
+{% endfor %}
+
+          {% else %}
+            <p>No images available for this publication.</p>
           {% endif %}
         </div>
 
@@ -39,9 +40,6 @@ pagination:
             <p class="pubMainInfo">{{ publication.data.publicationTextAuthor }}</p>
           {% endif %}
           <p class="pubDetails">{{ publication.data.publicationDetails }}</p>
-          {% if publication.data.publicationEdition %}
-            <p class="pubMainInfo">{{ publication.data.publicationEdition }}</p>
-          {% endif %}
           {% if publication.data.designedBy %}
             <p class="pubMainInfo">{{ publication.data.designedBy }}</p>
           {% endif %}
@@ -55,11 +53,11 @@ pagination:
             <p class="price">{{ publication.data.publicationPrice }}</p>
           {% endif %}
         </div>
+
       </div>
     {% endfor %}
   </div>
 </div>
-
 
 
 

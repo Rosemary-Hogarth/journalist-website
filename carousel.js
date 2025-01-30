@@ -27,21 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     });
-
-    // Add custom navigation button handling (left and right arrows, if they exist)
-    // const prevButton = carousel.querySelector('.carousel-control-prev');
-    // const nextButton = carousel.querySelector('.carousel-control-next');
-
-  //   if (prevButton) {
-  //     prevButton.addEventListener('click', () => {
-  //       $(carousel).carousel('prev'); // Navigate to previous carousel item
-  //     });
-  //   }
-
-  //   if (nextButton) {
-  //     nextButton.addEventListener('click', () => {
-  //       $(carousel).carousel('next'); // Navigate to next carousel item
-  //     });
-  //   }
    });
 });

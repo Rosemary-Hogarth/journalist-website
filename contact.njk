@@ -1,20 +1,52 @@
 ---
 layout: base.njk
+css: contact
 ---
-
 
 {% if collections.contact.length > 0 %}
   {% set contact = collections.contact[0] %}
   <div class="contact-container">
-    <div class="artist-info">
-      <p class="gallery-contact-name">{{ contact.data.contactName }}</p>
-      <p class="gallery-contact-address">{{ contact.data.contactAddress }}</p>
-      <a href="https://www.jahnundjahn.com" target="_blank" class="gallery-contact-email">{{ contact.data.contactEmail }}</a>
+    <!-- Flex container for studio and gallery -->
+    <div class="contact-sections">
+
+      <!-- Studio Section -->
+      <div class="contact-section studio">
+        <p>STUDIO</p>
+        <div class="section">
+          <p class="studio-name">{{ contact.data.studioName }}</p>
+          <p class="studio-address">{{ contact.data.studioAddress }}</p>
+          <a href="mailto:{{ contact.data.studioEmail }}" class="studio-email">{{ contact.data.studioEmail }}</a>
+        </div>
+      </div>
+
+      <!-- Gallery Section -->
+      <div class="contact-section gallery">
+        <p>GALLERY</p>
+        <div class="section">
+          <p class="gallery-name">{{ contact.data.galleryName }}</p>
+          <p class="gallery-address">{{ contact.data.galleryAddress }}</p>
+          <a href="{{ contact.data.galleryWebsite }}" target="_blank" class="gallery-website">{{ contact.data.galleryWebsite }}</a>
+        </div>
+      </div>
     </div>
-    <p class="gallery-contact-artist">{{ contact.data.contactArtist }}</p>
+
+   <div class="social-links">
+  <div>
+    <a href="https://www.instagram.com/yourusername" target="_blank" class="social-link instagram-link">
+      Instagram
+    </a>
+  </div>
+  <div>
+    <a href="/subscribe" class="social-link newsletter-link">
+      Subscribe to Newsletter
+    </a>
+  </div>
+
+
+
     <div class="footer-links">
       <a href="#" data-toggle="imprint">Imprint</a>
-      <span>|</span>
+      <span>/</span>
       <a href="#" data-toggle="privacy">Privacy Policy</a>
     </div>
   </div>
@@ -22,41 +54,47 @@ layout: base.njk
   <div id="imprint" class="toggle-content" style="display: none;">
     {% if collections.imprint.length > 0 %}
       {% set imprint = collections.imprint[0] %}
-        <div class="imprint-container">
-    <header class="imprint-header">
-      <h1>{{ imprint.data.title }}</h1>
-    </header>
-    <main class=" imprint-content">
-      <div class="imprint-text">
-        {{ imprint.data.text | markdownify | safe }}
-
-
+      <div class="imprint-container">
+        <header class="imprint-header">
+          <h1>{{ imprint.data.title }}</h1>
+        </header>
+        <main class="imprint-content">
+          <div class="imprint-text">
+            {{ imprint.data.text | markdownify | safe }}
+          </div>
+        </main>
       </div>
-    </main>
-  </div>
     {% endif %}
   </div>
 
   <div id="privacy" class="toggle-content" style="display: none;">
     {% if collections.privacy.length > 0 %}
       {% set privacy = collections.privacy[0] %}
-       <div class="imprint-container">
-          <header class="imprint-header">
-            <h1>{{ privacy.data.title }}</h1>
-          </header>
-          <main class="imprint-content">
-            <div class="imprint-text">
-              {{ privacy.data.text | markdownify | safe }}
-            </div>
-          </main>
-        </div>
-        {% endif %}
+      <div class="imprint-container">
+        <header class="imprint-header">
+          <h1>{{ privacy.data.title }}</h1>
+        </header>
+        <main class="imprint-content">
+          <div class="imprint-text">
+            {% if privacy.data.body %}
+              {{ privacy.data.body | markdownify | safe }}
+            {% else %}
+              <p>No privacy policy text available.</p>
+            {% endif %}
+          </div>
+        </main>
+      </div>
+    {% endif %}
   </div>
+
+
 {% else %}
   <footer class="site-footer">
     <p>No contact information available.</p>
   </footer>
 {% endif %}
+
+</div>
 
 {% block scripts %}
   <script src="/imprint-privacy.js"></script>
