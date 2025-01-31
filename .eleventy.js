@@ -100,7 +100,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("upcoming", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("news/upcoming/*.md")
-      .sort((a, b) => a.data.order - b.data.order);
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
   });
 
   eleventyConfig.addCollection("recent", function(collectionApi) {
@@ -118,11 +119,6 @@ module.exports = function(eleventyConfig) {
 
 
   // Passthrough copy for assets
-  eleventyConfig.addPassthroughCopy("styles", {
-    debug: (content, outputPath) => {
-      console.log(`Copying: ${outputPath}`);
-    }
-  });
 
   eleventyConfig.addPassthroughCopy("styles");
 
@@ -142,8 +138,6 @@ module.exports = function(eleventyConfig) {
       output: "_site"
     },
     templateFormats: ["njk", "md"], // Ensure both .njk and .md are processed
-
     htmlTemplateEngine: "njk", // Use Nunjucks for HTML files
   };
-
-  };
+};

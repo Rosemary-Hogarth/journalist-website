@@ -1,0 +1,305 @@
+#exhibition-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  position:relative;
+  line-height: 1.8em;
+  text-align:left;
+}
+
+.button-container-about {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+}
+
+
+
+.button-container  {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+
+/* exhibition text styles - classes in exhibitions.js*/
+.exhibition-details-title {
+  margin-bottom: 0;
+
+}
+
+#language-toggle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.45em;
+}
+
+#practice {
+  position: relative;
+}
+
+.practice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.quote-container {
+  flex: 1;
+}
+
+#language-toggle-about-practice {
+  margin-left: 20px;
+
+}
+
+
+/* #language-toggle-about-practice {
+  position: absolute;
+  right: 0;
+} */
+
+
+#language-toggle-about {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#language-toggle a, #language-toggle-about a, #language-toggle-about-practice a {
+  color: black;
+  text-decoration: none;
+}
+
+#language-toggle a:hover, #language-toggle-about a:hover {
+  color: #9D9D9C;
+}
+
+.exhibition-details-location {
+  margin-bottom: 0;
+}
+
+.exhibition-details-date {
+  margin-bottom: 2em;
+}
+
+#exhibition-text .narrow-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 30px;
+  cursor: default;
+  line-height: 1.3em;
+  font-size: 1.45em;
+  font-weight: 500;
+}
+
+#text-content .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#text-content .column {
+  flex: 1;
+  max-width: 48%;
+  text-align: justify;
+}
+
+
+#text-content .left-column,
+#text-content .right-column {
+  padding: 20px;
+  text-align: justify;
+
+}
+
+.current-page-name {
+  font-size: 1.62em;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-weight: 500;
+  padding-top:0;
+}
+
+.exhibition-h2 {
+  display: none;
+}
+
+#exhibition-grid {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 4em;
+  margin-top: 1.5em;
+}
+
+
+
+
+
+.exhibition-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.exhibition-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  padding: 0 20px;
+  margin-top: 1em;
+
+
+}
+
+.carousel-inner {
+  max-width: 100%;
+  height: auto;
+}
+
+.carousel-image {
+  width: 100%; /* Ensures the image scales with its container */
+  height: auto; /* Maintains the original aspect ratio */
+  object-fit: contain; /* Ensures the image is fully visible */
+}
+
+
+.exhibition-card {
+  border: none;
+  padding: 10px;
+  text-decoration: none;
+  color: inherit;
+
+}
+
+.exhibition-card img {
+  width: 100%;
+  height: auto;
+  padding: 0;
+  text-decoration: none;
+}
+
+.exhibition-details {
+  transition: all 0.3s ease;
+  margin-top: 1em;
+  flex-grow: 1;
+  font-size: 1.2em;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+
+.caption {
+  width: 100%;
+  display: flex;
+  margin-bottom: 2em;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  line-height: 1.3em;
+}
+
+
+.more-info {
+  font-size: 1.2em;
+  height: auto;
+  max-width: 100%;
+  font-weight: 500;
+  color: #000;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+}
+
+.more-info:hover {
+  cursor: pointer;
+  color:#9D9D9C;
+ font-weight: 300;
+}
+
+
+
+.text-link {
+  margin-left: auto;
+}
+
+
+.exhibition-title {
+  line-height: 1.3em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.exhibition-location, .exhibition-year {
+  color: black;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+.exhibitions-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white; /* Background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  animation: fadeIn 0.2s ease-in-out; /* Initial fade-in */
+}
+
+.exhibitions-heading {
+  font-size: 10em;
+}
+
+/* Hide the exhibitions container initially */
+.hidden {
+  display: none;
+}
+
+/* Reveal the exhibitions container */
+.exhibitions-container {
+  animation: fadeIn 0.6s ease-in-out;
+  margin-top: 5em;
+}
+
+.sliders {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sliders img {
+  width: 15px;
+  height: 15px;
+}

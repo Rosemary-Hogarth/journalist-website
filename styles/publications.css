@@ -1,0 +1,113 @@
+
+
+body.publications-page .fancybox__slide {
+  background-color: #121212 !important; /* select slide rather than backdrop for publications */
+}
+
+/* For works page (white background) */
+body.works-page .fancybox__backdrop {
+  background-color: #fff !important;
+}
+
+body.publications-page .fancybox__caption {
+  color: white !important;
+}
+
+body.publications-page .fancybox__counter {
+  color: white !important;
+}
+
+
+
+body.publications-page .carousel__button svg {
+  color: white !important; /* Changes the icon color to white */
+}
+
+
+
+
+
+body.publications-page .fancybox-publications .fancybox__content {
+  color: #fff !important;
+}
+
+
+.publications-container {
+  margin: 4em auto;
+}
+
+/* Grid layout for publications */
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 20px; /* Space between the columns and items */
+
+}
+
+
+.publication-item {
+  display: flex;
+  flex-direction: column; /* Stacks image and text vertically */
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff; /* White background */
+}
+
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* Keeps the text left-aligned */
+
+  padding: 20px; /* Optional for spacing */
+}
+
+.publication-image-container {
+  position: relative;
+  width: 100%; /* Full width of the publication item */
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Publication image */
+.publication-image-container img {
+  width: 100%; /* Makes the image fill the container */
+  height: 100%; /* Ensures the image is full height */
+  object-fit: contain; /* Ensures the image covers the area without stretching */
+
+}
+
+.publication-text {
+  padding: 15px 0;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  line-height: 1.7em;
+  margin-top: -4px;
+  box-sizing: border-box;
+}
+
+.pubTitle {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.pubMainInfo{
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+
+.pubDetails {
+  margin-bottom: 0;
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.price {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
