@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         hideScrollbar: false,
         autoFocus: false,
         Thumbs: { autoStart: false },
-        Toolbar: true,
+
         arrows: true,
         dragToClose: true,
         Image: {
