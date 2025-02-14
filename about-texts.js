@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageToggle = document.getElementById("language-toggle-about");
 
 
-
   if (tabs.length === 0 || contents.length === 0) return;
 
   // Set all tabs and contents inactive initially
@@ -62,7 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="full-text-content">${text}</div>
     `;
+
+  // Check if tabs exist and have elements before trying to hide them
+  if (tabs && tabs.length > 0) {
+    tabs.forEach(tab => {
+      if (tab && tab.style) {
+        tab.style.display = "none";
+      }
+    });
   }
+}
+
+
 
   function getAvailableLanguages(textItem) {
     const languages = new Set();
@@ -70,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       languages.add(element.dataset.lang);
     });
     return Array.from(languages);
+
   }
 
 
@@ -155,19 +166,42 @@ document.addEventListener("DOMContentLoaded", () => {
   function returnToTextList() {
     textList.style.display = 'block';
     fullTextView.style.display = 'none';
-  }
 
-  // Attach event listeners
-  textItems.forEach(item => {
-    item.addEventListener('click', function () {
-      showFullText(this);
+    // Show the tabs again when returning to text list
+    tabs.forEach(tab => {
+      tab.style.display = "inline-block";
     });
+
+    // Ensure the "Texts" tab is active
+    tabs.forEach(tab => {
+      if (tab.getAttribute("data-target") === "texts") {
+        tab.classList.add("active");
+      } else {
+        tab.classList.remove("active");
+      }
+    });
+
+      // Show the texts content and hide others
+  contents.forEach(content => {
+    if (content.id === "texts") {
+      content.classList.add("active");
+      content.style.display = "block";
+    } else {
+      content.classList.remove("active");
+      content.style.display = "none";
+    }
   });
+}
+
 
   backToListButton.addEventListener('click', returnToTextList);
 
+
+
+
   const practiceLanguageToggle = document.getElementById("language-toggle-about-practice");
   const practiceContents = document.querySelectorAll("#practice .practice-content");
+  const quotes = document.querySelectorAll(".quote-text"); // Select all quotes
 
   function createPracticeLanguageButtons() {
     const availableLanguages = Array.from(practiceContents).map(content => content.dataset.lang);
@@ -201,10 +235,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function switchPracticeLanguage(language) {
     currentLanguage = language;
+
+    // Toggle practice content visibility
     practiceContents.forEach(content => {
       content.style.display = content.dataset.lang === language ? 'block' : 'none';
     });
 
+     // Toggle quote visibility
+    quotes.forEach(quote => {
+      quote.style.display = quote.getAttribute("data-lang") === language ? "block" : "none";
+    });
+
+
+    // Update language button styles
     const buttons = practiceLanguageToggle.querySelectorAll('.language-link');
     buttons.forEach((button) => {
       const isActive = button.textContent.trim().toLowerCase() === language;
@@ -215,4 +258,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Call this function to initialize the practice language toggle
   createPracticeLanguageButtons();
+
+  // Attach event listeners
+  textItems.forEach(item => {
+    item.addEventListener('click', function () {
+      showFullText(this);
+    });
+  });
+
 });

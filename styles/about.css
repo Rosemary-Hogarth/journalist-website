@@ -1,3 +1,6 @@
+
+
+
 #back-to-list {
   position: absolute;
   left: 50%;
@@ -8,18 +11,77 @@
   height: 30px;
   width: 30px;
 }
+.button-container-about {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  height: 40px;
+}
 
-.full-text-details {
-  width: 80%;
-  margin-top: 2em;
-  margin-bottom: 3em;
+.cv-list li  {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0;
 
 }
 
-.quote {
-  margin-top: 0;
+
+.cv-year, .education {
+  margin-right: 3rem;
+}
+
+
+
+
+
+.cv-intro {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  color: black;
+}
+
+
+.cv-section {
   margin-bottom: 20px;
-  width: 50%;
+}
+
+.cv-section h2 {
+  font-size: 1.45rem;
+  padding: 2rem 0 1rem;
+  font-weight: 500;
+  color: black;
+}
+.cv-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+
+
+h1, h2 {
+  font-weight: bold;
+  color: #333;
+}
+
+
+.full-text-details {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 3em;
+  line-height: 1.3em;
+
+}
+
+
+
+.quote {
+  margin-top: 2em;
+  margin-bottom: 20px;
+  width: 70%;
 }
 
 
@@ -39,13 +101,20 @@
   line-height: 1.3em;
   display: none;
   margin-top: 2em;
+
 }
 
-.about-content p {
-  margin-bottom: 1em;
+/* .about-content p {
+  margin-bottom: 0;
+} */
+
+.practice-content p {
+  margin-bottom: 20px;
 }
 
-
+.quote-text p {
+  margin-bottom: 0;
+}
 .full-text-details .text-title {
 
   margin-bottom: 0;
@@ -60,8 +129,8 @@
 }
 
 .text-item {
-  margin-bottom: 1em;
-  padding: 0.5em;
+  margin-bottom: 2em;
+
 
 }
 
@@ -103,13 +172,13 @@
 .text-title {
   font-style: italic;
   margin-bottom: 0.25em;
-  color: #333;
+
   font-weight: 500;
 }
 
 .text-details {
   font-size: 1em;
-  line-height: 1.5em;
+
 }
 
 .text-container {
@@ -137,7 +206,7 @@
 }
 
 .tab-button:focus:not(:focus-visible) {
-  outline: none; /* Removes outline for mouse interactions */
+  outline: none;
 }
 
 .tab-button.active {
@@ -146,11 +215,13 @@
 }
 
 
-
+.cv-list li {
+  margin-bottom: 0;
+}
 
 .exhibition-link {
   text-decoration: none;
-  color: black;
+
 }
 
 
@@ -185,5 +256,153 @@
 #back-to-grid img {
   max-width: 100%;
   max-height: 100%;
+
+}
+
+#language-toggle-about-practice {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+
+.text-container {
+  margin: 0;
+}
+.about-content {
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 1.5em;
+}
+
+.tabs {
+  margin-top: 2em;
+
+}
+
+.tab-button {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.quote {
+  width: 120%;
+  font-size: 1em;
+}
+
+.row {
+  width: 100%;
+}
+
+
+.full-text-details .text-title {
+  margin-bottom: 0;
+}
+
+.text-title {
+  font-weight: 600;
+
+}
+
+.full-text-details .text-author {
+  margin-bottom: 0;
+}
+
+
+.about-content img {
+  height: 20px;
+  width: 20px;
+}
+
+.full-text-details {
+  width: 100%;
+  margin-top: 1.5em;
+}
+.button-container {
+  margin-bottom: 1.5em;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    margin-top: 10px;
+  }
+
+  .more-info-texts {
+    margin-top: 0.5rem;
+  }
+
+
+
+.text-item-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.text-item-link:hover {
+  text-decoration: none;
+}
+
+/* .text-item-link:hover .text-title,
+.text-item-link:hover .text-author,
+.text-item-link:hover .text-details-preview {
+  color: black;
+} */
+
+.cv-list li {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  gap: 3px;
+}
+
+.cv-year {
+  margin-top: 0.5rem;
+}
+
+.cv-details {
+  padding-left: 0;
+}
+.education {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+}
+
+.education-year {
+  width: 100%;
+}
+
+.education-details {
+  display: block; /* Ensure it takes full width */
+}
+
+.cv-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.5rem 0 0rem;
+  margin-bottom: 0;
+}
+
+.cv-intro {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.quote {
+  margin-top: 2em;
+  width: 120%;
+  font-size: 1em;
+}
+
+
 
 }

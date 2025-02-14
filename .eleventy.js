@@ -1,25 +1,59 @@
+
 require('dotenv').config();
 
 
-
-
-const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
 
 
+
 module.exports = function(eleventyConfig) {
+
+
+
   const md = require("markdown-it")({
     html: false,
     breaks: true,
     linkify: true,
   });
 
+
+    eleventyConfig.addFilter("split", function(value, delimiter = '/') {
+      // Check if value is a string
+      if (typeof value === 'string') {
+        return value.split(delimiter);
+      } else {
+        return [];
+      }
+    });
+
+
+
   // this allows the markdown to be properly formatted
   eleventyConfig.addNunjucksFilter("markdownify", (markdownString) =>
     md.render(markdownString),
   );
+
+    // this links the about texts list to the full texts
+  eleventyConfig.addFilter('getDocumentBySlug', (collection, slug) => {
+    return collection.find(item => item.fileSlug === slug);
+  });
+
+  // this parses the text and avoids errors
+  eleventyConfig.addFilter("jsonify", function(value) {
+    // A custom replacer function to handle circular references
+    const seen = new Set();
+    return JSON.stringify(value, (key, val) => {
+      if (typeof val === "object" && val !== null) {
+        if (seen.has(val)) {
+          return; // omit circular references
+        }
+        seen.add(val);
+      }
+      return val;
+    });
+  });
 
 
   // Add cloudinaryUrl filter
@@ -39,16 +73,26 @@ module.exports = function(eleventyConfig) {
   });
 
   // Minify HTML files in production
+  const htmlmin = require('html-minifier');
   eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
     if (outputPath && outputPath.endsWith(".html")) {
-      return htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
-      });
+      try {
+        return htmlmin.minify(content, {
+          collapseWhitespace: true,
+          removeComments: true,
+          useShortDoctype: true,
+          removeEmptyAttributes: true,
+          minifyJS: true,
+          minifyCSS: true,
+        });
+      } catch (e) {
+        console.warn("HTML minification failed:", e);
+        return content;
+      }
     }
     return content;
   });
+
 
   eleventyConfig.addCollection("homepage_slideshow", function(collectionApi) {
     return collectionApi.getFilteredByGlob("homepage_slideshow/*.md");
@@ -57,7 +101,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("exhibitions", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("exhibitions/*.md")
-      .filter(item => item.data.order !== undefined) // Ensure `order` is defined
+      .filter(item => item.data.order !== undefined)
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0)); // Default to 0 if `order` is undefined
   });
 
@@ -65,8 +109,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("works", function (collectionApi) {
     return collectionApi
       .getFilteredByGlob("./works/*.md")
-      .filter(item => item.data.order !== undefined) // Ensure `order` is defined
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0)); // Default to 0 if `order` is undefined
+      .filter(item => item.data.order !== undefined)
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
   });
 
 
@@ -76,14 +120,41 @@ module.exports = function(eleventyConfig) {
     return publications;
   });
 
+  eleventyConfig.addCollection("about-texts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("about/texts/*.md");
+  });
+
+
   eleventyConfig.addCollection("about", function(collectionApi) {
     const about = collectionApi.getFilteredByGlob("about/*.md");
     return about;
   });
 
-  eleventyConfig.addCollection("contact", function(collectionApi) {
-    const contact = collectionApi.getFilteredByGlob("contact/*.md");
-    return contact;
+  eleventyConfig.addCollection("full-texts", function (collectionApi) {
+    const fullTexts = collectionApi.getFilteredByGlob("full-texts/*.md");
+    console.log('Full Texts Count:', fullTexts.length);
+    fullTexts.forEach(text => {
+      console.log('Text Slug:', text.data.slug);
+      console.log('Text Title:', text.data.title);
+    });
+    return fullTexts;
+  });
+
+
+  eleventyConfig.addCollection("studio", function(collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("contact/studio/*.md")
+      .filter(item => item.data.order !== undefined) // Ensure `order` is defined
+      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
+  });
+
+  eleventyConfig.addCollection("gallery", function(collectionApi) {
+    return collectionApi
+    .getFilteredByGlob("contact/gallery/*.md")
+    .filter(item => item.data.order !== undefined) // Ensure `order` is defined
+    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
+
   });
 
   eleventyConfig.addCollection("imprint", function(collectionApi) {
@@ -100,8 +171,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("upcoming", function(collectionApi) {
     return collectionApi
       .getFilteredByGlob("news/upcoming/*.md")
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
+      .sort((a, b) => a.data.order - b.data.order);
   });
 
   eleventyConfig.addCollection("recent", function(collectionApi) {
@@ -110,23 +180,21 @@ module.exports = function(eleventyConfig) {
       .sort((a, b) => a.data.order - b.data.order);
   });
 
+  eleventyConfig.addCollection("press", function(collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("news/press/*.md")
+      .sort((a, b) => a.data.order - b.data.order);
+  });
 
-  // eleventyConfig.addCollection("news", function (collectionApi) {
-  //   return collectionApi
-  //     .getFilteredByGlob("./news/*.md")
-  //     .sort((a, b) => a.data.order - b.data.order); // Sort by 'order' field
-  // });
 
 
   // Passthrough copy for assets
-
-  eleventyConfig.addPassthroughCopy("styles");
-
+  eleventyConfig.addPassthroughCopy("styles/**/*.css");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("*.js");
   eleventyConfig.addPassthroughCopy("admin");
-
-  eleventyConfig.addWatchTarget("styles");
+  eleventyConfig.addPassthroughCopy("styles");
+  // eleventyConfig.addPassthroughCopy("images/uploads");
 
 
   // Set custom directory structure
@@ -138,6 +206,8 @@ module.exports = function(eleventyConfig) {
       output: "_site"
     },
     templateFormats: ["njk", "md"], // Ensure both .njk and .md are processed
+
     htmlTemplateEngine: "njk", // Use Nunjucks for HTML files
   };
-};
+
+  };

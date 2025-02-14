@@ -4,38 +4,63 @@ pagination:
   data: collections.publications
   size: 100
   alias: publications
-  css: publications
 ---
 <div id="publications-main" class="publications-container">
   <div class="publications-grid">
     {% for publication in publications %}
       <div class="publication-item" data-category="{{ publication.data.category }}">
 
-        <div class="publication-image-container">
-          {% if publication.data.mainImage %}
-            <!-- Use catalogueId for grouping Fancybox -->
-            <a href="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
-   data-fancybox="catalogue-{{ publication.data.catalogueId }}"
-   data-caption="{{ publication.data.publicationTitle }}">
-  <img src="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/') }}"
-       alt="{{ publication.data.publicationTitle }}">
-</a>
+      <div class="publication-image-container" data-catalogue-id="{{ publication.data.catalogueId }}">
+  {% if publication.data.mainImage %}
+    <!-- Fancybox for Desktop -->
+    <a href="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
+       data-fancybox="catalogue-{{ publication.data.catalogueId }}"
+       data-caption="{{ publication.data.publicationTitle }}"
+       class="desktop-only">
+      <img src="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/') }}"
+           alt="{{ publication.data.publicationTitle }}">
+    </a>
 
-{% for galleryImage in publication.data.galleryImages %}
-  <a href="{{ galleryImage.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
-     data-fancybox="catalogue-{{ publication.data.catalogueId }}"
-     data-caption="{{ galleryImage.caption }}"
-     style="display: none;">
-  </a>
-{% endfor %}
+    {% for galleryImage in publication.data.galleryImages %}
+      <a href="{{ galleryImage.image | replace('/upload/', '/upload/w_1600,q_auto,f_auto,dpr_auto/') }}"
+         data-fancybox="catalogue-{{ publication.data.catalogueId }}"
+         data-caption="<span><em>{{ galleryImage.catalogueName }}</em></span>
+         <span> {{ galleryImage.catalogueInfo }}</span>"
+         class="desktop-only"
+         style="display: none;">
+      </a>
+    {% endfor %}
 
+       <!-- Snap Scroll Slideshow for Mobile -->
+            <div class="mobile-only mobile-slideshow">
+              <div class="slides">
+                <img src="{{ publication.data.mainImage | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/') }}"
+                     alt="{{ publication.data.publicationTitle }}">
+
+                {% for galleryImage in publication.data.galleryImages %}
+                  <img src="{{ galleryImage.image | replace('/upload/', '/upload/w_1600,c_fit,g_center,q_auto,f_auto,dpr_auto/') }}"
+                       alt="{{ galleryImage.catalogueName }}">
+                {% endfor %}
+              </div>
+
+
+            </div>
           {% else %}
             <p>No images available for this publication.</p>
           {% endif %}
         </div>
 
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators-publications">
+          <div class="indicator-publications active"></div>
+            {% for galleryImage in publication.data.galleryImages %}
+              <div class="indicator-publications"></div>
+            {% endfor %}
+        </div>
+
+
         <div class="publication-text">
-          <h2 class="pubTitle">{{ publication.data.publicationTitle }}</h2>
+          <h2 class="pubTitle"><em>{{ publication.data.publicationTitle }}</em></h2>
           {% if publication.data.publicationTextAuthor %}
             <p class="pubMainInfo">{{ publication.data.publicationTextAuthor }}</p>
           {% endif %}
@@ -50,10 +75,9 @@ pagination:
             <p class="pubMainInfo">{{ publication.data.isbn }}</p>
           {% endif %}
           {% if publication.data.publicationPrice %}
-            <p class="price">{{ publication.data.publicationPrice }}</p>
+            <p class="price"><a href="mailto:mail@juliusheinemm.de?subject=Inquiry%20About%20Publication">{{ publication.data.publicationPrice }}</a></p>
           {% endif %}
         </div>
-
       </div>
     {% endfor %}
   </div>

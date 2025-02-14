@@ -1,92 +1,43 @@
 ---
 layout: base.njk
-css: contact
 ---
 
-{% if collections.contact.length > 0 %}
-  {% set contact = collections.contact[0] %}
+{% if collections.studio.length > 0 or collections.gallery.length > 0 %}
   <div class="contact-container">
     <!-- Flex container for studio and gallery -->
     <div class="contact-sections">
+      <div class="contact-column">
 
-      <!-- Studio Section -->
-      <div class="contact-section studio">
-        <p>STUDIO</p>
-        <div class="section">
-          <p class="studio-name">{{ contact.data.studioName }}</p>
-          <p class="studio-address">{{ contact.data.studioAddress }}</p>
-          <a href="mailto:{{ contact.data.studioEmail }}" class="studio-email">{{ contact.data.studioEmail }}</a>
-        </div>
-      </div>
-
-      <!-- Gallery Section -->
-      <div class="contact-section gallery">
-        <p>GALLERY</p>
-        <div class="section">
-          <p class="gallery-name">{{ contact.data.galleryName }}</p>
-          <p class="gallery-address">{{ contact.data.galleryAddress }}</p>
-          <a href="{{ contact.data.galleryWebsite }}" target="_blank" class="gallery-website">{{ contact.data.galleryWebsite }}</a>
-        </div>
-      </div>
-    </div>
-
-   <div class="social-links">
-  <div>
-    <a href="https://www.instagram.com/yourusername" target="_blank" class="social-link instagram-link">
-      Instagram
-    </a>
-  </div>
-  <div>
-    <a href="/subscribe" class="social-link newsletter-link">
-      Subscribe to Newsletter
-    </a>
-  </div>
-
-
-
-    <div class="footer-links">
-      <a href="#" data-toggle="imprint">Imprint</a>
-      <span>/</span>
-      <a href="#" data-toggle="privacy">Privacy Policy</a>
-    </div>
-  </div>
-
-  <div id="imprint" class="toggle-content" style="display: none;">
-    {% if collections.imprint.length > 0 %}
-      {% set imprint = collections.imprint[0] %}
-      <div class="imprint-container">
-        <header class="imprint-header">
-          <h1>{{ imprint.data.title }}</h1>
-        </header>
-        <main class="imprint-content">
-          <div class="imprint-text">
-            {{ imprint.data.text | markdownify | safe }}
+      <p class="section-title">STUDIO</p>
+      {% for studio in collections.studio %}
+        <div class="contact-section studio">
+          <div class="section">
+            <p class="studio-name">{{ studio.data.studioName }}</p>
+            <p class="studio-address">{{ studio.data.studioAddress }}</p>
+            <a href="mailto:{{ studio.data.studioEmail }}" class="studio-email">{{ studio.data.studioEmail }}</a>
           </div>
-        </main>
-      </div>
-    {% endif %}
-  </div>
+        </div>
 
-  <div id="privacy" class="toggle-content" style="display: none;">
-    {% if collections.privacy.length > 0 %}
-      {% set privacy = collections.privacy[0] %}
-      <div class="imprint-container">
-        <header class="imprint-header">
-          <h1>{{ privacy.data.title }}</h1>
-        </header>
-        <main class="imprint-content">
-          <div class="imprint-text">
-            {% if privacy.data.body %}
-              {{ privacy.data.body | markdownify | safe }}
-            {% else %}
-              <p>No privacy policy text available.</p>
-            {% endif %}
+      {% endfor %}
+     </div>
+
+    <div class="contact-column">
+
+      <p class="section-title">GALLERY</p>
+      {% for gallery in collections.gallery %}
+        <div class="contact-section gallery">
+          <div class="section">
+            <p class="gallery-name">{{ gallery.data.galleryName }}</p>
+            <p class="gallery-address">{{ gallery.data.galleryAddress }}</p>
+            <a href="{{ gallery.data.galleryWebsite }}" target="_blank" class="gallery-website">{{ gallery.data.galleryWebsite }}</a>
           </div>
-        </main>
-      </div>
-    {% endif %}
-  </div>
+        </div>
 
+      {% endfor %}
+      </div>
+
+    </div> <!-- Close .contact-sections -->
+  <!-- Close .contact-container -->
 
 {% else %}
   <footer class="site-footer">
@@ -94,8 +45,71 @@ css: contact
   </footer>
 {% endif %}
 
+
+
+<!-- Social Links -->
+<div class="social-links">
+  <div>
+    <a href="https://www.instagram.com/julius.heinemann/" target="_blank" class="social-link instagram-link">
+      Instagram
+    </a>
+  </div>
+  <div>
+    <a href="mailto:example@example.com?subject=Subscribe%20Me&body=Please%20add%20me%20to%20your%20newsletter." class="social-link newsletter-link">
+      Subscribe to Newsletter
+    </a>
+  </div>
+
+  <div class="footer-links">
+    <a href="#" class="imprint-link" data-toggle="imprint">IMPRINT</a>
+    <span>/</span>
+    <a href="#" class="privacy-link" data-toggle="privacy">PRIVACY</a>
+  </div>
 </div>
 
+<!-- Imprint Section -->
+<div id="imprint" class="toggle-content" style="display: none;">
+  {% if collections.imprint.length > 0 %}
+    {% set imprint = collections.imprint[0] %}
+    <div class="imprint-container">
+      <header class="imprint-header">
+        <!--<h1 class="privacy-title">IMPRINT</h1>-->
+      </header>
+      <main class="imprint-content">
+        <div class="imprint-text">
+          {{ imprint.data.text | markdownify | safe }}
+        </div>
+      </main>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Privacy Policy Section -->
+<div id="privacy" class="toggle-content" style="display: none;">
+  {% if collections.privacy.length > 0 %}
+    {% set privacy = collections.privacy[0] %}
+    <div class="imprint-container">
+      <header class="imprint-header">
+        <!--<h1 class="privacy-title">PRIVACY POLICY</h1>-->
+      </header>
+      <main class="imprint-content">
+        <div class="imprint-text">
+          {% if privacy.data.text %}
+            {{ privacy.data.text | markdownify | safe }}
+          {% else %}
+            <p>No privacy policy text available.</p>
+          {% endif %}
+        </div>
+      </main>
+    </div>
+  {% endif %}
+</div>
+
+</div>
+
+
+
 {% block scripts %}
-  <script src="/imprint-privacy.js"></script>
+  <script src="/contact.js"></script>
+
 {% endblock %}
