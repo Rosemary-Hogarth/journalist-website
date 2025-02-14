@@ -1,8 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
   repo: Rosemary-Hogarth/Julius-Heinemann-Art
   branch: master
-  baseUrl: https://julius-heinemann-art.netlify.app
+
 
 
 media_library:
