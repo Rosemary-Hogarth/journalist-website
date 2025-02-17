@@ -1,5 +1,5 @@
 ---
-locationDate: Berlin / Date
+locationDate: Berlin / 15.05.2022 - 17.08.2022
 coverImage: https://res.cloudinary.com/dyciaxri0/image/upload/v1737106931/The%20Sound%20of%20Words%20Falling%20-%20formatted/202401_Jahn_und_Jahn_Munich/Heinemann_The-Sound-of-Words-Falling_Jahn-und-Jahn_Munich_15_web_vqy3bo.jpg
 order: 4
 title: Example exhibition
