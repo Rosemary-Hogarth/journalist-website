@@ -2,7 +2,9 @@
 title: Imprint
 permalink: /contact/{{ title | slugify }}/
 text: |-
-  # T﻿est heading
+  © on all images Julius Heinemann and the photographers 2024
 
-  T﻿est paragraph.
+  © on all texts by the authors
+
+  I﻿mages and texts may not be reproduced without permission.
 ---
