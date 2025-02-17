@@ -1,10 +1,9 @@
 ---
+locationDate: Jahn und Jahn, Munich / 25.06. - 13.08.2024
+coverImage: https://res.cloudinary.com/dyciaxri0/image/upload/v1737106931/The%20Sound%20of%20Words%20Falling%20-%20formatted/202401_Jahn_und_Jahn_Munich/Heinemann_The-Sound-of-Words-Falling_Jahn-und-Jahn_Munich_06_web_oh0zv7.jpg
 order: 1
 title: Julius Heinemann - The sound of Words Falling
-locationDate: Jahn und Jahn, Munich / 25.06. - 13.08.2024
-location: Jahn und Jahn, Munich / 25.06. - 13.08.2024
 category: Solo show
-coverImage: https://res.cloudinary.com/dyciaxri0/image/upload/v1737106931/The%20Sound%20of%20Words%20Falling%20-%20formatted/202401_Jahn_und_Jahn_Munich/Heinemann_The-Sound-of-Words-Falling_Jahn-und-Jahn_Munich_06_web_oh0zv7.jpg
 permalink: /exhibitions/{{ title | slugify }}/
 images:
   - https://res.cloudinary.com/dyciaxri0/image/upload/v1737106931/The%20Sound%20of%20Words%20Falling%20-%20formatted/202401_Jahn_und_Jahn_Munich/Heinemann_The-Sound-of-Words-Falling_Jahn-und-Jahn_Munich_03_web_y33wj8.jpg
@@ -25,6 +24,15 @@ images:
 exhibitionTextTitle: Julius Heinemann - The Sound of Words Falling
 exhibitionTextLocation: Solo Show at Jahn und Jahn, Munich
 exhibitionTextDates: 16.05.-22.08.2024
+exhibitionTextEn: >-
+  This is the English text.
+
+
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+location: Jahn und Jahn, Munich / 25.06. - 13.08.2024
 exhibitionText: >-
   Jahn & Jahn presents the second solo show by Julius Heinemann at the gallery.
   Trained as a photographer with a practice informed by his subsequent studies
@@ -52,4 +60,12 @@ exhibitionText: >-
 
 
   Text by Tobi Maier
+exhibitionTextDe: >-
+  This is the German text.
+
+
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 ---
