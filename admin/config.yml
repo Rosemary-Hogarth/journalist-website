@@ -24,7 +24,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Venue and Place and Date", name: "locationDate", widget: "string", required: false}
       - {label: "Type of show and curated by and other artists", name: "type", widget: "string", required: false}
-      - {label: "Category", name: "category", widget: "select", options: ["Solo show", "Group show", "Installation", "Duo show"], required: false}
+      # - {label: "Category", name: "category", widget: "select", options: ["Solo show", "Group show", "Installation", "Duo show"], required: false}
       - {label: "Year", name: "year", widget: "string", required: false}
       - {label: "Permalink", name: "permalink", widget: "hidden", default: "/exhibitions/{{ title | slugify }}/"}
       - label: "Gallery Images"

@@ -61,11 +61,11 @@ pagination:
   </div>
 
   <!-- Education Section (Unchanged) -->
-  {% if about.data.cv_education %}
+  {% if about.data.cv_education is defined and about.data.cv_education %}
     <div class="cv-section">
       <h2>EDUCATION</h2>
       <ul class="cv-list">
-        {% for education in about.data.cv_education %}
+        {% for education in about.data.cv_education if education is defined %}
         <li>
           <span class="education">{{ education.year }}</span>
           <span>{{ education.institution }}, {{ education.location }}</span>
@@ -76,12 +76,12 @@ pagination:
   {% endif %}
 
   <!-- Grants / Residencies -->
-  {% if about.data.cv_grants_residencies %}
+  {% if about.data.cv_grants_residencies is defined and about.data.cv_grants_residencies %}
     <div class="cv-section">
       <h2>GRANTS / RESIDENCIES</h2>
       <ul class="cv-list">
         {% set years = [] %}
-        {% for grant in about.data.cv_grants_residencies %}
+        {% for grant in about.data.cv_grants_residencies if grant is defined %}
           {% if not (grant.year in years) %}
             {% set years = years.concat([grant.year]) %}
           {% endif %}
@@ -91,7 +91,7 @@ pagination:
           <li>
             <span class="cv-year">{{ year }}</span>
             <ul class="cv-details">
-              {% for grant in about.data.cv_grants_residencies %}
+              {% for grant in about.data.cv_grants_residencies if grant is defined %}
                 {% if grant.year == year %}
                   <li>{{ grant.grant_residency }}</li>
                 {% endif %}
@@ -104,12 +104,12 @@ pagination:
   {% endif %}
 
   <!-- Solo Exhibitions -->
-  {% if about.data.cv_solo_exhibitions %}
+  {% if about.data.cv_solo_exhibitions is defined and about.data.cv_solo_exhibitions  %}
     <div class="cv-section">
       <h2>SOLO EXHIBITIONS</h2>
       <ul class="cv-list">
         {% set years = [] %}
-        {% for exhibition in about.data.cv_solo_exhibitions %}
+        {% for exhibition in about.data.cv_solo_exhibitions if exhibition is defined %}
           {% if not (exhibition.year in years) %}
             {% set years = years.concat([exhibition.year]) %}
           {% endif %}
@@ -119,7 +119,7 @@ pagination:
           <li>
             <span class="cv-year">{{ year }}</span>
             <ul class="cv-details">
-              {% for exhibition in about.data.cv_solo_exhibitions %}
+              {% for exhibition in about.data.cv_solo_exhibitions if exhibition is defined %}
                 {% if exhibition.year == year %}
                   <li>{{ exhibition.exhibitionTitle }}, {{ exhibition.exhibitionDetails }}</li>
                 {% endif %}
@@ -132,12 +132,12 @@ pagination:
   {% endif %}
 
   <!-- Group Exhibitions -->
-{% if about.data.cv_group_exhibitions %}
+{% if about.data.cv_group_exhibitions is defined and about.data.cv_group_exhibitions  %}
   <div class="cv-section">
     <h2>GROUP EXHIBITIONS</h2>
     <ul class="cv-list">
       {% set years = [] %}
-      {% for exhibition in about.data.cv_group_exhibitions %}
+      {% for exhibition in about.data.cv_group_exhibitions if exhibition is defined %}
         {% if not (exhibition.year in years) %}
           {% set years = years.concat([exhibition.year]) %}
         {% endif %}
@@ -147,7 +147,7 @@ pagination:
         <li>
           <span class="cv-year">{{ year }}</span>
           <ul class="cv-details">
-            {% for exhibition in about.data.cv_group_exhibitions %}
+            {% for exhibition in about.data.cv_group_exhibitions if exhibition is defined %}
               {% if exhibition.year == year %}
                 <li>
                   {{ exhibition.exhibitionTitle }}, {% if exhibition.exhibitionDetails %} {{ exhibition.exhibitionDetails }}{% endif %}
@@ -164,12 +164,14 @@ pagination:
 
 
   <!-- Bibliography -->
-  {% if about.data.cv_bibliography %}
+  {% if about.data.cv_bibliography is defined and about.data.cv_bibliography %}
+
     <div class="cv-section">
       <h2>BIBLIOGRAPHY</h2>
       <ul class="cv-list">
         {% set years = [] %}
-        {% for bibliography in about.data.cv_bibliography %}
+        {% for bibliography in about.data.cv_bibliography if bibliography is defined %}
+
           {% if not (bibliography.year in years) %}
             {% set years = years.concat([bibliography.year]) %}
           {% endif %}
@@ -179,7 +181,8 @@ pagination:
           <li>
             <span class="cv-year">{{ year }}</span>
             <ul class="cv-details">
-              {% for bibliography in about.data.cv_bibliography %}
+              {% for bibliography in about.data.cv_bibliography if bibliography is defined %}
+
                 {% if bibliography.year == year %}
                   <li>{{ bibliography.title }}, {{ bibliography.publisher }}</li>
                 {% endif %}

@@ -76,6 +76,7 @@ pagination:
                 data-exhibition-text-curated="{{ exhibition.data.exhibitionTextCurated | escape }}"
                 data-exhibition-text-artists="{{ exhibition.data.exhibitionTextArtists | escape }}"
                 data-exhibition-text-dates="{{ exhibition.data.exhibitionTextDates | escape }}">
+
                 <!-- Language-specific exhibition text blocks -->
                 <div class="exhibition-text" data-lang="en" style="display: none;">{{ (exhibition.data.exhibitionTextEn or '') | markdownify | safe }}</div>
                 {% if exhibition.data.exhibitionTextDe %}
@@ -120,6 +121,7 @@ pagination:
     <p class="exhibition-details-artists"></p>
     <p class="exhibition-details-date"></p>
     <div class="exhibition-details-text"></div>
+     <data-exhibition-text="{{ (exhibition.data.exhibitionTextEn or '') | escape }}">
   </div>
 </div>
 
