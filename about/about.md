@@ -132,5 +132,4 @@ cv_bibliography:
 texts:
   - julius-heinemann-dine-und-undinge-o-las-formas-de-las-cosas
 
-quote: ""
 ---
