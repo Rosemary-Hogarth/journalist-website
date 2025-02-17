@@ -1,5 +1,5 @@
 ---
-title: About
+title: About-Main
 quote1: Contemplation, that’s a beautiful word; as if one would let quiet
 quote2: fall between oneself and the object, and the infernal noise,
 quote3: the silent noise usually present in this space
