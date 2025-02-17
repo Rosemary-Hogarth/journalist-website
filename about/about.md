@@ -84,6 +84,15 @@ cv_education:
   - year: "   2017 - 2018 "
     institution: Van Eyck Academy
     location: " Maastricht, Netherlands"
+  - year: "   2011 - 2013 "
+    institution: Royal College of Art, with Prof. Richard Wentworth
+    location: London
+  - year: "2008 - 2011 "
+    institution: HGB Leipzig, with Prof. Peter Piller
+    location: Leipzig
+  - year: "  2005 - 2008 "
+    institution: Folkwang University of Arts
+    location: " Essen"
 cv_grants_residencies:
   - year: "  2023 "
     grant_residency: Stiftung Kunstfonds NEUSTARTplus – stipend
@@ -93,15 +102,33 @@ cv_solo_exhibitions:
   - year: "2024"
     exhibitionTitle: " Essay"
     exhibitionDetails: Jahn und Jahn, Lisbon
+  - year: "2024"
+    exhibitionTitle: "   O Espelho"
+    exhibitionDetails: Casa da Cerca, Almada
+  - year: "2024"
+    exhibitionTitle: " The Sound of Words Falling"
+    exhibitionDetails: Jahn und Jahn, Munich
 cv_group_exhibitions:
   - year: "2024"
     exhibitionTitle: Construir, habitar, crear.
     exhibitionDetails: 10 años de trabajo en comunidad. Fundación Casa Wabi /
       Antiguo Colegio de San Ildefonso / Mexico City
+  - year: "   2023"
+    exhibitionTitle: " High Season"
+    exhibitionDetails: Jahn und Jahn, Encounter, Klemm’s, Lisbon
+  - year: "2023"
+    exhibitionTitle: Dancing Meridians
+    exhibitionDetails: " Reforma south tower, Mexico City"
 cv_bibliography:
   - year: "   2022 "
     title: Julius Heinemann. Afterimage, Catalogue
     publisher: This Side Up and Jahn und Jahn, Munich and Madrid
+  - year: " 2022"
+    title: " Julius Heinemann. Afterimage, Catalogue"
+    publisher: This Side Up and Jahn und Jahn, Munich and Madrid
+  - year: "2021"
+    publisher: " Flat Time House, London"
+    title: Untitled (1956) – Red, Green and Yellow – Gone Fishing, Catalogue
 texts:
   - julius-heinemann-dine-und-undinge-o-las-formas-de-las-cosas
 cv: >-
