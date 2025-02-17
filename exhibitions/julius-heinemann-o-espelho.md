@@ -2,6 +2,7 @@
 order: 3
 title: Julius Heinemann - O Espelho
 locationDate: Casa da Cerca, Almada / 16.05.-22.08.2024
+type: Installation
 category: Installation
 permalink: /exhibitions/{{ title | slugify }}/
 images:
