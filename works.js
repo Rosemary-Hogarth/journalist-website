@@ -1,15 +1,14 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-
+document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM fully loaded");
 
+  // ⭐️ Handle Fancybox Setup for Different Devices
   function updateGalleryForMobile() {
       const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
       const workItems = document.querySelectorAll(".work-item a");
 
       workItems.forEach((item) => {
           if (!item.dataset.originalFancybox) {
-              item.dataset.originalFancybox = item.getAttribute("data-fancybox"); // Store original value
+              item.dataset.originalFancybox = item.getAttribute("data-fancybox");
           }
 
           if (isTabletOrMobile) {
@@ -25,228 +24,193 @@ document.addEventListener('DOMContentLoaded', function () {
           }
       });
 
-      console.log("Mobile Mode:", isTabletOrMobile);
-      console.log("Fancybox attributes updated.");
 
       if (!isTabletOrMobile) {
           resetFancybox();
       }
   }
 
+  // ⭐️ Reset and Initialize Fancybox
   function resetFancybox() {
-      console.log("Resetting Fancybox...");
-
-      // **Confirm Fancybox is defined before calling methods**
       if (typeof Fancybox === "undefined") {
           console.error("Fancybox is not defined!");
           return;
       }
 
-      // **Ensure there are elements to bind Fancybox to**
-      const galleryItems = document.querySelectorAll('[data-fancybox="gallery"]');
-      const installationItems = document.querySelectorAll('[data-fancybox^="installation-"]');
-      const bookItems = document.querySelectorAll('[data-fancybox^="book-"]');
+      Fancybox.unbind(); // Ensure no duplicate bindings
 
-      console.log("Gallery Items:", galleryItems.length);
-      console.log("Installation Items:", installationItems.length);
-      console.log("Book Items:", bookItems.length);
-
-      if (galleryItems.length === 0 && installationItems.length === 0 && bookItems.length === 0) {
-          console.warn("No Fancybox elements found.");
-          return;
-      }
-
-      const fancyboxOptions = {
-          customClass: "gallery-fancybox",
-          hideScrollbar: false,
-          touch: false,
-          autoFocus: false,
-          Thumbs: false,
-          slideshow: true,
-          fullScreen: false,
-          trapFocus: false,
-          wheel: false,
-          zoom: false,
-          Toolbar: {
-              display: ["close", "counter"],
-          },
-          arrows: true,
-          dragToClose: true,
-          Image: { zoom: false, click: 'next' },
-          Carousel: { friction: 0 },
-          click: false,
-          infinite: true,
-          on: {
-              click: (fancybox, event) => {
-                  if (!event.target.closest('.fancybox__content')) {
-                      event.preventDefault();
-                      fancybox.next();
-                  }
-              },
-          },
-      };
-
-      // **Bind Fancybox only if elements exist**
       Fancybox.bind('[data-fancybox="gallery"]', fancyboxOptions);
 
+      // Bind Installations & Books Separately
       document.querySelectorAll('[data-fancybox^="installation-"], [data-fancybox^="book-"]').forEach(item => {
-          Fancybox.bind(`[data-fancybox="${item.getAttribute('data-fancybox')}"]`, fancyboxOptions);
+          Fancybox.bind(`[data-fancybox="${item.getAttribute("data-fancybox")}"]`, fancyboxOptions);
       });
 
       console.log("Fancybox initialized.");
   }
 
-  // **Ensure Fancybox initializes AFTER elements are available**
-  setTimeout(() => {
-      updateGalleryForMobile();
-      resetFancybox();
-  }, 500);
+  // ⭐️ Fancybox Configuration
+  const fancyboxOptions = {
+      customClass: "gallery-fancybox",
+      hideScrollbar: false,
+      touch: false,
+      autoFocus: false,
+      Thumbs: false,
+      slideshow: true,
+      fullScreen: false,
+      trapFocus: false,
+      wheel: false,
+      zoom: false,
+      Toolbar: { display: ["close", "counter"] },
+      arrows: true,
+      dragToClose: true,
+      Image: { zoom: false, click: "next" },
+      Carousel: { friction: 0 },
+      click: false,
+      infinite: true,
+      on: {
+          click: (fancybox, event) => {
+              if (!event.target.closest(".fancybox__content")) {
+                  event.preventDefault();
+                  fancybox.next();
+              }
+          },
+      },
+  };
 
-  // **Handle screen resizing properly**
-  window.addEventListener("resize", updateGalleryForMobile);
+  // ⭐️ Ensure Fancybox Clicks Work Anywhere (except toolbar)
+  document.addEventListener("click", function (event) {
+      const fancyboxContainer = document.querySelector(".fancybox__container");
 
-
-
-
-
-
-// Filter functionality
-const works = document.querySelectorAll('.work-item');
-const categoriesSet = new Set();
-
-
-works.forEach(work => {
-  const category = work.getAttribute('data-category');
-  if (category) {
-    categoriesSet.add(category);
-  }
-});
-
-const filterButtonsContainer = document.getElementById('filter-buttons');
-
-if (filterButtonsContainer) {
-  filterButtonsContainer.innerHTML = ''; // Clear existing buttons
-
-  // Define filter button order
-  const orderedCategories = [
-    'Installation',
-    'Painting',
-    'Watercolour',
-    'Collage',
-    'Object',
-    'Book',
-    'Drawing',
-    'All',
-  ];
-
-  // Create buttons in the desired order
-  orderedCategories.forEach(category => {
-    if (category === 'All' || categoriesSet.has(category)) {
-      const button = document.createElement('button');
-      button.classList.add('filter-button');
-
-      if (category === 'All') {
-        button.classList.add('active'); // Set 'All' as the active button by default
-        button.setAttribute('data-filter', '');
-      } else {
-        button.setAttribute('data-filter', category.toLowerCase());
-      }
-
-      button.textContent = category;
-      filterButtonsContainer.appendChild(button);
-    }
-  });
-
-  const filterButtons = document.querySelectorAll('.filter-button');
-
-  // Function to filter works based on the selected filter
-  function filterWorks(filter) {
-    works.forEach(work => {
-      const workCategory = work.getAttribute('data-category')?.toLowerCase();
-      const mobileCaption = work.nextElementSibling;
-
-      if (filter === '' || workCategory === filter) {
-        work.classList.remove('visually-hidden');
-        if (mobileCaption && mobileCaption.classList.contains('mobile-caption')) {
-          mobileCaption.classList.remove('visually-hidden');
-        }
-      } else {
-        work.classList.add('visually-hidden');
-        if (mobileCaption && mobileCaption.classList.contains('mobile-caption')) {
-          mobileCaption.classList.add('visually-hidden');
-        }
-      }
-    });
-
-    // After filtering, update Fancybox bindings
-    resetFancybox();
-  }
-
-
-  // Event listener for filter buttons
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const filter = this.getAttribute('data-filter').toLowerCase();
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-      filterWorks(filter);
-    });
-  });
-
-  // Initial filtering to show all works
-  filterWorks('');
-}
-
-;
-
-  const slideshows = document.querySelectorAll(".mobile-view .mobile-slideshow-works");
-  console.log("Works slideshows found:", slideshows);
-
-  slideshows.forEach(slideshow => {
-      console.log("Checking work slideshow:", slideshow);
-
-      // Move up to the closest work-item and then find the indicators
-      const workItem = slideshow.closest(".work-item");
-      if (!workItem) {
-          console.warn("Work item not found for:", slideshow);
-          return;
-      }
-
-      const indicatorsContainer = workItem.querySelector(".carousel-indicators-works");
-
-      if (!indicatorsContainer) {
-          console.warn("Indicators container not found for:", slideshow);
-          return; // Stop execution if indicators are missing
-      }
-
-      console.log("Indicators container found:", indicatorsContainer);
-
-      const indicators = indicatorsContainer.querySelectorAll(".indicator-works");
-      console.log("Indicators found:", indicators);
-
-      let currentIndex = 0;
-
-      function updateIndicators(index) {
-          indicators.forEach(indicator => indicator.classList.remove("active"));
-          if (indicators[index]) {
-              indicators[index].classList.add("active");
+      if (fancyboxContainer && fancyboxContainer.contains(event.target)) {
+          if (!event.target.closest(".fancybox__toolbar, .fancybox__button--close")) {
+              Fancybox.getInstance()?.next();
           }
       }
+  });
 
-      slideshow.addEventListener("scroll", () => {
-          let scrollLeft = slideshow.scrollLeft;
-          let slideWidth = slideshow.offsetWidth;
+  // ⭐️ Filter Functionality
+  function setupFilters() {
+      const works = document.querySelectorAll(".work-item");
+      const filterButtonsContainer = document.getElementById("filter-buttons");
 
-          let newIndex = Math.round(scrollLeft / slideWidth);
-          console.log("Scrolled to index:", newIndex);
+      if (!filterButtonsContainer) return;
 
-          if (newIndex !== currentIndex) {
-              currentIndex = newIndex;
-              updateIndicators(currentIndex);
+      const categoriesSet = new Set([...works].map(work => work.getAttribute("data-category")).filter(Boolean));
+
+      const orderedCategories = ["Installation", "Painting", "Watercolour", "Collage", "Object", "Book", "Drawing", "All"];
+      filterButtonsContainer.innerHTML = ""; // Clear existing buttons
+
+      orderedCategories.forEach(category => {
+          if (category === "All" || categoriesSet.has(category)) {
+              const button = document.createElement("button");
+              button.classList.add("filter-button");
+              button.textContent = category;
+
+              if (category === "All") {
+                  button.classList.add("active");
+                  button.setAttribute("data-filter", "");
+              } else {
+                  button.setAttribute("data-filter", category.toLowerCase());
+              }
+
+              filterButtonsContainer.appendChild(button);
           }
       });
 
-      updateIndicators(0);
-  });
+      // Add event listeners for filtering
+      filterButtonsContainer.addEventListener("click", (event) => {
+          if (event.target.classList.contains("filter-button")) {
+              filterButtonsContainer.querySelectorAll(".filter-button").forEach(btn => btn.classList.remove("active"));
+              event.target.classList.add("active");
 
-})
+              filterWorks(event.target.getAttribute("data-filter").toLowerCase());
+          }
+      });
+
+      filterWorks(""); // Default filter
+  }
+
+  // ⭐️ Filter Work Items Based on Category
+  function filterWorks(filter) {
+      const works = document.querySelectorAll(".work-item");
+      let filteredWorks = [];
+
+      works.forEach(work => {
+          const workCategory = work.getAttribute("data-category")?.toLowerCase();
+          const mobileCaption = work.nextElementSibling;
+          const workLinks = work.querySelectorAll("a");
+
+          if (filter === "" || workCategory === filter) {
+              work.classList.remove("visually-hidden");
+              if (mobileCaption?.classList.contains("mobile-caption")) {
+                  mobileCaption.classList.remove("visually-hidden");
+              }
+
+              workLinks.forEach(link => {
+                  if (["installation", "book"].includes(workCategory)) {
+                      filteredWorks.push(link);
+                  } else {
+                      link.setAttribute("data-fancybox", `filtered-${filter}`);
+                      filteredWorks.push(link);
+                  }
+              });
+          } else {
+              work.classList.add("visually-hidden");
+              if (mobileCaption?.classList.contains("mobile-caption")) {
+                  mobileCaption.classList.add("visually-hidden");
+              }
+          }
+      });
+
+      // Rebind Fancybox for Filtered Works
+      setTimeout(() => {
+          Fancybox.unbind();
+          Fancybox.bind(`[data-fancybox="filtered-${filter}"]`, fancyboxOptions);
+
+          document.querySelectorAll('[data-fancybox^="installation-"], [data-fancybox^="book-"]').forEach(item => {
+              Fancybox.bind(`[data-fancybox="${item.getAttribute("data-fancybox")}"]`, fancyboxOptions);
+          });
+
+          resetFancybox();
+      }, 100);
+  }
+
+  // ⭐️ Initialize Mobile Slideshow Indicators
+  function setupSlideshowIndicators() {
+      document.querySelectorAll(".mobile-view .mobile-slideshow-works").forEach(slideshow => {
+          const workItem = slideshow.closest(".work-item");
+          const indicatorsContainer = workItem?.querySelector(".carousel-indicators-works");
+
+          if (!indicatorsContainer) return;
+
+          const indicators = indicatorsContainer.querySelectorAll(".indicator-works");
+          let currentIndex = 0;
+
+          function updateIndicators(index) {
+              indicators.forEach(indicator => indicator.classList.remove("active"));
+              indicators[index]?.classList.add("active");
+          }
+
+          slideshow.addEventListener("scroll", () => {
+              let newIndex = Math.round(slideshow.scrollLeft / slideshow.offsetWidth);
+              if (newIndex !== currentIndex) {
+                  currentIndex = newIndex;
+                  updateIndicators(currentIndex);
+              }
+          });
+
+          updateIndicators(0);
+      });
+  }
+
+  // ⭐️ Initialize Functions
+  setTimeout(() => {
+      updateGalleryForMobile();
+      resetFancybox();
+      setupFilters();
+      setupSlideshowIndicators();
+  }, 500);
+
+  window.addEventListener("resize", updateGalleryForMobile);
+});

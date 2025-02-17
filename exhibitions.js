@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+  /**
+   * Removes padding from the main container if the URL contains "/exhibitions".
+   */
   function removeContainerPadding() {
     const mainContainer = document.querySelector('.main-container');
     if (mainContainer && window.location.href.includes("/exhibitions")) {
@@ -8,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   removeContainerPadding();
 
+  // Cache DOM elements to avoid redundant queries
   const showTextButtons = document.querySelectorAll('.show-text');
   const exhibitionGrid = document.getElementById('exhibition-grid');
   const exhibitionText = document.getElementById('exhibition-text');
@@ -15,229 +19,177 @@ document.addEventListener("DOMContentLoaded", function () {
   const backToGridButton = document.getElementById('back-to-grid');
   const languageToggle = document.getElementById('language-toggle');
 
-
-
-  if (!showTextButtons || !exhibitionGrid || !exhibitionText || !textContent || !backToGridButton  || !languageToggle) {
+  // Prevent script execution if any required elements are missing
+  if (!showTextButtons.length || !exhibitionGrid || !exhibitionText || !textContent || !backToGridButton || !languageToggle) {
     console.warn('One or more required elements not found');
     return;
   }
 
-  let lastScrollPosition = 0; // Store the last scroll position
+  let lastScrollPosition = 0; // Stores scroll position before navigating to text view
   let currentLanguage = 'en'; // Default language
-  let activeExhibition = null;
+  let activeExhibition = null; // Stores the currently active exhibition
 
+  /**
+   * Updates exhibition text content based on the provided details.
+   */
   function renderText(title, location, curated, artists, date, text) {
-    const titleElement = textContent.querySelector('.exhibition-details-title');
-    const locationElement = textContent.querySelector('.exhibition-details-location');
-    const curatedElement = textContent.querySelector('.exhibition-details-curated');
-    const artistsElement = textContent.querySelector('.exhibition-details-artists')
-    const dateElement = textContent.querySelector('.exhibition-details-date');
-    const textElement = textContent.querySelector('.exhibition-details-text');
-
-    titleElement.textContent = title;
-    locationElement.textContent = location;
-    curatedElement.textContent = curated;
-    artistsElement.textContent = artists;
-    dateElement.textContent = date;
-    textElement.innerHTML = text;
+    textContent.querySelector('.exhibition-details-title').textContent = title;
+    textContent.querySelector('.exhibition-details-location').textContent = location;
+    textContent.querySelector('.exhibition-details-curated').textContent = curated;
+    textContent.querySelector('.exhibition-details-artists').textContent = artists;
+    textContent.querySelector('.exhibition-details-date').textContent = date;
+    textContent.querySelector('.exhibition-details-text').innerHTML = text;
   }
 
+  /**
+   * Retrieves available languages from the exhibition text container.
+   */
   function getAvailableLanguages(textContainer) {
-    const languages = new Set();
-    textContainer.querySelectorAll('.exhibition-text').forEach((element) => {
-      languages.add(element.dataset.lang);
-    });
-    return Array.from(languages);
+    return Array.from(new Set(
+      [...textContainer.querySelectorAll('.exhibition-text')].map(el => el.dataset.lang)
+    ));
   }
 
+  /**
+   * Updates exhibition content for the selected language.
+   */
   function updateContentForLanguage(textContainer, language) {
     const title = textContainer.getAttribute("data-exhibition-text-title");
     const location = textContainer.getAttribute("data-exhibition-text-location");
     const curated = textContainer.getAttribute("data-exhibition-text-curated");
     const artists = textContainer.getAttribute("data-exhibition-text-artists");
     const date = textContainer.getAttribute("data-exhibition-text-dates");
-    const text = Array.from(
-      textContainer.querySelectorAll(`.exhibition-text[data-lang="${language}"]`)
-    )[0]?.innerHTML;
+    const textElement = textContainer.querySelector(`.exhibition-text[data-lang="${language}"]`);
 
-    renderText(title, location, curated, artists, date, text || "No text available for this language.");
+    renderText(title, location, curated, artists, date, textElement ? textElement.innerHTML : "No text available for this language.");
   }
 
+  /**
+   * Creates language selection buttons dynamically.
+   */
   function createLanguageButtons(availableLanguages) {
-    console.log("Languages received:", availableLanguages);
+    languageToggle.innerHTML = ''; // Clear existing buttons
 
-
-    // Clear existing buttons
-    languageToggle.innerHTML = '';
-
-       // Check if there's only one language available
-      if (availableLanguages.length <= 1) {
-        // Hide the language toggle
-        languageToggle.style.display = 'none';
-        return; // Exit the function early
-    } else {
-        // Show the language toggle if it was previously hidden
-        languageToggle.style.display = 'block';
+    // Hide language toggle if only one language is available
+    if (availableLanguages.length <= 1) {
+      languageToggle.style.display = 'none';
+      return;
     }
 
-    // Create a button for each language
+    languageToggle.style.display = 'block';
+
     availableLanguages.forEach((lang, index) => {
       const button = document.createElement('a');
       button.href = '#';
       button.textContent = lang.toUpperCase();
       button.classList.add('language-link');
-      if (lang === currentLanguage) {
-        button.classList.add('active-language');
-        button.style.color = "black";
-      } else {
-        button.style.color = "#9D9D9C";
-      }
+      button.style.color = lang === currentLanguage ? "black" : "#9D9D9C";
 
-
-      // Add click event to switch language
       button.addEventListener('click', (event) => {
         event.preventDefault();
         switchLanguage(lang);
       });
 
       languageToggle.appendChild(button);
-
-      // Add a separator (" | ") between buttons
-      if (availableLanguages.indexOf(lang) !== availableLanguages.length - 1) {
-        const separator = document.createTextNode(' / ');
-        languageToggle.appendChild(separator);
+      if (index < availableLanguages.length - 1) {
+        languageToggle.appendChild(document.createTextNode(' / '));
       }
     });
-
-
   }
 
+  /**
+   * Switches the exhibition text to the selected language.
+   */
   function switchLanguage(language) {
     if (!activeExhibition) return;
 
     currentLanguage = language;
     updateContentForLanguage(activeExhibition, currentLanguage);
 
-    // toggle button and define colour
-    const buttons = languageToggle.querySelectorAll('.language-link');
-    buttons.forEach((button) => {
+    // Update button styles to reflect the active language
+    languageToggle.querySelectorAll('.language-link').forEach((button) => {
       const isActive = button.textContent.toLowerCase() === language;
-      button.classList.toggle('active-language', isActive);
       button.style.color = isActive ? "black" : "#9D9D9C";
     });
   }
 
+  /**
+   * Displays exhibition details when a "show text" button is clicked.
+   */
   function showExhibitionText(button) {
     lastScrollPosition = window.scrollY;
+    activeExhibition = button;
+    currentLanguage = 'en'; // Reset to default language
 
-    activeExhibition = button; // Set active exhibition container
-    currentLanguage = 'en'; // Reset language to default
-
-    // Update content for default language
     updateContentForLanguage(button, currentLanguage);
+    createLanguageButtons(getAvailableLanguages(button));
 
-    // Show/hide language toggle button based on available languages
-    const availableLanguages = getAvailableLanguages(button);
-    createLanguageButtons(availableLanguages);
-
-    // Hide grid, show text, and scroll to top
     exhibitionGrid.style.display = 'none';
     exhibitionText.style.display = 'block';
 
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 0);
-
-    // Optionally update URL without page reload
-    history.pushState(null, '', '/exhibitions');
+    setTimeout(() => window.scrollTo(0, 0), 0);
+    history.pushState(null, '', '/exhibitions'); // Update URL
   }
 
-
+  /**
+   * Returns to the exhibition grid view from the details page.
+   */
   function returnToGridView() {
     exhibitionGrid.style.display = 'block';
     exhibitionText.style.display = 'none';
 
-    setTimeout(() => {
-      window.scrollTo({
-        top: lastScrollPosition,
-        behavior: 'smooth'
-      });
-    }, 0);
-
+    setTimeout(() => window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' }), 0);
     history.pushState(null, '', '/exhibitions');
   }
 
-  // Attach event listeners
+  // Attach event listeners to buttons
   showTextButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      showExhibitionText(this);
-    });
+    button.addEventListener('click', () => showExhibitionText(button));
   });
 
   backToGridButton.addEventListener('click', returnToGridView);
 
+  /**
+   * Initializes and updates slideshow indicators dynamically.
+   */
+  document.querySelectorAll(".snap-container").forEach(slideshow => {
+    const exhibItem = slideshow.closest(".carousel-card");
+    const indicatorsContainer = exhibItem?.querySelector(".carousel-indicators");
 
-  // slideshow indicators
+    if (!exhibItem || !indicatorsContainer) {
+      console.warn("Missing slideshow elements");
+      return;
+    }
 
-  const slideshows = document.querySelectorAll(".snap-container");
-  console.log("Slideshows found:", slideshows);
+    let currentIndex = 0;
+    const maxVisibleIndicators = 5;
+    const indicators = Array.from(indicatorsContainer.querySelectorAll(".indicator"));
 
-  slideshows.forEach(slideshow => {
-      console.log("Checking slideshow:", slideshow);
+    /**
+     * Updates slideshow indicator dots based on the current index.
+     */
+    function updateIndicators(index) {
+      indicatorsContainer.innerHTML = ""; // Clear previous indicators
+      const start = Math.max(0, Math.min(index - 2, indicators.length - maxVisibleIndicators));
+      const end = Math.min(indicators.length, start + maxVisibleIndicators);
 
-      const exhibItem = slideshow.closest(".carousel-card");
-      if (!exhibItem) {
-          console.warn("Exhibition item not found for:", slideshow);
-          return;
+      for (let i = start; i < end; i++) {
+        let dot = document.createElement("div");
+        dot.classList.add("indicator");
+        if (i === index) dot.classList.add("active");
+        indicatorsContainer.appendChild(dot);
       }
+    }
 
-      const indicatorsContainer = exhibItem.querySelector(".carousel-indicators");
-      if (!indicatorsContainer) {
-          console.warn("Indicators container not found for:", slideshow);
-          return;
+    // Scroll event listener to update indicators dynamically
+    slideshow.addEventListener("scroll", () => {
+      let newIndex = Math.round(slideshow.scrollLeft / slideshow.offsetWidth);
+      if (newIndex !== currentIndex) {
+        currentIndex = newIndex;
+        updateIndicators(currentIndex);
       }
+    });
 
-      console.log("Indicators container found:", indicatorsContainer);
-
-      const indicators = Array.from(indicatorsContainer.querySelectorAll(".indicator"));
-      console.log("Indicators found:", indicators);
-
-      let currentIndex = 0;
-      const maxVisibleIndicators = 5;
-
-      function updateIndicators(index) {
-          // Clear existing indicators
-          indicatorsContainer.innerHTML = "";
-
-          // Determine start and end range for visible indicators
-          let start = Math.max(0, Math.min(index - 2, indicators.length - maxVisibleIndicators));
-          let end = Math.min(indicators.length, start + maxVisibleIndicators);
-
-          for (let i = start; i < end; i++) {
-              let dot = document.createElement("div");
-              dot.classList.add("indicator");
-              if (i === index) dot.classList.add("active");
-              indicatorsContainer.appendChild(dot);
-          }
-      }
-
-      slideshow.addEventListener("scroll", () => {
-          let scrollLeft = slideshow.scrollLeft;
-          let slideWidth = slideshow.offsetWidth;
-
-          let newIndex = Math.round(scrollLeft / slideWidth);
-
-          if (newIndex !== currentIndex) {
-              currentIndex = newIndex;
-              updateIndicators(currentIndex);
-          }
-      });
-
-      updateIndicators(0);
+    updateIndicators(0); // Initialize indicators
   });
-
-
-
-
-
 });

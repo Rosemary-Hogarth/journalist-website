@@ -269,7 +269,7 @@ body.publications-page .fancybox-publications .fancybox__content {
   .carousel-indicators-publications {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+
     margin-bottom: 20px;
   }
 
@@ -325,7 +325,6 @@ body.publications-page .fancybox-publications .fancybox__content {
     z-index: 2;
     padding: 0;
     line-height: 1.3em;
-    margin-top: 20px;
     font-weight: 600;
 
   }
@@ -449,7 +448,8 @@ body.publications-page .fancybox-publications .fancybox__content {
   .carousel-indicators-publications {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 12px;
+    margin-bottom: 18px;
   }
 
   .indicator-publications {
