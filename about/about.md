@@ -1,20 +1,20 @@
 ---
 title: About
+quote1: Contemplation, that’s a beautiful word; as if one would let quiet
+quote2: fall between oneself and the object, and the infernal noise,
+quote3: the silent noise usually present in this space
+quote4: fades away.
+quoteDe1: Betrachtung, das ist ein schönes Wort; als ließe man Stille
+quoteDe2: zwischen sich und den Gegenstand fallen und der Höllenlärm,
+quoteDe3: der stumme Lärm, der für gewöhnlich in diesem Raum ist,
+quoteDe4: vergeht
+quoteAuthor: – Ilse Aichinger
 permalink: /about/{{ title | slugify }}/
-quote: ""
 practiceEn: >-
-
-
-  Contemplation, that’s a beautiful word; as if one would let quiet
-
-  fall between oneself and the object, and the infernal noise,
-
-  the silent noise usually present in this space
-
-  fades away.
-  	– Ilse Aichinger
-
-  In his works, Julius Heinemann reveals an equally poetic and concentrated view of the world. Allowing for silence, the in-between — those voids in which something condenses and becomes palpable which at the same time remains blurred and unnamed. That suggests itself to us, that draws closer to us.
+  In his works, Julius Heinemann reveals an equally poetic and concentrated view
+  of the world. Allowing for silence, the in-between — those voids in which
+  something condenses and becomes palpable which at the same time remains
+  blurred and unnamed. That suggests itself to us, that draws closer to us.
 
   As if something were being formulated here, that simultaneously eludes any designation, any determination, any rigidity. This fleeting moment before the act of defining has taken place, before we mean anything or give any meaning, before we make sense.
 
@@ -42,16 +42,10 @@ practiceEn: >-
 
   by Lisa Haag, translated from German into English by Grashina Gabelmann
 practiceDe: >-
-  Betrachtung, das ist ein schönes Wort; als ließe man Stille
-
-  zwischen sich und den Gegenstand fallen und der Höllenlärm,
-
-  der stumme Lärm, der für gewöhnlich in diesem Raum ist,
-
-  vergeht
-  	– Ilse Aichinger
-
-  Julius Heinemann offenbart in seinen Arbeiten einen gleichsam poetischen und konzentrierten Blick auf die Welt. Die Stille zulassend, das Dazwischen, jene Leerstellen, in denen sich etwas verdichtet und spürbar wird, das zugleich unscharf bleibt und unbenannt. Das sich uns andeutet, das sich uns ahnt.
+  Julius Heinemann offenbart in seinen Arbeiten einen gleichsam poetischen und
+  konzentrierten Blick auf die Welt. Die Stille zulassend, das Dazwischen, jene
+  Leerstellen, in denen sich etwas verdichtet und spürbar wird, das zugleich
+  unscharf bleibt und unbenannt. Das sich uns andeutet, das sich uns ahnt.
 
   Als würde hier etwas formuliert werden, das sich zugleich jeder Benennung entzieht, jeder Festlegung, jeder Starre. Dieser flüchtige Augenblick noch vor dem Begriff, noch bevor wir etwas bedeuten, noch bevor wir Sinn machen.
 
@@ -85,8 +79,31 @@ practiceDe: >-
 
 
   Von Lisa Haag
+cv_bio: "  Born 1984 in Munich. Lives in Berlin."
+cv_education:
+  - year: "   2017 - 2018 "
+    institution: Van Eyck Academy
+    location: " Maastricht, Netherlands"
+cv_grants_residencies:
+  - year: "  2023 "
+    grant_residency: Stiftung Kunstfonds NEUSTARTplus – stipend
+cv_solo_exhibitions:
+  - year: "2024"
+    exhibitionTitle: " Essay"
+    exhibitionDetails: Jahn und Jahn, Lisbon
+cv_group_exhibitions:
+  - year: "2024"
+    exhibitionTitle: Construir, habitar, crear.
+    exhibitionDetails: 10 años de trabajo en comunidad. Fundación Casa Wabi /
+      Antiguo Colegio de San Ildefonso / Mexico City
+cv_bibliography:
+  - year: "   2022 "
+    title: Julius Heinemann. Afterimage, Catalogue
+    publisher: This Side Up and Jahn und Jahn, Munich and Madrid
+texts:
+  - julius-heinemann-dine-und-undinge-o-las-formas-de-las-cosas
 cv: >-
-
+  
 
 
   Born 1984 in Munich. Lives in Berlin.
@@ -485,7 +502,5 @@ cv: >-
 
 
   2007 urban conditions, catalogue, Rathausgalerie München, Munich
-texts:
-  - julius-heinemann-dinge-und-undinge-o-las-formas-de-las-cosas
-  - julius-heinemann-ma
+quote: ""
 ---
