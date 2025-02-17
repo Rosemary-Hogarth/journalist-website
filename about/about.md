@@ -87,6 +87,8 @@ cv_education:
 cv_grants_residencies:
   - year: "  2023 "
     grant_residency: Stiftung Kunstfonds NEUSTARTplus – stipend
+  - year: "  2022"
+    grant_residency: Stiftung Kunstfonds Neustart Kultur – stipend
 cv_solo_exhibitions:
   - year: "2024"
     exhibitionTitle: " Essay"
