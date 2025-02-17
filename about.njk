@@ -17,7 +17,10 @@ pagination:
 
     <!-- Content Sections -->
   <div id="content">
+
+
     <div id="practice" class="about-content active">
+
     <div class="practice-header">
       <div class="quote-container">
 
@@ -55,138 +58,119 @@ pagination:
 
 
 
-<div id="cv" class="about-content">
+  <div id="cv" class="about-content">
 
-  <!-- Biography -->
-  <div class="bio">
-    <p>{{ about.data.cv_bio }}</p>
-  </div>
-
-  <!-- Education Section (Unchanged) -->
-  {% if about.data.cv_education is defined and about.data.cv_education %}
-    <div class="cv-section">
-      <h2>EDUCATION</h2>
-      <ul class="cv-list">
-        {% for education in about.data.cv_education if education is defined %}
-        <li>
-          <span class="education">{{ education.year }}</span>
-          <span>{{ education.institution }}, {{ education.location }}</span>
-          </li>
-        {% endfor %}
-      </ul>
+    <!-- Biography -->
+    <div class="bio">
+      <p>{{ about.data.cv_bio }}</p>
     </div>
-  {% endif %}
 
-  <!-- Grants / Residencies -->
-  {% if about.data.cv_grants_residencies is defined and about.data.cv_grants_residencies %}
-    <div class="cv-section">
-      <h2>GRANTS / RESIDENCIES</h2>
-      <ul class="cv-list">
-        {% set years = [] %}
-        {% for grant in about.data.cv_grants_residencies if grant is defined %}
-          {% if grant.year not in years %}
-            {% set years = years.push(grant.year) %}
-          {% endif %}
-        {% endfor %}
 
-        {% for year in years %}
+
+    <!-- Education Section (Unchanged) -->
+    {% if about.data.cv_education is defined and about.data.cv_education %}
+      <div class="cv-section">
+        <h2>EDUCATION</h2>
+        <ul class="cv-list">
+          {% for education in about.data.cv_education if education is defined %}
+
           <li>
-            <span class="cv-year">{{ year }}</span>
-            <ul class="cv-details">
-              {% for grant in about.data.cv_grants_residencies if grant is defined %}
-                {% if grant.year == year %}
-                  <li>{{ grant.grant_residency }}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+            <span class="education">{{ education.year }}</span>
+            {{ education.institution }}, {{ education.location }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
 
-  <!-- Solo Exhibitions -->
-  {% if about.data.cv_solo_exhibitions is defined and about.data.cv_solo_exhibitions  %}
-    <div class="cv-section">
-      <h2>SOLO EXHIBITIONS</h2>
-      <ul class="cv-list">
-        {% set years = [] %}
-        {% for exhibition in about.data.cv_solo_exhibitions if exhibition is defined %}
-          {% if exhibition.year not in years %}
-            {% set years = years.push(exhibition.year) %}
-          {% endif %}
-        {% endfor %}
+    <!-- Grants / Residencies -->
+    {% if about.data.cv_grants_residencies is defined and about.data.cv_grants_residencies %}
+      <div class="cv-section">
+        <h2>GRANTS / RESIDENCIES</h2>
+        <ul class="cv-list">
 
-        {% for year in years %}
-          <li>
-            <span class="cv-year">{{ year }}</span>
-            <ul class="cv-details">
-              {% for exhibition in about.data.cv_solo_exhibitions if exhibition is defined %}
-                {% if exhibition.year == year %}
-                  <li>{{ exhibition.exhibitionTitle }}, {{ exhibition.exhibitionDetails }}</li>
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-  {% endif %}
+          {% set years = [] %}
+            {% for education in about.data.cv_education if education is defined %}
+              {% set cleanYear = education.year | trim %}
+              {% if cleanYear not in years %}
+                {% set years = years | concat([cleanYear]) %}
+              {% endif %}
 
-  <!-- Group Exhibitions -->
-{% if about.data.cv_group_exhibitions is defined and about.data.cv_group_exhibitions  %}
-  <div class="cv-section">
-    <h2>GROUP EXHIBITIONS</h2>
-    <ul class="cv-list">
-      {% set years = [] %}
-      {% for exhibition in about.data.cv_group_exhibitions if exhibition is defined %}
-        {% if exhibition.year not in years %}
-          {% set years = years.push(exhibition.year) %}
-        {% endif %}
-      {% endfor %}
+            {% endfor %}
 
-      {% for year in years %}
-        <li>
-          <span class="cv-year">{{ year }}</span>
-          <ul class="cv-details">
-            {% for exhibition in about.data.cv_group_exhibitions if exhibition is defined %}
-              {% if exhibition.year == year %}
-                <li>
-                  {{ exhibition.exhibitionTitle }}, {% if exhibition.exhibitionDetails %} {{ exhibition.exhibitionDetails }}{% endif %}
-                </li>
+
+
+
+          {% for year in years %}
+            <li>
+              <span class="cv-year">{{ year }}</span>
+              <ul class="cv-details">
+                {% for grant in about.data.cv_grants_residencies if grant is defined %}
+                  {% if grant.year == year %}
+                    <li>{{ grant.grant_residency }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <!-- Solo Exhibitions -->
+    {% if about.data.cv_solo_exhibitions is defined and about.data.cv_solo_exhibitions  %}
+      <div class="cv-section">
+        <h2>SOLO EXHIBITIONS</h2>
+        <ul class="cv-list">
+          {% set years = [] %}
+            {% for education in about.data.cv_education if education is defined %}
+              {% set cleanYear = education.year | trim %}
+              {% if cleanYear not in years %}
+                {% set years = years | concat([cleanYear]) %}
               {% endif %}
             {% endfor %}
-          </ul>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
 
 
+          {% for year in years %}
+            <li>
+              <span class="cv-year">{{ year }}</span>
+              <ul class="cv-details">
+                {% for exhibition in about.data.cv_solo_exhibitions if exhibition is defined %}
+                  {% if exhibition.year == year %}
+                    <li>{{ exhibition.exhibitionTitle }}, {{ exhibition.exhibitionDetails }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
 
-  <!-- Bibliography -->
-  {% if about.data.cv_bibliography is defined and about.data.cv_bibliography %}
 
+    <!-- Group Exhibitions -->
+  {% if about.data.cv_group_exhibitions is defined and about.data.cv_group_exhibitions  %}
     <div class="cv-section">
-      <h2>BIBLIOGRAPHY</h2>
+      <h2>GROUP EXHIBITIONS</h2>
       <ul class="cv-list">
         {% set years = [] %}
-        {% for bibliography in about.data.cv_bibliography if bibliography is defined %}
+          {% for education in about.data.cv_education if education is defined %}
+            {% set cleanYear = education.year | trim %}
+            {% if cleanYear not in years %}
+              {% set years = years | concat([cleanYear]) %}
+            {% endif %}
+          {% endfor %}
 
-          {% if bibliography.year not in years %}
-            {% set years = years.push(bibliography.year) %}
-          {% endif %}
-        {% endfor %}
 
         {% for year in years %}
           <li>
             <span class="cv-year">{{ year }}</span>
             <ul class="cv-details">
-              {% for bibliography in about.data.cv_bibliography if bibliography is defined %}
-
-                {% if bibliography.year == year %}
-                  <li>{{ bibliography.title }}, {{ bibliography.publisher }}</li>
+              {% for exhibition in about.data.cv_group_exhibitions if exhibition is defined %}
+                {% if exhibition.year == year %}
+                  <li>
+                    {{ exhibition.exhibitionTitle }}, {% if exhibition.exhibitionDetails %} {{ exhibition.exhibitionDetails }}{% endif %}
+                  </li>
                 {% endif %}
               {% endfor %}
             </ul>
@@ -195,7 +179,42 @@ pagination:
       </ul>
     </div>
   {% endif %}
-</div>
+
+
+
+    <!-- Bibliography -->
+    {% if about.data.cv_bibliography is defined and about.data.cv_bibliography %}
+
+      <div class="cv-section">
+        <h2>BIBLIOGRAPHY</h2>
+        <ul class="cv-list">
+          {% set years = [] %}
+            {% for education in about.data.cv_education if education is defined %}
+              {% set cleanYear = education.year | trim %}
+              {% if cleanYear not in years %}
+                {% set years = years | concat([cleanYear]) %}
+              {% endif %}
+            {% endfor %}
+
+
+          {% for year in years %}
+            <li>
+              <span class="cv-year">{{ year }}</span>
+              <ul class="cv-details">
+                {% for bibliography in about.data.cv_bibliography if bibliography is defined %}
+
+                  {% if bibliography.year == year %}
+                    <li>{{ bibliography.title }}, {{ bibliography.publisher }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+  </div>
 
 
 
