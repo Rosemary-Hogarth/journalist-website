@@ -131,5 +131,6 @@ cv_bibliography:
     title: Untitled (1956) – Red, Green and Yellow – Gone Fishing, Catalogue
 texts:
   - julius-heinemann-dine-und-undinge-o-las-formas-de-las-cosas
-
+  - julius-heinemann-ma
+quote: ""
 ---
