@@ -3,6 +3,7 @@ locationDate: Jahn und Jahn, Lisbon / 16.05.-22.08.2024
 coverImage: ""
 order: 2
 title: Julius Heinemann - Essay
+type: Solo Show
 category: Solo show
 year: "2024"
 permalink: /exhibitions/{{ name | slugify }}/
