@@ -6,10 +6,10 @@ galleryImages:
   - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711245/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_07_1_bsjenk.jpg
     catalogueName: Afterimage
     catalogueInfo: p﻿ublished by Jahn und Jahn, Munich and This Side Up, Madrid, 2022
-  - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711246/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_04_b_1_ltavjc.jpg
+  - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711245/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_03_1_rgel9p.jpg
     catalogueInfo: p﻿ublished by Jahn und Jahn, Munich and This Side Up, Madrid, 2022
     catalogueName: Afterimage
-  - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711245/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_03_1_rgel9p.jpg
+  - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711246/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_04_b_1_ltavjc.jpg
     catalogueInfo: p﻿ublished by Jahn und Jahn, Munich and This Side Up, Madrid, 2022
     catalogueName: Afterimage
   - image: https://res.cloudinary.com/dyciaxri0/image/upload/v1737711246/catalogue_images/Catalogue_Images/HEINEMANN_Afterimage_book_06_1_bjkq32.jpg
