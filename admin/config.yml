@@ -176,9 +176,9 @@ collections:
 
       - label: "CV Biography"
         name: "cv_bio"
-        widget: "markdown"
+        widget: "string"
         required: true
-        default: "Born 1984 in Munich. Lives in Berlin."
+
 
       # Education section with specific years and institutions
       - label: "Education"
