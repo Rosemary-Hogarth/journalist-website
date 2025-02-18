@@ -9,7 +9,7 @@ This project was built for an artist seeking to showcase their work with a minim
 To achieve this, I focused on dynamic image optimisation and an intuitive CMS in order to ensure the optimum viewing experience for visitors and ideal content management for the artist.  
 
 Along the way, I tackled challenges such as:  
-- Integrating Decap CMS with Eleventy** for smooth content updates.  
+- Integrating Decap CMS with Eleventy for smooth content updates.  
 - Optimising images for multiple layouts, including full-screen views, thumbnails, and slideshows.  
 - Streamlining deployment on Netlify for a fast and efficient workflow.  
 
