@@ -1,4 +1,4 @@
-# Julius Heinemann Art – A Fast and Modern Static Website  
+# Julius Heinemann Art 
 
 🔗 **Live Demo:** [View the Website on Netlify](https://your-netlify-link.netlify.app)  
 
