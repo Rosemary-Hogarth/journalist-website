@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM fully loaded");
 
-  // ⭐️ Handle Fancybox Setup for Different Devices
+
+  // Handle Fancybox Setup for Different Devices
   function updateGalleryForMobile() {
       const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
       const workItems = document.querySelectorAll(".work-item a");

@@ -10,13 +10,16 @@ const htmlmin = require("html-minifier");
 
 module.exports = function(eleventyConfig) {
 
-
-
   const md = require("markdown-it")({
     html: false,
     breaks: true,
     linkify: true,
   });
+
+    // this allows the markdown to be properly formatted
+  eleventyConfig.addNunjucksFilter("markdownify", (markdownString) =>
+    md.render(markdownString),
+  );
 
 
     eleventyConfig.addFilter("split", function(value, delimiter = '/') {
@@ -29,11 +32,6 @@ module.exports = function(eleventyConfig) {
     });
 
 
-
-  // this allows the markdown to be properly formatted
-  eleventyConfig.addNunjucksFilter("markdownify", (markdownString) =>
-    md.render(markdownString),
-  );
 
     // this links the about texts list to the full texts
   eleventyConfig.addFilter('getDocumentBySlug', (collection, slug) => {
