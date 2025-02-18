@@ -4,14 +4,14 @@
 
 ## 🖼️ Project Overview  
 
-This project was built for an artist seeking to showcase their work with a **minimalistic, sleek design** that reflects their artistic practice.  
+This project was built for an artist seeking to showcase their work with a minimalistic, sleek design that reflects their artistic practice.  
 
-To achieve this, I focused on **dynamic image optimisation** and an **intuitive CMS** in order to ensure the optimum viewing experience for visitors and ideal content management for the artist.  
+To achieve this, I focused on dynamic image optimisation and an intuitive CMS in order to ensure the optimum viewing experience for visitors and ideal content management for the artist.  
 
 Along the way, I tackled challenges such as:  
-- **Integrating Decap CMS with Eleventy** for smooth content updates.  
-- **Optimising images** for multiple layouts, including **full-screen views, thumbnails, and slideshows**.  
-- **Streamlining deployment on Netlify** for a fast and efficient workflow.  
+- Integrating Decap CMS with Eleventy** for smooth content updates.  
+- Optimising images for multiple layouts, including full-screen views, thumbnails, and slideshows.  
+- Streamlining deployment on Netlify for a fast and efficient workflow.  
 
 
 ## 📸 Screenshots  
@@ -29,11 +29,11 @@ Along the way, I tackled challenges such as:
 
 
 ## 🎯 Aims  
-- Build a **fast, lightweight, and responsive** website with a **headless CMS**.  
-- Enable **smooth content management** via **Decap CMS**.  
-- Optimise images dynamically using **Cloudinary** to improve performance.  
-- Implement a **filter system for artworks**, each with its own slideshow.  
-- Support **multiple languages** for accessibility and international reach.  
+- Build a fast, lightweight, and responsive website with a headless CMS.  
+- Enable smooth content management via Decap CMS.  
+- Optimise images dynamically using Cloudinary to improve performance.  
+- Implement a filter system for artworks, each with its own slideshow.  
+- Support multiple languages for accessibility and international reach.  
 
 
 
