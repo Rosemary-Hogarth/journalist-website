@@ -47,7 +47,7 @@ Along the way, I tackled challenges such as:
 - ![code View](screenshots/cloudinary.png) 
 
 ### 💻 Keeping the Site Fully Responsive with Different Layouts for Desktop & Mobile  
-✅ **Solution:** Used **CSS Grid & Flexbox** to create distinct layouts, ensuring a seamless experience across devices.  
+✅ **Solution:** Used **CSS Grid & Flexbox** to create distinct layouts.
 
 ### 💻 Adding & Removing Slideshows Based on Screen Size  
 ✅ **Solution:**  
