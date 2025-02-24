@@ -53,7 +53,7 @@ body.publications-page .fancybox__nav {
 }
 
 
-body.publications-page .fancybox__slide,
+/* body.publications-page .fancybox__slide,
 body.publications-page .fancybox__content {
   cursor: url('/images/icons_Homepage_arrow_right_white.cur'), auto !important;
 }
@@ -62,28 +62,8 @@ body.publications-page  .fancybox__slide.can-zoom_in {
   cursor: url('/images/icons_Homepage_arrow_right.cur'), auto !important;
 
 
-}
-/*
-body.publications-page .fancybox__slide:hover::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  cursor: url('/images/icons_Homepage_arrow_right_white.cur'), auto;
 } */
 
-/* body.publications-page  .fancybox__slide:hover::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  cursor: url('/images/icons_Homepage_arrow_right_white.cur'), auto;
-
-} */
 
 
 

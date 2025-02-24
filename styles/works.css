@@ -141,13 +141,13 @@ body.gallery-fancybox .fancybox__container {
 
 .fancybox__slide,
 .fancybox__content {
-  cursor: url('/images/icons_Homepage_arrow_right.cur'), auto !important;
+  /* cursor: url('/images/icons_Homepage_arrow_right.cur'), auto !important; */
 
 }
 
 
 .fancybox__slide.can-zoom_in {
-  cursor: url('/images/icons_Homepage_arrow_right.cur'), auto !important;
+  /* cursor: url('/images/icons_Homepage_arrow_right.cur'), auto !important; */
    cursor: pointer;
   mix-blend-mode: difference;
   pointer-events: none;
@@ -273,9 +273,9 @@ button.carousel__button.fancybox__button--zoom {
 }
 
 /* Ensure the arrows are visible */
-/* .fancybox__nav {
+.fancybox__nav {
   display: flex !important;
-} */
+}
 
 
 .fancybox__nav .carousel__button.is-next {
