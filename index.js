@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let currentSlide = 0;
 
-
+// handles homepage slideshow by adding/removing active class
   function showSlide(n) {
     slides[currentSlide].classList.remove('active');
     currentSlide = (n + slides.length) % slides.length;
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Start the slideshow after 5 seconds
+  // Start the slideshow after 3 seconds
   setTimeout(() => {
     setInterval(nextSlide, 3000);
   }, 3000);
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function removePadding() {
     const navbar = document.querySelector(".navbar")
-      if(navbar && window.location.pathname === "/") {
-        navbar.style.marginBottom = '10px';
+    if(navbar && window.location.pathname === "/") {
+      navbar.style.marginBottom = '10px';
     }
   }
   removePadding()

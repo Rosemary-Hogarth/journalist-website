@@ -96,11 +96,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!filterButtonsContainer) return;
 
+       // Create a set of unique categories from the data-category attribute of work items
       const categoriesSet = new Set([...works].map(work => work.getAttribute("data-category")).filter(Boolean));
 
       const orderedCategories = ["Installation", "Painting", "Watercolour", "Collage", "Object", "Book", "Drawing", "All"];
       filterButtonsContainer.innerHTML = ""; // Clear existing buttons
 
+       // Loop through the ordered categories and create buttons for them
       orderedCategories.forEach(category => {
           if (category === "All" || categoriesSet.has(category)) {
               const button = document.createElement("button");
@@ -120,21 +122,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Add event listeners for filtering
       filterButtonsContainer.addEventListener("click", (event) => {
+
           if (event.target.classList.contains("filter-button")) {
               filterButtonsContainer.querySelectorAll(".filter-button").forEach(btn => btn.classList.remove("active"));
               event.target.classList.add("active");
-
               filterWorks(event.target.getAttribute("data-filter").toLowerCase());
           }
       });
 
-      filterWorks(""); // Default filter
+      filterWorks(""); // Call the filter function with an empty filter to show all works initially
+
   }
 
   // ⭐️ Filter Work Items Based on Category
   function filterWorks(filter) {
+
       const works = document.querySelectorAll(".work-item");
       let filteredWorks = [];
+
 
       works.forEach(work => {
           const workCategory = work.getAttribute("data-category")?.toLowerCase();
@@ -148,8 +153,10 @@ document.addEventListener("DOMContentLoaded", function () {
               }
 
               workLinks.forEach(link => {
+                // If the work category is "installation" or "book", add the link to the filteredWorks array
                   if (["installation", "book"].includes(workCategory)) {
                       filteredWorks.push(link);
+                      // Otherwise, set the "data-fancybox" attribute to allow fancybox to work for the filtered items
                   } else {
                       link.setAttribute("data-fancybox", `filtered-${filter}`);
                       filteredWorks.push(link);
@@ -205,12 +212,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ⭐️ Initialize Functions
-  setTimeout(() => {
       updateGalleryForMobile();
       resetFancybox();
       setupFilters();
       setupSlideshowIndicators();
-  }, 500);
+
 
   window.addEventListener("resize", updateGalleryForMobile);
 });

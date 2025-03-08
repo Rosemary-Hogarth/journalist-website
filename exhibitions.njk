@@ -1,10 +1,5 @@
 ---
 layout: base.njk
-pagination:
-  data: collections.exhibitions
-  size: 1
-  alias: exhibition
-  css: exhibitions
 ---
 
 <div id="exhibitions-main" class="exhibitions-container">
@@ -14,20 +9,13 @@ pagination:
         <div class="exhibition-item">
           <!-- Carousel (clickable) -->
           <div class="carousel-card">
-
-            <div id="carouselExampleControls-{{ exhibition.fileSlug }}" class="carousel slide"
-            data-interval="false">
-
-
-
-
+            <div id="carouselExampleControls-{{ exhibition.fileSlug }}" class="carousel slide" data-interval="false">
               <div class="carousel-inner">
                 {% for image in exhibition.data.images %}
                   <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <img
-                      class="carousel-image d-block w-300"
-                      src="{{ (image | replace('/upload/', '/upload/w_1600,q_auto,f_auto/')) }}"
-                      alt="Image from {{ exhibition.data.title }}" loading="lazy">
+                    <img class="carousel-image d-block w-300"
+                         src="{{ (image | replace('/upload/', '/upload/w_1600,q_auto,f_auto/')) }}"
+                         alt="Image from {{ exhibition.data.title }}" loading="lazy">
                   </div>
                 {% endfor %}
               </div>
@@ -35,29 +23,27 @@ pagination:
               <div class="carousel-click-area right"></div>
             </div>
 
-
-          <!-- CSS Snap Scroll (Mobile Only) -->
-
-          <div class="snap-container d-lg-none">
-            {% for image in exhibition.data.images %}
-            <div class="snap-slide">
-              <img class="carousel-image d-block w-300"
-                src="{{ (image | replace('/upload/', '/upload/w_1600,q_auto,f_auto/')) }}"
-                alt="Image from {{ exhibition.data.title }}" loading="lazy">
-            </div>
-          {% endfor %}
-        </div>
-
-   <div class="carousel-indicators d-lg-none">
+            <!-- CSS Snap Scroll (Mobile Only) -->
+            <div class="snap-container d-lg-none">
               {% for image in exhibition.data.images %}
-                <div class="indicator"
-                  data-bs-target="#carouselExampleControls-{{ exhibition.fileSlug }}"
-                  data-bs-slide-to="{{ loop.index0 }}"
-                  {% if loop.first %}class="indicator active" aria-current="true"{% endif %}>
+                <div class="snap-slide">
+                  <img class="carousel-image d-block w-300"
+                       src="{{ (image | replace('/upload/', '/upload/w_1600,q_auto,f_auto/')) }}"
+                       alt="Image from {{ exhibition.data.title }}" loading="lazy">
                 </div>
               {% endfor %}
             </div>
-      </div>
+
+            <div class="carousel-indicators d-lg-none">
+              {% for image in exhibition.data.images %}
+                <div class="indicator"
+                     data-bs-target="#carouselExampleControls-{{ exhibition.fileSlug }}"
+                     data-bs-slide-to="{{ loop.index0 }}"
+                     {% if loop.first %}class="indicator active" aria-current="true"{% endif %}>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
 
           <!-- Exhibition details (not clickable) -->
           <div class="caption">
@@ -68,34 +54,48 @@ pagination:
               <!--<div class="exhibition-year">{{ exhibition.data.year }}</div>-->
             </div>
 
-            <!-- This is being rendered by javascript -->
+            <!-- This is being rendered by JavaScript -->
             <div class="text-link">
               <div class="show-text"
-                data-exhibition-text-title="{{ exhibition.data.exhibitionTextTitle | escape }}"
-                data-exhibition-text-location="{{ exhibition.data.exhibitionTextLocation | escape }}"
-                data-exhibition-text-curated="{{ exhibition.data.exhibitionTextCurated | escape }}"
-                data-exhibition-text-artists="{{ exhibition.data.exhibitionTextArtists | escape }}"
-                data-exhibition-text-dates="{{ exhibition.data.exhibitionTextDates | escape }}">
+                   data-exhibition-text-title="{{ exhibition.data.exhibitionTextTitle | escape }}"
+                   data-exhibition-text-location="{{ exhibition.data.exhibitionTextLocation | escape }}"
+                   data-exhibition-text-curated="{{ exhibition.data.exhibitionTextCurated | escape }}"
+                   data-exhibition-text-artists="{{ exhibition.data.exhibitionTextArtists | escape }}"
+                   data-exhibition-text-dates="{{ exhibition.data.exhibitionTextDates | escape }}">
 
                 <!-- Language-specific exhibition text blocks -->
-                <div class="exhibition-text" data-lang="en" style="display: none;">{{ (exhibition.data.exhibitionTextEn or '') | markdownify | safe }}</div>
+                <div class="exhibition-text" data-lang="en" style="display: none;">
+                  {{ (exhibition.data.exhibitionTextEn or '') | markdownify | safe }}
+                </div>
                 {% if exhibition.data.exhibitionTextDe %}
-                <div class="exhibition-text" data-lang="de" style="display: none;">{{ (exhibition.data.exhibitionTextDe or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="de" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextDe or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 {% if exhibition.data.exhibitionTextEs %}
-                <div class="exhibition-text" data-lang="es" style="display: none;">{{ (exhibition.data.exhibitionTextEs or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="es" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextEs or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 {% if exhibition.data.exhibitionTextPt %}
-                <div class="exhibition-text" data-lang="pt" style="display: none;">{{ (exhibition.data.exhibitionTextPt or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="pt" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextPt or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 {% if exhibition.data.exhibitionTextFr %}
-                <div class="exhibition-text" data-lang="fr" style="display: none;">{{ (exhibition.data.exhibitionTextFr or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="fr" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextFr or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 {% if exhibition.data.exhibitionTextCh %}
-                <div class="exhibition-text" data-lang="ch" style="display: none;">{{ (exhibition.data.exhibitionTextCh or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="ch" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextCh or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 {% if exhibition.data.exhibitionTextKo %}
-                <div class="exhibition-text" data-lang="ko" style="display: none;">{{ (exhibition.data.exhibitionTextKo or '') | markdownify | safe }}</div>
+                  <div class="exhibition-text" data-lang="ko" style="display: none;">
+                    {{ (exhibition.data.exhibitionTextKo or '') | markdownify | safe }}
+                  </div>
                 {% endif %}
                 <div class="more-info">more info</div>
               </div>
@@ -108,8 +108,10 @@ pagination:
 </div>
 
 <div id="exhibition-text" style="display: none;">
- <div class="button-container">
-  <div id="back-to-grid"><img src="/images/icons_Homepage_v2-02.svg"></div>
+  <div class="button-container">
+    <div id="back-to-grid">
+      <img src="/images/icons_Homepage_v2-02.svg">
+    </div>
     <div id="language-toggle"></div>
   </div>
   <div id="text-content" class="narrow-container">
@@ -121,13 +123,9 @@ pagination:
     <p class="exhibition-details-artists"></p>
     <p class="exhibition-details-date"></p>
     <div class="exhibition-details-text"></div>
-     <data-exhibition-text="{{ (exhibition.data.exhibitionTextEn or '') | escape }}">
+    <data-exhibition-text="{{ (exhibition.data.exhibitionTextEn or '') | escape }}">
   </div>
 </div>
-
-
-
-
 
 {% block scripts %}
   <script src="/exhibitions.js"></script>

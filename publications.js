@@ -1,100 +1,92 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   console.log("publications.js is running...");
   console.log("DOM fully loaded!");
 
-
-
-if (window.location.pathname.includes("publications")) {
-  document.body.classList.add("publications-page");
-}
-
-function updateGalleryForMobile() {
-  const isMobile = window.matchMedia("(max-width: 992px)").matches;
-  const publicationItems = document.querySelectorAll(".publication-image-container a");
-
-  publicationItems.forEach((item) => {
-    // Disable Fancybox on mobile
-    if (isMobile) {
-      item.removeAttribute("data-fancybox");
-      item.style.pointerEvents = "none"; // Prevent opening
-      item.classList.add("disabled-fancybox");
-    } else {
-      // Restore Fancybox on desktop
-      if (!item.getAttribute("data-fancybox")) {
-        const catalogueId = item.closest(".publication-image-container").getAttribute("data-catalogue-id");
-        if (catalogueId) {
-          item.setAttribute("data-fancybox", `catalogue-${catalogueId}`);
-        }
-      }
-      item.style.pointerEvents = "auto"; // Enable click
-      item.classList.remove("disabled-fancybox");
-    }
-  });
-
-  // On mobile, enable the CSS snap scroll instead of Fancybox
-  document.querySelectorAll(".mobile-slideshow").forEach(slideshow => {
-    slideshow.style.display = isMobile ? "flex" : "none";
-  });
-
-  // On desktop, rebind Fancybox
-  if (!isMobile) {
-    updateFancybox();
+  if (window.location.pathname.includes("publications")) {
+    document.body.classList.add("publications-page");
   }
-}
 
-function updateFancybox() {
-  const fancyboxOptions = {
-    customClass: "publications-page",
-    hideScrollbar: false,
-    autoFocus: false,
+  function updateGalleryForMobile() {
+    const isMobile = window.matchMedia("(max-width: 992px)").matches;
+    const publicationItems = document.querySelectorAll(".publication-image-container a");
 
-    Thumbs: false,
-    slideshow: true,
-    fullScreen: false,
-    zoom: false,
-    Toolbar: {
-      display: ["close", "counter"],
-    },
-    arrows: true,
-    dragToClose: true,
-    Image: { zoom: false, click: "next" },
-    Carousel: { friction: 0 },
-    click: false,
-    infinite: true,
-
-    on: {
-      init: (fancybox) => {
-        // This will apply the custom dark background on the publications page only
-        if (document.body.classList.contains("publications-page")) {
-          const backdrop = document.querySelector(".fancybox__backdrop");
-          if (backdrop) {
-            backdrop.classList.add("publications-backdrop");
-            backdrop.style.backgroundColor = " #131313"; // Apply dark background
-            backdrop.style.setProperty('background-color', ' #131313', 'important');
-
+    publicationItems.forEach((item) => {
+      if (isMobile) {
+        // Disable Fancybox on mobile
+        item.removeAttribute("data-fancybox");
+        item.style.pointerEvents = "none";
+        item.classList.add("disabled-fancybox");
+      } else {
+        // Restore Fancybox on desktop
+        if (!item.getAttribute("data-fancybox")) {
+          const catalogueId = item.closest(".publication-image-container").getAttribute("data-catalogue-id");
+          if (catalogueId) {
+            item.setAttribute("data-fancybox", `catalogue-${catalogueId}`);
           }
         }
-        console.log("Fancybox initialized with baseClass:", fancybox.options.baseClass);
+        item.style.pointerEvents = "auto";
+        item.classList.remove("disabled-fancybox");
+      }
+    });
+
+    // Toggle mobile slideshow display
+    document.querySelectorAll(".mobile-slideshow").forEach((slideshow) => {
+      slideshow.style.display = isMobile ? "flex" : "none";
+    });
+
+    // Rebind Fancybox on desktop
+    if (!isMobile) {
+      updateFancybox();
+    }
+  }
+
+  function updateFancybox() {
+    const fancyboxOptions = {
+      customClass: "publications-page",
+      hideScrollbar: false,
+      autoFocus: false,
+      Thumbs: false,
+      slideshow: true,
+      fullScreen: false,
+      zoom: false,
+      Toolbar: { display: ["close", "counter"] },
+      arrows: true,
+      dragToClose: true,
+      Image: { zoom: false, click: "next" },
+      Carousel: { friction: 0 },
+      click: false,
+      infinite: true,
+
+      on: {
+        init: (fancybox) => {
+          // Apply custom dark background on publications page
+          if (document.body.classList.contains("publications-page")) {
+            const backdrop = document.querySelector(".fancybox__backdrop");
+            if (backdrop) {
+              backdrop.classList.add("publications-backdrop");
+              backdrop.style.setProperty("background-color", "#131313", "important");
+            }
+          }
+          console.log("Fancybox initialized with baseClass:", fancybox.options.baseClass);
+        },
+        destroy: () => {
+          // Reset the background color when Fancybox is destroyed
+          const backdrop = document.querySelector(".publications__backdrop");
+          if (backdrop) {
+            backdrop.classList.remove("publications-backdrop");
+            backdrop.style.backgroundColor = "";
+          }
+        },
       },
-      destroy: () => {
-        // Reset the background color when Fancybox is destroyed
-        const backdrop = document.querySelector(".publications__backdrop");
-        if (backdrop) {
-          backdrop.classList.remove("publications-backdrop");
-          backdrop.style.backgroundColor = ""; // Reset background color
-        }
-      },
-    },
-  };
+    };
 
-  // Bind Fancybox to catalogue images
-  Fancybox.bind('[data-fancybox^="catalogue-"]', fancyboxOptions);
-}
+    // Bind Fancybox to catalogue images
+    Fancybox.bind('[data-fancybox^="catalogue-"]', fancyboxOptions);
+  }
 
-// Run the function initially and on resize
-updateGalleryForMobile();
-window.addEventListener("resize", updateGalleryForMobile);
-
+  // Run the function initially and on resize
+  updateGalleryForMobile();
+  window.addEventListener("resize", updateGalleryForMobile);
 
   // Restore focus to the last focused element when Fancybox is closed
   let lastFocusedElement;
@@ -122,57 +114,45 @@ window.addEventListener("resize", updateGalleryForMobile);
     }
   });
 
+  // Mobile slideshow functionality
+  document.querySelectorAll(".mobile-slideshow").forEach((slideshow) => {
+    console.log("Checking slideshow:", slideshow);
 
+    const publicationItem = slideshow.closest(".publication-item");
+    if (!publicationItem) {
+      console.warn("Publication item not found for:", slideshow);
+      return;
+    }
 
+    const indicatorsContainer = publicationItem.querySelector(".carousel-indicators-publications");
+    if (!indicatorsContainer) {
+      console.warn("Indicators container not found for:", slideshow);
+      return;
+    }
 
+    console.log("Indicators container found:", indicatorsContainer);
 
-    const slideshows = document.querySelectorAll(".mobile-slideshow");
-    console.log("Slideshows found:", slideshows);
+    const indicators = indicatorsContainer.querySelectorAll(".indicator-publications");
+    let currentIndex = 0;
 
-    slideshows.forEach(slideshow => {
-        console.log("Checking slideshow:", slideshow);
+    function updateIndicators(index) {
+      indicators.forEach((indicator) => indicator.classList.remove("active"));
+      if (indicators[index]) {
+        indicators[index].classList.add("active");
+      }
+    }
 
-        // Move up to the closest publication-item and then find the indicators
-        const publicationItem = slideshow.closest(".publication-item");
-        if (!publicationItem) {
-            console.warn("Publication item not found for:", slideshow);
-            return;
-        }
+    slideshow.addEventListener("scroll", () => {
+      const scrollLeft = slideshow.scrollLeft;
+      const slideWidth = slideshow.offsetWidth;
+      const newIndex = Math.round(scrollLeft / slideWidth);
 
-        const indicatorsContainer = publicationItem.querySelector(".carousel-indicators-publications");
-
-        if (!indicatorsContainer) {
-            console.warn("Indicators container not found for:", slideshow);
-            return; // Stop execution if indicators are missing
-        }
-
-        console.log("Indicators container found:", indicatorsContainer);
-
-        const indicators = indicatorsContainer.querySelectorAll(".indicator-publications");
-        console.log("Indicators found:", indicators);
-
-        let currentIndex = 0;
-
-        function updateIndicators(index) {
-            indicators.forEach(indicator => indicator.classList.remove("active"));
-            if (indicators[index]) {
-                indicators[index].classList.add("active");
-            }
-        }
-
-        slideshow.addEventListener("scroll", () => {
-            let scrollLeft = slideshow.scrollLeft;
-            let slideWidth = slideshow.offsetWidth;
-
-            let newIndex = Math.round(scrollLeft / slideWidth);
-            console.log("Scrolled to index:", newIndex);
-
-            if (newIndex !== currentIndex) {
-                currentIndex = newIndex;
-                updateIndicators(currentIndex);
-            }
-        });
-
-        updateIndicators(0);
+      if (newIndex !== currentIndex) {
+        currentIndex = newIndex;
+        updateIndicators(currentIndex);
+      }
     });
+
+    updateIndicators(0);
+  });
 });

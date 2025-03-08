@@ -1,17 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  /**
-   * Removes padding from the main container if the URL contains "/exhibitions".
-   */
+
+   // Removes padding from the main container if the URL contains "/exhibitions".
   function removeContainerPadding() {
     const mainContainer = document.querySelector('.main-container');
-    if (mainContainer && window.location.href.includes("/exhibitions")) {
-      mainContainer.style.padding = '0';
+      // check if the element exists
+    if (mainContainer) {
+      if (window.location.href.includes("/exhibitions")) {
+        mainContainer.style.padding = '0';
+      }
+    } else {
+        console.warn('.main-container missing!');
     }
   }
 
   removeContainerPadding();
 
-  // Cache DOM elements to avoid redundant queries
+
+
+  // Grab DOM elements
   const showTextButtons = document.querySelectorAll('.show-text');
   const exhibitionGrid = document.getElementById('exhibition-grid');
   const exhibitionText = document.getElementById('exhibition-text');
@@ -19,19 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const backToGridButton = document.getElementById('back-to-grid');
   const languageToggle = document.getElementById('language-toggle');
 
-  // Prevent script execution if any required elements are missing
+  // Safety Check: Prevent Errors
   if (!showTextButtons.length || !exhibitionGrid || !exhibitionText || !textContent || !backToGridButton || !languageToggle) {
     console.warn('One or more required elements not found');
     return;
   }
 
+
+
+  // Define global variables - help track user state when navigating between views.
   let lastScrollPosition = 0; // Stores scroll position before navigating to text view
   let currentLanguage = 'en'; // Default language
   let activeExhibition = null; // Stores the currently active exhibition
 
-  /**
-   * Updates exhibition text content based on the provided details.
-   */
+
+
+
+  // Render Exhibition Text - updates exhibition details dynamically with values from the dataset
   function renderText(title, location, curated, artists, date, text) {
     textContent.querySelector('.exhibition-details-title').textContent = title;
     textContent.querySelector('.exhibition-details-location').textContent = location;
@@ -41,19 +51,22 @@ document.addEventListener("DOMContentLoaded", function () {
     textContent.querySelector('.exhibition-details-text').innerHTML = text;
   }
 
-  /**
-   * Retrieves available languages from the exhibition text container.
-   */
+
+
+
+   // Finds all available languages by extracting data-lang attributes from .exhibition-text elements
   function getAvailableLanguages(textContainer) {
-    return Array.from(new Set(
-      [...textContainer.querySelectorAll('.exhibition-text')].map(el => el.dataset.lang)
+    return Array.from(new Set(                                                            // Array.from Converts the Set back into an array and new Set removes duplicate language codes
+      [...textContainer.querySelectorAll('.exhibition-text')].map(el => el.dataset.lang) // spread operator (...) converts node list into an array
     ));
   }
 
-  /**
-   * Updates exhibition content for the selected language.
-   */
+
+
+
+  // Grabs exhibition details from data-attributes and displays text in the selected language
   function updateContentForLanguage(textContainer, language) {
+
     const title = textContainer.getAttribute("data-exhibition-text-title");
     const location = textContainer.getAttribute("data-exhibition-text-location");
     const curated = textContainer.getAttribute("data-exhibition-text-curated");
@@ -61,12 +74,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const date = textContainer.getAttribute("data-exhibition-text-dates");
     const textElement = textContainer.querySelector(`.exhibition-text[data-lang="${language}"]`);
 
+
+
     renderText(title, location, curated, artists, date, textElement ? textElement.innerHTML : "No text available for this language.");
   }
 
-  /**
-   * Creates language selection buttons dynamically.
-   */
+
+
+
+   // Dynamically creates language buttons and adds event listeners to switch languages
   function createLanguageButtons(availableLanguages) {
     languageToggle.innerHTML = ''; // Clear existing buttons
 
@@ -82,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const button = document.createElement('a');
       button.href = '#';
       button.textContent = lang.toUpperCase();
-      button.classList.add('language-link');
+      button.classList.add('language-link'); // JS adds the class to the newly created a tag
       button.style.color = lang === currentLanguage ? "black" : "#9D9D9C";
 
       button.addEventListener('click', (event) => {
@@ -90,18 +106,20 @@ document.addEventListener("DOMContentLoaded", function () {
         switchLanguage(lang);
       });
 
-      languageToggle.appendChild(button);
+      languageToggle.appendChild(button);  // appends button as a child to the languageToggle DOM element
       if (index < availableLanguages.length - 1) {
-        languageToggle.appendChild(document.createTextNode(' / '));
+        languageToggle.appendChild(document.createTextNode(' / ')); // If it's not the last button, it adds a " / " separator between language buttons.
       }
     });
   }
 
-  /**
-   * Switches the exhibition text to the selected language.
-   */
+
+
+
+
+   // Updates the active language and adjusts button styles.
   function switchLanguage(language) {
-    if (!activeExhibition) return;
+    if (!activeExhibition) return;  // If activeExhibition is  null, undefined, false or 0, the function exits
 
     currentLanguage = language;
     updateContentForLanguage(activeExhibition, currentLanguage);
@@ -113,16 +131,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /**
-   * Displays exhibition details when a "show text" button is clicked.
-   */
+
+
+
+
+
+   // Saves scroll position, updates content, and switches to the exhibition text view.
   function showExhibitionText(button) {
     lastScrollPosition = window.scrollY;
-    activeExhibition = button;
+    activeExhibition = button; // Stores the clicked button as the active exhibition
     currentLanguage = 'en'; // Reset to default language
 
-    updateContentForLanguage(button, currentLanguage);
-    createLanguageButtons(getAvailableLanguages(button));
+    updateContentForLanguage(button, currentLanguage); // call function and updates the exhibition text based on the selected language
+    createLanguageButtons(getAvailableLanguages(button)); // gets available languages and creates buttons
 
     exhibitionGrid.style.display = 'none';
     exhibitionText.style.display = 'block';
@@ -131,27 +152,32 @@ document.addEventListener("DOMContentLoaded", function () {
     history.pushState(null, '', '/exhibitions'); // Update URL
   }
 
-  /**
-   * Returns to the exhibition grid view from the details page.
-   */
+
+
+
+
+   // Restores the exhibition grid view and scrolls back to the previous position.
   function returnToGridView() {
     exhibitionGrid.style.display = 'block';
     exhibitionText.style.display = 'none';
 
     setTimeout(() => window.scrollTo({ top: lastScrollPosition, behavior: 'smooth' }), 0);
+    // Modifies  URL without reloading the page using the History API and changes URL to "/exhibitions" so users can use the back button
     history.pushState(null, '', '/exhibitions');
   }
 
-  // Attach event listeners to buttons
+  // Adds click events to the more info buttons to open exhibition text.
   showTextButtons.forEach(button => {
     button.addEventListener('click', () => showExhibitionText(button));
   });
 
-  backToGridButton.addEventListener('click', returnToGridView);
+  backToGridButton.addEventListener('click', returnToGridView); // adds click to the close button 'X'
 
-  /**
-   * Initializes and updates slideshow indicators dynamically.
-   */
+
+
+
+
+    // Handle Slideshow Indicators - updates slideshow indicator dots based on the current index.
   document.querySelectorAll(".snap-container").forEach(slideshow => {
     const exhibItem = slideshow.closest(".carousel-card");
     const indicatorsContainer = exhibItem?.querySelector(".carousel-indicators");
@@ -162,34 +188,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let currentIndex = 0;
-    const maxVisibleIndicators = 5;
     const indicators = Array.from(indicatorsContainer.querySelectorAll(".indicator"));
 
-    /**
-     * Updates slideshow indicator dots based on the current index.
-     */
+    // Function to update the active class on the indicator
     function updateIndicators(index) {
-      indicatorsContainer.innerHTML = ""; // Clear previous indicators
-      const start = Math.max(0, Math.min(index - 2, indicators.length - maxVisibleIndicators));
-      const end = Math.min(indicators.length, start + maxVisibleIndicators);
-
-      for (let i = start; i < end; i++) {
-        let dot = document.createElement("div");
-        dot.classList.add("indicator");
-        if (i === index) dot.classList.add("active");
-        indicatorsContainer.appendChild(dot);
-      }
+      // Remove active class from all indicators
+      indicators.forEach(indicator => indicator.classList.remove("active"));
+      // Add active class to the specific indicator
+      indicators[index]?.classList.add("active");
     }
 
-    // Scroll event listener to update indicators dynamically
+    // Add scroll event listener to the slideshow container
     slideshow.addEventListener("scroll", () => {
+      // Calculate the new index based on scroll position
       let newIndex = Math.round(slideshow.scrollLeft / slideshow.offsetWidth);
       if (newIndex !== currentIndex) {
         currentIndex = newIndex;
-        updateIndicators(currentIndex);
+        updateIndicators(currentIndex); // Update the active indicator
       }
     });
 
-    updateIndicators(0); // Initialize indicators
+    updateIndicators(0); // Set the first indicator as active when the page loads
   });
-});
+
+})

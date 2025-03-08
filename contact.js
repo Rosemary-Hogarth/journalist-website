@@ -9,15 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleLinks.forEach(link => {
     // Initially set the color of all toggle links to black
     link.style.color = "black";
-
     // Add a click event listener to each toggle link
     link.addEventListener('click', (e) => {
       // Prevent the default behavior (like navigating to a link)
       e.preventDefault();
-
       // Get the target content ID from the 'data-toggle' attribute of the link
       const targetId = link.getAttribute('data-toggle');
-
       // Call the toggleContent function to show/hide the content based on the targetId
       toggleContent(targetId);
 
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (l === link) {
           // Set the clicked link's color to black
           l.style.color = "black";
-
           // Mark this link as the current active toggle
           currentToggle = l;
         } else {
@@ -87,8 +83,5 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
-
-
-
 
 })

@@ -2,6 +2,7 @@
 layout: base.njk
 css: news
 ---
+
 {% if collections.upcoming and collections.upcoming.length > 0 %}
   {% for newsItem in collections.upcoming %}
     <div class="news-container">
@@ -10,12 +11,13 @@ css: news
       <p class="news-item">{{ newsItem.data.opening or "not specified" }}</p>
       {% set web = newsItem.data.web %}
 
-        {% if web and web | slice(0, 4) != "http" %}
-          {% set web = "https://" + web %}
-        {% endif %}
+      {% if web and web | slice(0, 4) != "http" %}
+        {% set web = "https://" + web %}
+      {% endif %}
 
       <p class="news-item web">
         <a href="{{ web }}" target="_blank">{{ newsItem.data.web }}</a>
+      </p>
     </div>
   {% endfor %}
 {% else %}
@@ -31,20 +33,20 @@ css: news
       <p class="news-item"><em>{{ newsItem.data.title }}</em></p>
       <p class="news-item">{{ newsItem.data.location }}</p>
       <p class="news-item">{{ newsItem.data.opening }}</p>
-       {% set web = newsItem.data.web %}
 
-        {% if web and web | slice(0, 4) != "http" %}
-          {% set web = "https://" + web %}
-        {% endif %}
+      {% set web = newsItem.data.web %}
+      {% if web and web | slice(0, 4) != "http" %}
+        {% set web = "https://" + web %}
+      {% endif %}
 
       <p class="news-item web">
         <a href="{{ web }}" target="_blank">{{ newsItem.data.web }}</a>
-</div>
-
-      {% endfor %}
-    {% else %}
-      <p>No recent exhibitions.</p>
-    {% endif %}
+      </p>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No recent exhibitions.</p>
+{% endif %}
 
 {% if collections.press and collections.press.length > 0 %}
   {% for newsItem in collections.press %}
@@ -54,16 +56,17 @@ css: news
       {% endif %}
       <p class="news-item"><em>{{ newsItem.data.title }}</em></p>
       <p class="news-item">{{ newsItem.data.magazine }}</p>
-      {% set link = newsItem.data.link %}
 
+      {% set link = newsItem.data.link %}
       {% if link and link | slice(0, 4) != "http" %}
         {% set link = "https://" + link %}
       {% endif %}
+
       <p class="news-item web">
         <a href="{{ link }}" target="_blank">{{ newsItem.data.link }}</a>
       </p>
     </div>
   {% endfor %}
 {% else %}
-  <p>No recent press</p>
+  <p>No recent press.</p>
 {% endif %}
