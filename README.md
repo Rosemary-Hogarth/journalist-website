@@ -32,7 +32,7 @@ Along the way, I tackled challenges such as:
 - Build a fast, lightweight, and responsive website with a headless CMS.  
 - Enable smooth content management via Decap CMS.  
 - Optimise images dynamically using Cloudinary to improve performance.  
-- Implement a filter system for artworks, each with its own slideshow.  
+- Implement an artworks grid with slideshows.  
 - Support multiple languages for accessibility and international reach.  
 
 
