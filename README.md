@@ -32,7 +32,7 @@ Along the way, I tackled challenges such as:
 - Build a fast, lightweight, and responsive website with a headless CMS.  
 - Enable smooth content management via Decap CMS.  
 - Optimise images dynamically using Cloudinary to improve performance.  
-- Implement a filter system for artworks, each with its own slideshow.  
+- Implement an artworks grid with slideshows.  
 - Support multiple languages for accessibility and international reach.  
 
 
@@ -59,12 +59,7 @@ Along the way, I tackled challenges such as:
 ### 💻 Custom Eleventy Filters for Markdown Formatting  
 ✅ **Solution:** Researched and implemented **custom Eleventy filters** to properly parse and format Markdown, ensuring clean and readable content output. 
 - ![code View](screenshots/markdownify-snippet.png) 
-
-### 💻 Implementing a Filter System for Artworks (Each with Its Own Slideshow)  
-✅ **Solution:**  
-- Built an **artwork categorisation system** in Eleventy.  
-- Used **JavaScript, Eleventy collections & Fancybox data attributes** to filter artworks dynamically.  
-- Integrated **custom slideshow logic** for each category.  
+ 
 
 ### 💻 Implementing Multi-Language Support in Decap CMS & Eleventy  
 ✅ **Solution:**  
