@@ -19,7 +19,6 @@ img {
 }
 
 
-
 /* navbar */
 
 .fullscreen-menu {
@@ -65,7 +64,6 @@ img {
 .fullscreen-menu.active {
   transform: translateY(0);
 }
-
 
 
 .navbar-toggler:focus {
@@ -210,41 +208,12 @@ img {
 }
 
 
-/* Exhibitions */
-
-/* WORKS */
-
-
-/* publications */
-
-
-/* about */
-
-/* contact-imprint - privacy */
-
-
-
-
-
-
-
-
-
 
 /* MEDIA QUERIES */
 
 
 
-
-
-
-
-
-
 @media (max-width: 576px) {
-
-
-
   .main-container {
     padding: 0 8px;
 
@@ -264,8 +233,8 @@ img {
 .navbar {
   position: relative;
 
-
 }
+
 
 .navbar-toggler {
   position: absolute;
