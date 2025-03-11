@@ -1,6 +1,6 @@
 # Julius Heinemann Art 
 
-🔗 **Live Demo:** [View the Website on Netlify](https://julius-heinemann-art.netlify.app/) 
+🔗 **Live Demo:** [View the Website on Netlify](https://67caf783699d780008aed76a--courageous-bonbon-e9ab9d.netlify.app/) 
 
 ## 🖼️ Project Overview  
 
