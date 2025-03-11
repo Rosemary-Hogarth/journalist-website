@@ -177,6 +177,6 @@ pagination:
   </div>
 </div>
 
-{% block scripts %}
+{% if page.url == "/about/" %}
   <script src="/about-texts.js"></script>
-{% endblock %}
+{% endif %}
