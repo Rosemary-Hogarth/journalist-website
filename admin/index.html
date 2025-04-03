@@ -1,44 +1,30 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Content Manager</title>
-        <style>
-          /* Style for the "Back to Homepage" button */
-          .back-home-button {
-
-              position: absolute;
-              top: 15px; /* Adjust vertical placement */
-              left: 50%; /* Adjust horizontal placement */
-              padding: 10px 20px;
-              background-color: #007bff;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-              z-index: 1000; /* Ensure it appears on top of other elements */
-          }
-      </style>
-    </head>
-    <body>
-
-      <a href="/" class="back-home-button">Back to Homepage</a>
-        <!-- Include the script that builds the page and powers Netlify CMS -->
-        <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-        <!-- Netlify Identity Widget -->
-        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script>
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-              if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                  document.location.href = "/admin/";
-                });
-              }
-            });
-          }
-        </script>
-
-    </body>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Content Manager</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <style>
+      .back-home-button {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-home-button">Back to Homepage</a>
+    <!-- Initialize CMS -->
+    <script>
+      CMS.init();
+    </script>
+  </body>
 </html>

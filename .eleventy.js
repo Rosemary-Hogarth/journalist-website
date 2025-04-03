@@ -3,9 +3,13 @@ require('dotenv').config();
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
+const slugify = require("slugify");
 
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addFilter("slugify", function(value) {
+    return slugify(value, { lower: true });
+  });
 
   const md = require("markdown-it")({
     html: false,
@@ -89,35 +93,26 @@ module.exports = function(eleventyConfig) {
   });
 
 
+
   eleventyConfig.addCollection("homepage_slideshow", function(collectionApi) {
     return collectionApi.getFilteredByGlob("homepage_slideshow/*.md");
   });
 
-  eleventyConfig.addCollection("exhibitions", function(collectionApi) {
+
+
+  eleventyConfig.addCollection("work", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("./work/*.md")
+
+  });
+
+
+
+  eleventyConfig.addCollection("articles", function(collectionApi) {
     return collectionApi
-      .getFilteredByGlob("exhibitions/*.md")
-      .filter(item => item.data.order !== undefined)
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0)); // Default to 0 if `order` is undefined
+      .getFilteredByGlob("./articles/*.md")
+      .sort((a, b) => a.data.order - b.data.order);
   });
 
-
-  eleventyConfig.addCollection("works", function (collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("./works/*.md")
-      .filter(item => item.data.order !== undefined)
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-  });
-
-
-
-  eleventyConfig.addCollection("publications", function(collectionApi) {
-    const publications = collectionApi.getFilteredByGlob("publications/*.md");
-    return publications;
-  });
-
-  eleventyConfig.addCollection("about-texts", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("about/texts/*.md");
-  });
 
 
   eleventyConfig.addCollection("about", function(collectionApi) {
@@ -125,61 +120,7 @@ module.exports = function(eleventyConfig) {
     return about;
   });
 
-  eleventyConfig.addCollection("full-texts", function (collectionApi) {
-    const fullTexts = collectionApi.getFilteredByGlob("full-texts/*.md");
-    console.log('Full Texts Count:', fullTexts.length);
-    fullTexts.forEach(text => {
-      console.log('Text Slug:', text.data.slug);
-      console.log('Text Title:', text.data.title);
-    });
-    return fullTexts;
-  });
 
-
-  eleventyConfig.addCollection("studio", function(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("contact/studio/*.md")
-      .filter(item => item.data.order !== undefined) // Ensure `order` is defined
-      .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
-  });
-
-  eleventyConfig.addCollection("gallery", function(collectionApi) {
-    return collectionApi
-    .getFilteredByGlob("contact/gallery/*.md")
-    .filter(item => item.data.order !== undefined) // Ensure `order` is defined
-    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
-
-  });
-
-  eleventyConfig.addCollection("imprint", function(collectionApi) {
-    const imprint = collectionApi.getFilteredByGlob("imprint/*.md");
-    return imprint;
-  });
-
-  eleventyConfig.addCollection("privacy", function(collectionApi) {
-    const privacy = collectionApi.getFilteredByGlob("privacy/*.md");
-    console.log(privacy);
-    return privacy;
-  });
-
-  eleventyConfig.addCollection("upcoming", function(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("news/upcoming/*.md")
-      .sort((a, b) => a.data.order - b.data.order);
-  });
-
-  eleventyConfig.addCollection("recent", function(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("news/recent/*.md")
-      .sort((a, b) => a.data.order - b.data.order);
-  });
-
-  eleventyConfig.addCollection("press", function(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("news/press/*.md")
-      .sort((a, b) => a.data.order - b.data.order);
-  });
 
 
 
