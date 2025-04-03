@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   repo: Rosemary-Hogarth/journalist-website
   branch: master
-  local_backend: true
+  baseUrl: https://journalist-website.netlify.app
 
 
 
