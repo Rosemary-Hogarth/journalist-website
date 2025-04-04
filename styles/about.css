@@ -165,6 +165,7 @@ p.category-title-about {
   .portrait {
     max-width: 80%;
     margin-bottom: 20px;
+    margin-top: 0;
   }
 
   .contact-section {

@@ -96,6 +96,7 @@
     flex-direction: column;
     height: 100px;
     justify-content: center;
+    text-align: center;
   }
 
   .work-card .article-title {
