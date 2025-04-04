@@ -34,7 +34,7 @@ p.category-title-about {
   max-width: 400px;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .logo a {
@@ -109,7 +109,7 @@ p.category-title-about {
 
 .img-container {
   border-left: 2px solid black;
-  padding-bottom: 300px;;
+  padding-bottom: 250px;;
 }
 
 .contact-section {

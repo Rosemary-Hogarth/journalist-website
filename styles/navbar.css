@@ -72,8 +72,17 @@ body {
   line-height: 40px;;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .logo {
     font-size: 25px;
+  }
+
+  .menu a {
+    padding: 15px;
+  }
+
+  .close-btn {
+    top: 0;
+    right: 15px;
   }
 }
