@@ -1,24 +1,76 @@
 backend:
-  name: git-gateway
+  name: github # needs to be github not git-gateway!!
   repo: Rosemary-Hogarth/journalist-website
   branch: master
-  baseUrl: https://journalist-website.netlify.app
 
 
 
-media_folder: "images/uploads"
+
+media_folder: "/images/uploads"
 public_folder: "/images/uploads"
 
 
 collections:
-  - name: "articles"
-    label: "Articles"
-    folder: "articles"
+  - name: "work"
+    label: "Work"
+    folder: "work"
+    create: true
+    slug: '{{title | slugify}}'
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Date", name: "date", widget: "string", required: true }
+      - { label: "Summary", name: "summary", widget: "text", required: true }
+      - { label: "Link", name: "link", widget: "string", required: true }
+      - label: "Categories"
+        name: "categories"
+        widget: "relation"
+        collection: "work-categories"  # The collection where your categories are defined
+        search_fields: ["categoryName"]  # Field that you want to search within the category collection
+        value_field: "{{slug}}"  # Value to be saved
+        display_fields: ["categoryName"]  # Field to display in the dropdown (for easy selection)
+        multiple: true
+
+
+
+  - name: "work-categories"
+    label: "Work Categories"
+    folder: "work/categories"
+    create: true
+    slug: "{{categoryName | slugify}}"
+    fields:
+      - {label: "Category Name", name: "categoryName", widget: "string", required: true}
+      - {label: "Category Description", name: "categoryDescription", widget: "text", required: false}
+      - {label: "Category Color", name: "categoryColor", widget: "string", required: false}  # Optional field for styling
+
+
+
+  - name: "background"
+    label: "About-Background"
+    folder: "about/background"
     create: true
     slug: '{{title | slugify}}'
     sortableFields: ["order", "title"]
     fields:
-      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the articles as you want them displayed." }
-      - { label: "Date", name: "articleDate", widget: "string", required: true }
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Web", name: "web", widget: "string", required: true }
+      - { label: "Background", name: "background", widget: "markdown", required: true }
+
+  - name: "image"
+    label: "About-Image"
+    folder: "images/uploads"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Image", name: "image", widget: "image", required: true }
+
+
+  - name: "skills"
+    label: "About-Skills"
+    folder: "about/skills"
+    create: true
+    slug: '{{title | slugify}}'
+    sortableFields: ["order", "title"]
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Skills", name: "skills", widget: "markdown", required: true }

@@ -1,32 +1,53 @@
-
 ---
-title: Work
-
+layout: base.njk
+title: "Work"
 ---
 
+<div class="card-container">
+  <!-- Fixed Articles Heading (Not Toggleable) -->
+  <div class="category" id="category-articles">
+    <p class="heading">Articles</p>
+  </div>
 
+  <div class="category" id="category-growth-stories">
+    <p class="category-title">Growth Stories</p>
+  </div>
+  <div class="work-cards-container growth-stories">
+    {% if item.data.categories %}
+      <div class="categories">
+        {% for category in item.data.categories %}
+          <span class="category">{{ category.categoryName }}</span>  <!-- Render the category name -->
+        {% endfor %}
+      </div>
+    {% endif %}
 
-
-{% if collections.articles and collections.articles.length > 0 %}
-  {% for article in collections.articles %}
-    <div class="news-container">
-      <p class="news-item title">{{ article.data.articleDate }}</p>
-      <p class="news-item">{{ article.data.title }}</p>
-      <p class="news-item">{{ article.data.opening or "not specified" }}</p>
-      {% set web = article.data.web %}
-
-
-      <p class="news-item web">
-        <a href="{{ web }}" target="_blank">{{ article.data.web }}</a>
+  {% for item in collections.work %}
+    <div class="work-card"
+         data-title="{{ item.data.title }}"
+         data-date="{{ item.data.date }}"
+         data-summary="{{ item.data.summary }}"
+         data-link="{{ item.data.link }}">
+      <p class="date">{{ item.data.date }}</p>
+      <p class="article-title">
+        <a href="{{ item.data.link }}" target="_blank">{{ item.data.title }}</a>
       </p>
+      <button class="article-btn" data-toggle="modal" data-target="#articleModal">Read more</button>
     </div>
   {% endfor %}
-{% else %}
-  <p>No upcoming exhibitions.</p>
-{% endif %}
-
+</div>
+ </div>
+<!-- Modal -->
+<div class="modal" id="articleModal">
+  <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-date"></p>
+      <p id="modal-summary"></p>
+      <div id="modal-link-container"></div> <!-- Placeholder for the button -->
+  </div>
+</div>
 
 {% block scripts %}
   <script src="/work.js"></script>
-
+   <script src="/modal.js"></script>
 {% endblock %}

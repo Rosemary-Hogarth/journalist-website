@@ -44,16 +44,16 @@ function setupMobileToggle() {
     button.removeEventListener('click', toggleWorks); // Remove any existing listeners
     category.removeEventListener('click', toggleWorks); // Remove any existing listeners
     if (isTabletOrMobile) {
-    // Assign a random hex color to the button
-    button.style.backgroundColor = getRandomHexColor();
-    button.addEventListener('click', toggleWorks);
+      // Assign a random hex color to the button
+      button.style.backgroundColor = getRandomHexColor();
+      button.addEventListener('click', toggleWorks);
     } else {
       button.addEventListener('click', toggleWorks);
-     // Desktop reset
-     button.style.backgroundColor = '';
-     category.style.backgroundColor = '';
-   }
- });
+      // Desktop reset
+      button.style.backgroundColor = '';
+      category.style.backgroundColor = '';
+    }
+  });
 }
 
 // Run the updateCategoryTitleColor on page load
@@ -87,6 +87,7 @@ cards.forEach(card => {
     }
   });
 
+  // Click event to open the modal
   card.addEventListener("click", function () {
     const title = this.getAttribute("data-title");
     const date = this.getAttribute("data-date");
@@ -108,6 +109,7 @@ cards.forEach(card => {
   });
 });
 
+// Function to open the modal and populate it with the clicked card's data
 function openModal(title, date, summary, link) {
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-date").textContent = date;
@@ -117,11 +119,11 @@ function openModal(title, date, summary, link) {
   document.getElementById("articleModal").style.display = "block";
 }
 
+// Modal close functionality
 const modal = document.getElementById("articleModal");
 const closeButton = document.querySelector(".close-modal");
 
-
-
+// Close the modal when clicking the close button
 closeButton.addEventListener("click", function () {
   modal.style.display = "none";
 });

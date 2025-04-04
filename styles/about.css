@@ -3,6 +3,12 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .about-container {
   max-width: 100%;
   margin: 100px auto;
@@ -19,6 +25,9 @@ body {
   max-width: 100%;
 }
 
+p.category-title-about {
+  margin: 0;
+}
 /* Make image responsive */
 .portrait {
   width: 100%;
@@ -26,7 +35,6 @@ body {
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 50px;
 }
 
 
@@ -134,9 +142,9 @@ body {
 /* Mobile Styles */
 @media (max-width: 768px) {
   .about-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
     margin: 20px;
   }
 
@@ -173,4 +181,6 @@ body {
  font-size: 20px;
  letter-spacing: 5px;
 }
+
+
 }

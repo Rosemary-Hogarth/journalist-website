@@ -1,0 +1,46 @@
+---
+layout: base.njk
+---
+
+{% set backgroundItem = collections.aboutBackground[0].data %}
+{% set skillsItem = collections.aboutSkills[0].data %}
+{% set imageItem = collections.aboutImage[0].data %}
+
+<div class="category-services">
+  <p class="category-title-about">About</p>
+</div>
+
+<div class="about-container">
+  <div class="about-section container">
+    <div class="row">
+      <div class="col-lg-6 box-1">
+        <div class="fade-in-text">
+          <h2>Background</h2>
+          <p class="text-muted mr-3">{{ backgroundItem.background | safe }}</p>
+
+          <h2 class="mt-4">Skills</h2>
+          <p class="text-muted mr-3">{{ skillsItem.skills | safe }}</p>
+        </div>
+      </div>
+
+      <div class="img-container">
+        <div class="col-lg-6">
+          <img class="portrait fade-in-text img-fluid" src="{{ imageItem.image }}" alt="portrait" width="400">
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h1 id="contact">Contact</h1>
+      <p class="ml-1">If you're interested in working together, send me an email or contact me on social media!</p>
+      <div class="btn btn-branding">
+        <a class="email-link" href="mailto:marie-louise@schlutius.net">marie-louise@schlutius.net</a>
+      </div>
+    </div>
+
+    <footer class="socials d-flex justify-content-center mt-2 mb-2">
+      <a href="https://de.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/Rosemary-Hogarth" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+    </footer>
+  </div>
+</div>

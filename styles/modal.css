@@ -11,10 +11,12 @@
 }
 .modal-content {
   background: white;
-  padding: 50px;
+  padding: 50px 20px;
   width: 50%;
   text-align: center;
   border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .close-modal {
   cursor: pointer;
@@ -26,6 +28,10 @@
 
 @media(max-width: 768px) {
   .modal-content {
-    width: 100%;
+    width: 90%;
+    padding-right: 10px;
+    padding-left: 10px;
   }
+
+
 }

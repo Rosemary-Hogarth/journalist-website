@@ -15,13 +15,22 @@
 .work-card {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   border-bottom: 2px solid black;
   height: 60px;
   position: relative;
+  padding-right: 50px;
+  padding-left: 50px;
 }
+
+.work-card .date,
+.work-card .article-title,
+.work-card .article-btn {
+  flex-shrink: 0;
+}
+
 
 .work-card p {
   margin: 0;
@@ -83,8 +92,26 @@
 
   .work-card {
     font-size: 15px;
+    padding: 10px;
+    flex-direction: column;
+    height: 100px;
+    justify-content: center;
   }
 
+  .work-card .article-title {
+    white-space: normal; /* Allow text to wrap */
+    flex-grow: 0; /* Remove flex-grow to prevent title from taking all space */
+
+  }
+
+
+  .work-card .article-btn {
+    margin-top: 10px; /* Optional: space the button from the title on smaller screens */
+  }
+
+  .work-card .date {
+    margin-right: 10px; /* Optional: add space between date and other elements */
+  }
 
   .category-title, .heading {
     font-size: 20px;
@@ -92,7 +119,7 @@
   }
 
   .logo {
-    font-size: 25px;
+    font-size: 23px;
   }
 
 
@@ -101,9 +128,9 @@
   }
 
   .article-title a {
-    pointer-events: none; /* Disables the link */
-    text-decoration: none; /* Ensures it doesn’t look like a link */
-    color: inherit; /* Keeps the default text color */
+    pointer-events: none;
+    text-decoration: none;
+    color: inherit;
   }
 
 }
@@ -118,11 +145,10 @@
   }
 
   .category-title {
-    width: auto; /* Ensure buttons are responsive */
-    margin: auto; /* Center the buttons */
-    display: block; /* Make them block elements for better alignment */
-    font-size: 18px; /* Adjust font size for smaller screens */
-    letter-spacing: normal; /* Remove excessive letter spacing */
+    width: auto;
+    margin: auto;
+    display: block;
+    letter-spacing: normal;
     background-color: #D1BCFF;
     border: none;
     border-radius: 25px;
@@ -133,7 +159,7 @@
   }
 
   .category{
-    height: 100px;
+    height: 150px;
   }
 
   .category#category-articles {

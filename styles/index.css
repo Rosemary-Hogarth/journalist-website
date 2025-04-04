@@ -1,0 +1,15 @@
+.home-name {
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 2px solid black;
+}
+
+@media (max-width: 768px){
+  .home-name {
+    text-align: center;
+    font-size: 30px;
+  }
+}

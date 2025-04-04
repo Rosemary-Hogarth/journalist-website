@@ -1,8 +1,5 @@
 ---
 title: "next.media: Vom Silicon Valley an die Alster "
-articleDate: 2024
-order: 3
-web: www.xxx.de
 date: "2024"
 category: Growth Stories
 summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam

@@ -2,30 +2,11 @@
 layout: base
 ---
 
-
-
-
-
-{% if collections.articles and collections.articles.length > 0 %}
-  {% for article in collections.articles %}
-    <div class="news-container">
-      <p class="news-item title">{{ article.data.articleDate }}</p>
-      <p class="news-item">{{ article.data.title }}</p>
-      <p class="news-item">{{ article.data.opening or "not specified" }}</p>
-      {% set web = article.data.web %}
-
-
-      <p class="news-item web">
-        <a href="{{ web }}" target="_blank">{{ article.data.web }}</a>
-      </p>
-    </div>
-  {% endfor %}
-{% else %}
-  <p>No upcoming exhibitions.</p>
-{% endif %}
-
+<body>
+  <div class="home-container">
+    <div class="home-name" id="name">Marie-Louise Schlutius</div>
+  </div>
 
 {% block scripts %}
-  <script src="/work.js"></script>
-
+  <script src="/index.js"></script>
 {% endblock %}

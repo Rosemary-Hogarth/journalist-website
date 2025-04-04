@@ -107,21 +107,18 @@ module.exports = function(eleventyConfig) {
 
 
 
-  eleventyConfig.addCollection("articles", function(collectionApi) {
-    return collectionApi
-      .getFilteredByGlob("./articles/*.md")
-      .sort((a, b) => a.data.order - b.data.order);
+
+  eleventyConfig.addCollection("aboutBackground", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("about/background/*.md");
   });
 
-
-
-  eleventyConfig.addCollection("about", function(collectionApi) {
-    const about = collectionApi.getFilteredByGlob("about/*.md");
-    return about;
+  eleventyConfig.addCollection("aboutSkills", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("about/skills/*.md");
   });
 
-
-
+  eleventyConfig.addCollection("aboutImage", function (collectionApi) {
+    return collectionApi.getFilteredByGlob("images/uploads/*.md");
+  });
 
 
   // Passthrough copy for assets

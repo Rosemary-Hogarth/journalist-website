@@ -24,6 +24,11 @@ html, body {
 
 }
 
+.category-services {
+
+  border-bottom: 2px solid black;
+  text-align: center;
+}
 
 .category-title-services {
   display: flex;
@@ -33,7 +38,6 @@ html, body {
   font-weight: 500;
   text-align: center;
   letter-spacing: 40px;
-  border-bottom: 2px solid black;
 }
 
 p.category-title-services  {
@@ -76,17 +80,17 @@ p.category-title-services  {
   background-color: #6CC59B;
 }
 
-.article-btn {
+.services-btn {
   background-color: #D1BCFF;
   border: none;
   border-radius: 25px;
   padding: 15px 28px;
 }
-.article-btn:hover {
+.services-btn:hover {
   background-color: #b5a1e0;
 }
 
-a.article-btn {
+a.services-btn {
   font-size: 15px;
   text-decoration: none;
   color: black;
