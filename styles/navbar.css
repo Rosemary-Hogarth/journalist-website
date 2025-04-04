@@ -78,7 +78,8 @@ body {
   }
 
   .menu a {
-    padding: 15px;
+    padding:5px;
+    font-size: 35px;
   }
 
   .close-btn {
