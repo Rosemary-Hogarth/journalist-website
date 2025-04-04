@@ -1,5 +1,5 @@
 ---
-title: Article 4
+title: YouTube-Reportage über niederländische Community Minitopia
 date: "2024"
 summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
@@ -9,7 +9,7 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
   voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-link: www.example.com
+link: " Minitopia: https://www.youtube.com/watch?v=nDAlahWo3Oo"
 categories:
-  - growth-stories
+  - extraordinary-homes
 ---
