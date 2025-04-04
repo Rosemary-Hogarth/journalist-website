@@ -2,45 +2,21 @@
 layout: base.njk
 ---
 
+
 <div class="card-container">
   <div class="category-services">
     <p class="category-title-services">Services</p>
-</div>
-
-<div class="service-container">
-  <div class="service-card">
-
-
-    <div class="service-content">
-      <h2>Text</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-      <a href="work.html" target="_blank" class="services-btn">View examples</a>
-    </div>
   </div>
 
-  <div class="service-card">
-
-    <div class="service-content">
-      <h2>Video</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-      <a href="https://spontaneous-tarsier-cd3a0f.netlify.app/" target="_blank" class="services-btn">View examples</a>
-    </div>
-  </div>
-
-  <div class="service-card">
-    <div class="service-content">
-      <h2>Digitale Kommunikation</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-      <a href="https://polite-begonia-a695d6.netlify.app/" target="_blank" class="services-btn">View examples</a>
-    </div>
-  </div>
-
-  <div class="service-card">
-
-    <div class="service-content">
-      <h2>Sprechen</h2>
-      <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua...</p>
-      <a href="https://spontaneous-tarsier-cd3a0f.netlify.app/" target="_blank" class="services-btn">View examples</a>
-    </div>
+  <div class="service-container">
+    {% for service in collections.services %}
+      <div class="service-card">
+        <div class="service-content">
+          <h2>{{ service.data.title }}</h2>
+          <p>{{ service.data.description }}</p>
+          <a href="{{ service.data.linkUrl }}" target="_blank" class="services-btn">{{ service.data.linkText }}</a>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </div>

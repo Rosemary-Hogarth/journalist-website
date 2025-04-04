@@ -40,6 +40,16 @@ collections:
     fields:
       - {label: "Category Name", name: "categoryName", widget: "string", required: true}
 
+  - name: "services"
+    label: "Services"
+    folder: "services"
+    create: true
+    slug: "{{title | slugify}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: "Description", name: "description", widget: "text", required: true }
+      - { label: "Link Text", name: "linkText", widget: "string", required: true }
+      - { label: "Link URL", name: "linkUrl", widget: "string", required: true }
 
 
 
