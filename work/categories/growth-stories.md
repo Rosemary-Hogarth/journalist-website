@@ -1,3 +1,3 @@
 ---
-categoryName: Growth Stories
+categoryName: "Growth "
 ---
