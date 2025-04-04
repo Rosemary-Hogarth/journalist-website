@@ -1,6 +1,6 @@
 ---
-layout: base.njk
-title: "Work"
+layout: base
+title: work
 ---
 
 <div class="card-container">
@@ -9,45 +9,46 @@ title: "Work"
     <p class="heading">Articles</p>
   </div>
 
-  <div class="category" id="category-growth-stories">
-    <p class="category-title">Growth Stories</p>
-  </div>
-  <div class="work-cards-container growth-stories">
-    {% if item.data.categories %}
-      <div class="categories">
-        {% for category in item.data.categories %}
-          <span class="category">{{ category.categoryName }}</span>  <!-- Render the category name -->
-        {% endfor %}
-      </div>
-    {% endif %}
+  <!-- Dynamically Rendered Categories -->
+  {% for category in collections.workCategories %}
+    <div class="category" id="category-{{ category.slug }}">
+      <p class="category-title">{{ category.categoryName }}</p>
+    </div>
+    <div class="work-cards-container {{ category.slug }}">
+      {% if category.works.length > 0 %}
+        {% for work in category.works %}
+          <div class="work-card"
+            data-title="{{ work.data.title }}"
+            data-date="{{ work.data.date }}"
+            data-summary="{{ work.data.summary }}"
+            data-link="{{ work.data.link }}">
 
-  {% for item in collections.work %}
-    <div class="work-card"
-         data-title="{{ item.data.title }}"
-         data-date="{{ item.data.date }}"
-         data-summary="{{ item.data.summary }}"
-         data-link="{{ item.data.link }}">
-      <p class="date">{{ item.data.date }}</p>
-      <p class="article-title">
-        <a href="{{ item.data.link }}" target="_blank">{{ item.data.title }}</a>
-      </p>
-      <button class="article-btn" data-toggle="modal" data-target="#articleModal">Read more</button>
+            <p class="date">{{ work.data.date }}</p>
+            <p class="article-title">
+              <a href="{{ work.data.link }}" target="_blank">{{ work.data.title }}</a>
+            </p>
+            <button class="article-btn" data-toggle="modal" data-target="#articleModal">Read more</button>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No works found for this category.</p>
+      {% endif %}
     </div>
   {% endfor %}
 </div>
- </div>
+
 <!-- Modal -->
 <div class="modal" id="articleModal">
   <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2 id="modal-title"></h2>
-      <p id="modal-date"></p>
-      <p id="modal-summary"></p>
-      <div id="modal-link-container"></div> <!-- Placeholder for the button -->
+    <span class="close-modal">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p id="modal-date"></p>
+    <p id="modal-summary"></p>
+    <div id="modal-link-container"></div> <!-- Placeholder for the button -->
   </div>
 </div>
 
 {% block scripts %}
   <script src="/work.js"></script>
-   <script src="/modal.js"></script>
+  <script src="/modal.js"></script>
 {% endblock %}

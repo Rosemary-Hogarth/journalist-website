@@ -107,6 +107,47 @@ module.exports = function(eleventyConfig) {
 
 
 
+  // eleventyConfig.addCollection("workCategories", function (collectionApi) {
+  //   // Get all works and categories
+  //   const works = collectionApi.getFilteredByGlob("./work/articles/*.md");
+  //   const categories = collectionApi.getFilteredByGlob("./work/categories/*.md");
+
+  //   // Map categories to their associated works
+  //   return categories.map((category) => {
+  //     const categorySlug = category.data.slug; // Ensure slug is used for matching
+  //     const associatedWorks = works.filter((work) =>
+  //       work.data.categories?.includes(categorySlug) // Match works by category slug
+  //     );
+
+  //     return {
+  //       categoryName: category.data.categoryName,
+  //       slug: categorySlug,
+  //       works: associatedWorks, // Attach associated works
+  //     };
+  //   });
+  // });
+
+
+  eleventyConfig.addCollection("workCategories", function (collectionApi) {
+    const works = collectionApi.getFilteredByGlob("./work/articles/*.md");
+    const categories = collectionApi.getFilteredByGlob("./work/categories/*.md");
+
+    return categories.map((category) => {
+      const categorySlug = category.data.slug || eleventyConfig.getFilter("slugify")(category.data.categoryName);
+      const associatedWorks = works.filter((work) =>
+        work.data.categories?.includes(categorySlug)
+      );
+
+      return {
+        categoryName: category.data.categoryName,
+        slug: categorySlug,
+        works: associatedWorks,
+      };
+    });
+  });
+
+
+
 
   eleventyConfig.addCollection("aboutBackground", function (collectionApi) {
     return collectionApi.getFilteredByGlob("about/background/*.md");

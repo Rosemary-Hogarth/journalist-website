@@ -13,7 +13,7 @@ public_folder: "/images/uploads"
 collections:
   - name: "work"
     label: "Work"
-    folder: "work"
+    folder: "work/articles"
     create: true
     slug: '{{title | slugify}}'
     fields:
@@ -24,10 +24,10 @@ collections:
       - label: "Categories"
         name: "categories"
         widget: "relation"
-        collection: "work-categories"  # The collection where your categories are defined
-        search_fields: ["categoryName"]  # Field that you want to search within the category collection
-        value_field: "{{slug}}"  # Value to be saved
-        display_fields: ["categoryName"]  # Field to display in the dropdown (for easy selection)
+        collection: "work-categories"
+        search_fields: ["categoryName"]
+        value_field: "{{slug}}"
+        display_fields: ["categoryName"]
         multiple: true
 
 
@@ -39,8 +39,7 @@ collections:
     slug: "{{categoryName | slugify}}"
     fields:
       - {label: "Category Name", name: "categoryName", widget: "string", required: true}
-      - {label: "Category Description", name: "categoryDescription", widget: "text", required: false}
-      - {label: "Category Color", name: "categoryColor", widget: "string", required: false}  # Optional field for styling
+
 
 
 
