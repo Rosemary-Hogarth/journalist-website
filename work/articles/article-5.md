@@ -1,8 +1,8 @@
 ---
-title: Article 5
+title: Reiseführer für Paris
 date: "2024"
 summary: blah blah blah
-link: ww.artnow.com
+link: https://www.instagram.com/marielouise_s/?hl=en
 categories:
-  - experiencing-culture
+  - getting-lost-in
 ---
