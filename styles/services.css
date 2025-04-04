@@ -52,6 +52,7 @@ p.category-title-services  {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: -150px;
 }
 
 .service-content h2 {
