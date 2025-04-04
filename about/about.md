@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: About me
 image: /images/uploads/screenshot-2025-03-28-at-08.35.11.png
 background: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
