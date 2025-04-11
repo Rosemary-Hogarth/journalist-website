@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://www.brandeins.de/magazine/brand-eins-wirtschaftsmagazin/2025/kommunikation-in-nervoesen-zeiten/misspompadour-lebenshilfe-inklusive
 categories:
-  - growth-stories
+  - digitale-kommunikation
 ---
