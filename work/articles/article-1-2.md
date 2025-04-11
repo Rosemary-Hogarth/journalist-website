@@ -4,5 +4,5 @@ date: "2024"
 summary: fhgfhgfhgf
 link: ww.artnews.com
 categories:
-  - experiencing-culture
+  - digitale-kommunikation
 ---
