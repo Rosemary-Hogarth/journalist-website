@@ -12,5 +12,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://nextmedia-hamburg.de/magazin/digitale-wahrheiten-sichern/
 categories:
-  - growth-stories
+  - print-journalismus
 ---
