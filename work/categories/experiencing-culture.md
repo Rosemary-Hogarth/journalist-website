@@ -1,4 +1,3 @@
 ---
-categoryName: Experiencing Culture
-
+categoryName: "Print-Journalismus "
 ---
