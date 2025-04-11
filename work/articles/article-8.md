@@ -4,5 +4,5 @@ date: "2024"
 summary: jgkjgkj
 link: www.artforum.com
 categories:
-  - experiencing-culture
+  - online-journalismus
 ---
