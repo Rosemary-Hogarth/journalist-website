@@ -4,5 +4,5 @@ date: "2024"
 summary: hgjhgjh
 link: www.example.com
 categories:
-  - growth-stories
+  - digitale-kommunikation
 ---
