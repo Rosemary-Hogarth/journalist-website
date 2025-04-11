@@ -93,10 +93,10 @@ module.exports = function(eleventyConfig) {
   });
 
 
-
-  eleventyConfig.addCollection("services", function (collectionApi) {
-    return collectionApi.getFilteredByGlob("./services/*.md");
+  eleventyConfig.addCollection("homeImage", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./images/uploads/*.md");
   });
+
 
 
   eleventyConfig.addCollection("work", function (collectionApi) {

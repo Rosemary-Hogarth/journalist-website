@@ -54,14 +54,14 @@ collections:
 
 
   - name: "background"
-    label: "About-Background"
+    label: "About"
     folder: "about/background"
     create: true
     slug: '{{title | slugify}}'
     sortableFields: ["order", "title"]
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Background", name: "background", widget: "markdown", required: true }
+      - { label: "About me", name: "background", widget: "markdown", required: true }
 
   - name: "image"
     label: "About-Image"
@@ -73,13 +73,11 @@ collections:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Image", name: "image", widget: "image", required: true }
 
-
-  - name: "skills"
-    label: "About-Skills"
-    folder: "about/skills"
+  - name: "home-image"
+    label: "Home-Image"
+    folder: "images/uploads"
     create: true
     slug: '{{title | slugify}}'
-    sortableFields: ["order", "title"]
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Skills", name: "skills", widget: "markdown", required: true }
+      - { label: "Image", name: "homeImage", widget: "image", required: true }

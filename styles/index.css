@@ -1,17 +1,31 @@
-.home-name {
-  font-size: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  border: 2px solid black;
+.full-screen-image {
+  width: 100vw;      /* 100% of the viewport width */
+  height: 100vh;     /* 100% of the viewport height */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;    /* Removes any default inline behavior */
+  margin: 0;
   cursor: pointer;
 }
 
+.home-name {
+  position: absolute;
+  bottom: 20px; /* Adjust the distance from the bottom */
+  right: 20px;  /* Adjust the distance from the right */
+  font-size: 2rem; /* Adjust the size as needed */
+  color: #D1BCFF; /* Text color */
+  opacity: 0; /* Initially hidden */
+  visibility: hidden; /* Ensure it’s not visible */
+  transition: opacity 1s ease-in, visibility 0s linear 1s; /* Fade-in effect */
+  cursor: pointer;
+}
 
-@media (max-width: 768px){
-  .home-name {
-    text-align: center;
-    font-size: 30px;
-  }
+.home-name.show {
+  opacity: 1;
+  visibility: visible; /* Make the name visible after 2 seconds */
+  transition: opacity 1s ease-in; /* Control the fade-in duration */
+}
+
+.home-name a {
+  text-decoration: none;
+  color: #D1BCFF;
 }

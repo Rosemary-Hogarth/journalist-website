@@ -2,11 +2,13 @@
 layout: base
 ---
 
-<body>
+{% set imageItem = collections.homeImage[0].data %}
+
   <div class="home-container">
-    <div class="home-name" id="name">Marie-Louise Schlutius</div>
+    <img src="{{ imageItem.homeImage | url }}" alt="Home Image" class="full-screen-image"  />
   </div>
 
+<div class="home-name"><a href="/about">Marie-Louise Schlutius</a></div>
 {% block scripts %}
   <script src="/index.js"></script>
 {% endblock %}

@@ -11,7 +11,7 @@ html, body {
 
 .about-container {
   max-width: 100%;
-  margin: 100px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -27,6 +27,7 @@ html, body {
 
 p.category-title-about {
   margin: 0;
+  background-color: #D1BCFF;
 }
 /* Make image responsive */
 .portrait {
@@ -109,7 +110,7 @@ p.category-title-about {
 
 .img-container {
   border-left: 2px solid black;
-  padding-bottom: 250px;;
+  padding-bottom: 20px;;
 }
 
 .contact-section {
@@ -126,6 +127,11 @@ p.category-title-about {
   text-align: center;
   letter-spacing: 40px;;
 
+}
+
+.about-me-text {
+  margin-top: 50px;
+  padding-right: 20px;
 }
 
 .category {

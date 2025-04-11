@@ -89,6 +89,8 @@ cards.forEach(card => {
 
   // Click event to open the modal
   card.addEventListener("click", function () {
+
+
     const title = this.getAttribute("data-title");
     const date = this.getAttribute("data-date");
     const summary = this.getAttribute("data-summary");
@@ -111,6 +113,7 @@ cards.forEach(card => {
 
 // Function to open the modal and populate it with the clicked card's data
 function openModal(title, date, summary, link) {
+
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-date").textContent = date;
   document.getElementById("modal-summary").textContent = summary;
@@ -134,3 +137,39 @@ window.addEventListener("click", function (event) {
     modal.style.display = "none";
   }
 });
+
+
+function setupExpandableWorkCards() {
+  document.querySelectorAll('.work-cards-container').forEach(container => {
+    const workCards = container.querySelectorAll('.work-card:not(.arrow-card)');
+    const arrowCard = container.querySelector('.arrow-card');
+
+    if (arrowCard) {
+      arrowCard.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const isExpanded = arrowCard.dataset.expanded === 'true';
+
+        if (!isExpanded) {
+        workCards.forEach(card => card.classList.remove("hidden-card"));
+        arrowCard.dataset.expanded = 'true';
+        } else {
+          workCards.forEach((card, index) => {
+            if (index > 2) card.classList.add("hidden-card");
+          })
+          arrowCard.dataset.expanded = "false";
+        }
+      })
+    }
+  })
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".arrow-card")) {
+    event.stopPropagation();
+  }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Call it on load
+setupExpandableWorkCards();
+})

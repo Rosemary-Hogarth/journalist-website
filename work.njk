@@ -6,7 +6,7 @@ title: work
 <div class="card-container">
   <!-- Fixed Articles Heading (Not Toggleable) -->
   <div class="category" id="category-articles">
-    <p class="heading">Articles</p>
+    <p class="heading">Work</p>
   </div>
 
   <!-- Dynamically Rendered Categories -->
@@ -14,10 +14,10 @@ title: work
     <div class="category" id="category-{{ category.slug }}">
       <p class="category-title">{{ category.categoryName }}</p>
     </div>
-    <div class="work-cards-container {{ category.slug }}">
+     <div class="work-cards-container {{ category.slug }}">
       {% if category.works.length > 0 %}
         {% for work in category.works %}
-          <div class="work-card"
+          <div class="work-card {% if loop.index > 3 %}hidden-card{% endif %}"
             data-title="{{ work.data.title }}"
             data-date="{{ work.data.date }}"
             data-summary="{{ work.data.summary }}"
@@ -27,9 +27,16 @@ title: work
             <p class="article-title">
               <a href="{{ work.data.link }}" target="_blank">{{ work.data.title }}</a>
             </p>
-            <button class="article-btn" data-toggle="modal" data-target="#articleModal">Read more</button>
+            <button class="article-btn" data-toggle="modal" data-target="#articleModal">Mehr</button>
           </div>
         {% endfor %}
+
+        <!-- Add an arrow card if there are more than 3 works -->
+        {% if category.works.length > 3 %}
+          <div class="arrow-card" data-expanded="false">
+            <span class="arrow-icon">↓</span>
+          </div>
+        {% endif %}
       {% else %}
         <p>No works found for this category.</p>
       {% endif %}
