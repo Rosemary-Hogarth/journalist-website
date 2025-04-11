@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://www.falstaff.com/de/news/aroma-collective-hier-wird-essen-zur-multisensorischen-kunst
 categories:
-  - experiencing-culture
+  - multimedia
 ---
