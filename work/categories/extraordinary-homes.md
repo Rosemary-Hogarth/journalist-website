@@ -1,4 +1,3 @@
 ---
-categoryName: Extraordinary Homes
-
+categoryName: "Online-Journalismus "
 ---
