@@ -4,5 +4,5 @@ date: "2025"
 summary: fjgjgkhkjh
 link: www.example.com
 categories:
-  - extraordinary-homes
+  - multimedia
 ---
