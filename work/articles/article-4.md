@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: " Minitopia: https://www.youtube.com/watch?v=nDAlahWo3Oo"
 categories:
-  - extraordinary-homes
+  - multimedia
 ---
