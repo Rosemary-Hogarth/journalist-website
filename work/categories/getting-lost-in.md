@@ -1,3 +1,3 @@
 ---
-categoryName: Getting Lost In
+categoryName: "Digitale Kommunikation "
 ---
