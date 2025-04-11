@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://nextmedia-hamburg.de/magazin/vom-silicon-valley-an-die-alster/
 categories:
-  - growth-stories
+  - digitale-kommunikation
 ---
