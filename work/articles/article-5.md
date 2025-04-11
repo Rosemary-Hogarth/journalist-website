@@ -4,5 +4,5 @@ date: "2024"
 summary: blah blah blah
 link: https://www.instagram.com/marielouise_s/?hl=en
 categories:
-  - getting-lost-in
+  - online-journalismus
 ---
