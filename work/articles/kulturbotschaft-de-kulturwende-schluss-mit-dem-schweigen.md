@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://kulturbotschaft.berlin/magazin/kulturwende-schluss-mit-dem-schweigen/
 categories:
-  - experiencing-culture
+  - print-journalismus
 ---
