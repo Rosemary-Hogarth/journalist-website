@@ -11,5 +11,5 @@ summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 link: https://www.instagram.com/p/C5-qmx7s0cz/?img_index=1
 categories:
-  - getting-lost-in
+  - print-journalismus
 ---
