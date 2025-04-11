@@ -4,5 +4,5 @@ date: "2024"
 summary: kjhgkjgkg
 link: ww.artnews.com
 categories:
-  - extraordinary-homes
+  - online-journalismus
 ---
