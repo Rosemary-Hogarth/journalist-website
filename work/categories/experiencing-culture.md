@@ -1,3 +1,0 @@
----
-categoryName: "Print-Journalismus "
----
