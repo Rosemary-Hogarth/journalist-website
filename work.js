@@ -4,93 +4,27 @@ function getRandomHexColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Function to update category title background color based on screen size
-function updateCategoryTitleColor() {
-  const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
-  const categoryTitles = document.querySelectorAll(".category-title");
 
-  categoryTitles.forEach(category => {
-    if (isTabletOrMobile) {
-      category.style.backgroundColor = "#D1BCFF"; // Set color on mobile/tablet
-    } else {
-      category.style.backgroundColor = ""; // Reset color on larger screens
-    }
-  });
-}
 
-// Function to toggle work cards visibility on mobile/tablet
-function toggleWorks(event) {
-  const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
-  if (!isTabletOrMobile) return; // Exit early if not on mobile/tablet
 
-  const categoryDiv = event.currentTarget.closest('.category');
-  const workContainer = categoryDiv.nextElementSibling;
-
-  if (workContainer && workContainer.classList.contains('work-cards-container')) {
-    workContainer.classList.toggle('active');
-  }
-}
-
-// Add event listeners for category titles that should toggle the work cards on mobile
-function setupMobileToggle() {
-  const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
-  const categories = document.querySelectorAll('.category:not(#category-articles)');
-
-  categories.forEach(category => {
-    const button = category.querySelector('.category-title');
-
-    if (!button) return;
-
-    button.removeEventListener('click', toggleWorks); // Remove any existing listeners
-    category.removeEventListener('click', toggleWorks); // Remove any existing listeners
-    if (isTabletOrMobile) {
-      // Assign a random hex color to the button
-      button.style.backgroundColor = getRandomHexColor();
-      button.addEventListener('click', toggleWorks);
-    } else {
-      button.addEventListener('click', toggleWorks);
-      // Desktop reset
-      button.style.backgroundColor = '';
-      category.style.backgroundColor = '';
-    }
-  });
-}
-
-// Run the updateCategoryTitleColor on page load
-updateCategoryTitleColor();
-
-// Listen for screen size changes to update category title color and toggle behavior
-window.addEventListener('load', () => {
-  setupMobileToggle();
-  window.matchMedia('(max-width: 992px)').addEventListener('change', setupMobileToggle);
-});
-
-// Add hover effect for desktop (non-mobile)
+// Add hover effect and click events for work cards
 let lastClickedCard = null;
 const cards = document.querySelectorAll('.work-card');
+
 cards.forEach(card => {
   let storedColor = "";
 
-  // Hover effect for desktop
+  // Hover effect for all screens
   card.addEventListener("mouseover", function () {
-    const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
-    if (!isTabletOrMobile) {
-      this.style.backgroundColor = getRandomHexColor();
-    }
+    this.style.backgroundColor = getRandomHexColor();
   });
 
-  // Desktop hover effect when mouse moves away
   card.addEventListener("mouseout", function () {
-    const isTabletOrMobile = window.matchMedia("(max-width: 992px)").matches;
-    if (!isTabletOrMobile) {
-      this.style.backgroundColor = lastClickedCard === this ? storedColor : "";
-    }
+    this.style.backgroundColor = lastClickedCard === this ? storedColor : "";
   });
 
   // Click event to open the modal
   card.addEventListener("click", function () {
-
-
     const title = this.getAttribute("data-title");
     const date = this.getAttribute("data-date");
     const summary = this.getAttribute("data-summary");
@@ -102,18 +36,16 @@ cards.forEach(card => {
     storedColor = getRandomHexColor();
     this.style.backgroundColor = storedColor;
 
-    // Remove color from the previous card
     if (lastClickedCard && lastClickedCard !== this) {
       lastClickedCard.style.backgroundColor = "";
     }
 
-    lastClickedCard = this; // Update last clicked card
+    lastClickedCard = this;
   });
 });
 
-// Function to open the modal and populate it with the clicked card's data
+// Modal functions
 function openModal(title, date, summary, link) {
-
   document.getElementById("modal-title").textContent = title;
   document.getElementById("modal-date").textContent = date;
   document.getElementById("modal-summary").textContent = summary;
@@ -122,23 +54,20 @@ function openModal(title, date, summary, link) {
   document.getElementById("articleModal").style.display = "block";
 }
 
-// Modal close functionality
 const modal = document.getElementById("articleModal");
 const closeButton = document.querySelector(".close-modal");
 
-// Close the modal when clicking the close button
-closeButton.addEventListener("click", function () {
+closeButton.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// Close the modal when clicked anywhere outside the modal
-window.addEventListener("click", function (event) {
+window.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
   }
 });
 
-
+// Setup expandable work cards (applies to all screen sizes)
 function setupExpandableWorkCards() {
   document.querySelectorAll('.work-cards-container').forEach(container => {
     const workCards = container.querySelectorAll('.work-card:not(.arrow-card)');
@@ -150,26 +79,46 @@ function setupExpandableWorkCards() {
         const isExpanded = arrowCard.dataset.expanded === 'true';
 
         if (!isExpanded) {
-        workCards.forEach(card => card.classList.remove("hidden-card"));
-        arrowCard.dataset.expanded = 'true';
+          workCards.forEach(card => card.classList.remove("hidden-card"));
+          arrowCard.dataset.expanded = 'true';
         } else {
           workCards.forEach((card, index) => {
             if (index > 2) card.classList.add("hidden-card");
-          })
+          });
           arrowCard.dataset.expanded = "false";
         }
-      })
+      });
     }
-  })
+  });
 }
 
+// Prevent click propagation on arrow card
 document.addEventListener("click", (event) => {
   if (event.target.closest(".arrow-card")) {
     event.stopPropagation();
   }
-})
+});
 
+// Function to assign a random color to categories beyond the first four
+function styleCategoriesWithRandomColor() {
+  const firstFourCategories = [
+    'category-digitale-kommunikation',
+    'category-multimedia',
+    'category-online-journalismus',
+    'category-print-journalismus'
+  ];
+
+  document.querySelectorAll('.category').forEach(category => {
+    // If the category is not one of the first four, assign a random color
+    if (!firstFourCategories.includes(category.id)) {
+      category.style.backgroundColor = getRandomHexColor();
+    }
+  });
+}
+
+// Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-  // Call it on load
-setupExpandableWorkCards();
-})
+  styleCategoriesWithRandomColor();
+  setupExpandableWorkCards();
+
+  })

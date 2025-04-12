@@ -19,7 +19,27 @@ html, body {
   gap: 20px;
 }
 
-/* Image container fixes */
+.cv-section a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 20px;
+  background-color: #f3f2e2be;
+  border-radius: 20px;
+}
+
+.cv-section a:hover {
+  background-color: #F3F2E2;
+}
+
+.cv-section iframe {
+  width: 100%;
+  height: 80vh;
+  border: none;
+}
+
+
+
+
 .img-container {
   text-align: center;
   max-width: 100%;
@@ -75,7 +95,7 @@ p.category-title-about {
 
   .btn {
     text-decoration: none;
-    color: white;
+    color: black;
     border-radius: 20px;
     font-size: 15px;
     font-weight: 300;
@@ -87,8 +107,7 @@ p.category-title-about {
 }
 
 .btn:hover {
-  background: #6CC59B;
-  color: black;;
+  background: #6bbc97;
 }
 
 .btn {
@@ -157,6 +176,10 @@ p.category-title-about {
     margin: 20px;
   }
 
+  .about-me-text {
+    margin-top: 0;
+    padding: 0;
+  }
   /* Reverse row order to place image first */
   .row {
     flex-direction: column-reverse;
@@ -192,5 +215,12 @@ p.category-title-about {
  letter-spacing: 5px;
 }
 
+.cv-section iframe {
+  height: 60vh;
+}
+
+.cv-section {
+  margin-bottom: 20px;
+}
 
 }

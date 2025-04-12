@@ -34,6 +34,7 @@ module.exports = function(eleventyConfig) {
 
 
 
+
     // this links the about texts list to the full texts
   eleventyConfig.addFilter('getDocumentBySlug', (collection, slug) => {
     return collection.find(item => item.fileSlug === slug);
@@ -139,6 +140,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("aboutImage", function (collectionApi) {
     return collectionApi.getFilteredByGlob("images/uploads/*.md");
   });
+
+
 
 
   // Passthrough copy for assets

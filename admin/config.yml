@@ -62,6 +62,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "About me", name: "background", widget: "markdown", required: true }
+      - { label: "CV Upload", name: "cv", widget: "file", required: true, media_library: { config: { multiple: false } } }
 
   - name: "image"
     label: "About-Image"

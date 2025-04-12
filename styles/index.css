@@ -29,3 +29,9 @@
   text-decoration: none;
   color: #D1BCFF;
 }
+
+@media (max-width: 768px) {
+  .home-name a {
+    font-size: 20px;
+  }
+}

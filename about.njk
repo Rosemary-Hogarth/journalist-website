@@ -17,6 +17,11 @@ layout: base.njk
         <div class="fade-in-text">
           <p class="about-me-text">{{ backgroundItem.background | safe }}</p>
         </div>
+        <div class="cv-section">
+          <a href="{{ backgroundItem.cv | url }}" target="_blank" rel="noopener noreferrer">
+          Lebenslauf anschauen
+          </a>
+        </div>
       </div>
 
       <div class="img-container">
