@@ -1,3 +1,0 @@
----
-categoryName: Extra category
----
