@@ -19,7 +19,8 @@ collections:
     slug: '{{title | slugify}}'
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Date", name: "date", widget: "string", required: true }
+      - { label: "Published", name: "published", widget: "string", required: true }
+      - { label: "Tag", name: "tag", widget: "string", required: true }
       - { label: "Summary", name: "summary", widget: "text", required: true }
       - { label: "Link", name: "link", widget: "string", required: true }
       - label: "Categories"
