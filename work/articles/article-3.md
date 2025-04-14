@@ -2,16 +2,11 @@
 title: "falstaff: AROMA Collective: Hier wird Essen zur multisensorischen Kunst"
 date: "2024"
 published: 07.04.2024
-tag: Politics
-summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-  diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-  clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-  kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+tag: Genuss
+summary: "Kann der Klang eines Tones den Geschmack verändern? Das »AROMA
+  Collective« sagt: Ja! Hier wird jedes Dinner zu einer multisensorischen
+  Inszenierung, bei der Genuss auf ein völlig neues Level gehoben wird."
 link: https://www.falstaff.com/de/news/aroma-collective-hier-wird-essen-zur-multisensorischen-kunst
 categories:
-  - multimedia
+  - online-journalismus
 ---
