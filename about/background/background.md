@@ -14,6 +14,6 @@ background: >-
   Neben ihrer journalistischen Arbeit unterstützt Marie-Louise Unternehmen, Privatpersonen und Vereine dabei, ihre digitale Sichtbarkeit zu erhöhen. (**[Digitale Kommunikation](/work/#category-digitale-kommunikation)**)
 
 
-  Marie-Louise schloss ihr Masterstudium 2020 an der Universität Potsdam ab, wo sie ihre Masterarbeit über den Aufbau der Redaktion „ZEIT im Osten“ der Wochenzeitung DIE ZEIT schrieb. Zuvor studierte sie Politikwissenschaft und Geschichte (B.A.) an der Technischen Universität Dresden. Während ihres Bachelorstudiums leitete sie Führungen und Planspiele im Sächsischen Landtag und entwickelte gemeinsam mit Kommiliton:innen den politischen Podcast „Sachstopia“.
+  Marie-Louise schloss ihr Masterstudium 2020 an der Universität Potsdam ab. Ihre Masterarbeit drehte sich um die Gründung der Redaktion „ZEIT im Osten“, publiziert von der Wochenzeitung DIE ZEIT. Zuvor studierte sie Politikwissenschaft und Geschichte (B.A.) an der Technischen Universität Dresden. Während ihres Bachelorstudiums leitete sie Führungen und Planspiele im Sächsischen Landtag und entwickelte gemeinsam mit Kommiliton:innen den politischen Podcast „Sachstopia“.
 cv: /images/uploads/cv_schlutius.pdf
 ---
