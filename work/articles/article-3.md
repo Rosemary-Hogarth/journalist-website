@@ -1,6 +1,8 @@
 ---
 title: "falstaff: AROMA Collective: Hier wird Essen zur multisensorischen Kunst"
 date: "2024"
+published: 07.04.2024
+tag: Politics
 summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
   diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
