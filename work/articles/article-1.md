@@ -1,6 +1,7 @@
 ---
 title: "next.media: Vom Silicon Valley an die Alster"
 date: "2024"
+published: 05.08.2023
 tag: Food
 summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
