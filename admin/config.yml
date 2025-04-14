@@ -1,7 +1,8 @@
 backend:
-  name: github # needs to be github not git-gateway!!
+  name: git-gateway
   repo: Rosemary-Hogarth/journalist-website
   branch: master
+  baseUrl: https://journalist-website.netlify.app/
 
 
 
