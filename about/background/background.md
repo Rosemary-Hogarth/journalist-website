@@ -4,19 +4,19 @@ background: >-
   Marie-Louise Schlutius arbeitet seit 2024 als freie Journalistin und
   Kommunikationsberaterin. Sie schreibt über Themen wie Kultur, Gesellschaft,
   Gründung, Nachhaltigkeit und Genuss für Medien wie DIE ZEIT, brand eins, SALON
-  ([**Print**](/work/#category-print-journalismus)) sowie [gallerytalk.net](<>),
-  falstaff und next Media ([**Online**] ( /work/#category-online-journalismus)).
-  Sie absolvierte Praktika beim ZDF München, ZDF New York, Goethe-Institut
-  Paris, Radio Energy Nürnberg und den Nürnberger Nachrichten.
+  (**[Print](/work/#category-print-journalismus)**) sowie [gallerytalk.net](<>),
+  falstaff und next Media (\[Online] /work/#category-online-journalismus). Sie
+  absolvierte Praktika beim ZDF München, ZDF New York, Goethe-Institut Paris,
+  Radio Energy Nürnberg und den Nürnberger Nachrichten.
 
 
   Marie-Louise ist regelmäßig als Reporterin auf Konferenzen unterwegs, zum Beispiel für die Hamburg Kreativgesellschaft, den Journalistinnenbund oder die ZEIT Verlagsgruppe.
 
 
-  Außerdem ist sie Teil des YouTube-Kollektivs „An das Leben“ und arbeitet derzeit mit einem Team an einem Audioprojekt. Sie liebt Multimedia und fühlt sich sowohl vor der Kamera als auch hinter dem Mikrofon zu Hause. ([**Multimedia**](/work/#category-multimedia))
+  Außerdem ist sie Teil des YouTube-Kollektivs „An das Leben“ und arbeitet derzeit mit einem Team an einem Audioprojekt. Sie liebt Multimedia und fühlt sich sowohl vor der Kamera als auch hinter dem Mikrofon zu Hause. (**[Multimedia](/work/#category-multimedia)**)
 
 
-  Neben ihrer journalistischen Arbeit unterstützt Marie-Louise Unternehmen, Privatpersonen und Vereine dabei, ihre digitale Sichtbarkeit zu erhöhen. ([**Digitale Kommunikation**](/work/#category-digitale-kommunikation))
+  Neben ihrer journalistischen Arbeit unterstützt Marie-Louise Unternehmen, Privatpersonen und Vereine dabei, ihre digitale Sichtbarkeit zu erhöhen. (**[Digitale Kommunikation](/work/#category-digitale-kommunikation)**)
 
 
   Marie-Louise schloss ihr Masterstudium 2020 an der Universität Potsdam ab, wo sie ihre Masterarbeit über den Aufbau der Redaktion „ZEIT im Osten“ der Wochenzeitung DIE ZEIT schrieb. Im Anschluss an ihr Studium absolvierte sie ein anderthalbjähriges Volontariat in der Unternehmenskommunikation der ZEIT Verlagsgruppe und arbeitete dort insgesamt vier Jahre.
