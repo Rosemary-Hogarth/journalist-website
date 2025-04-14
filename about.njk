@@ -15,7 +15,7 @@ layout: base.njk
     <div class="row">
       <div class="col-lg-6 box-1">
         <div class="fade-in-text">
-          <p class="about-me-text">{{ backgroundItem.background | safe }}</p>
+          <p class="about-me-text">{{ backgroundItem.background | markdownify | safe }}</p>
         </div>
         <div class="cv-section">
           <a href="{{ backgroundItem.cv | url }}" target="_blank" rel="noopener noreferrer">

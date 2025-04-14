@@ -9,6 +9,13 @@ html, body {
   padding: 0;
 }
 
+a {
+  color: black;
+}
+
+a:hover {
+  color: #D1BCFF;
+}
 .about-container {
   max-width: 100%;
   margin: 0 auto;
@@ -19,12 +26,20 @@ html, body {
   gap: 20px;
 }
 
+.about-section .container {
+  max-width: 1400px;
+}
+.cv-section {
+  margin-bottom: 50px;
+}
+
 .cv-section a {
   text-decoration: none;
   color: black;
   padding: 8px 20px;
   background-color: #f3f2e2be;
   border-radius: 20px;
+
 }
 
 .cv-section a:hover {
@@ -35,6 +50,7 @@ html, body {
   width: 100%;
   height: 80vh;
   border: none;
+
 }
 
 
@@ -43,16 +59,18 @@ html, body {
 .img-container {
   text-align: center;
   max-width: 100%;
+  border-left: 2px solid black;
+  padding-bottom: 20px;
 }
 
 p.category-title-about {
   margin: 0;
   background-color: #D1BCFF;
 }
-/* Make image responsive */
+
 .portrait {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   height: auto;
   display: block;
   margin: 50px auto;
@@ -127,10 +145,6 @@ p.category-title-about {
   flex-wrap: nowrap;
 }
 
-.img-container {
-  border-left: 2px solid black;
-  padding-bottom: 20px;;
-}
 
 .contact-section {
   border-top: 2px solid black;
@@ -223,4 +237,11 @@ p.category-title-about {
   margin-bottom: 20px;
 }
 
+}
+
+@media (min-width: 1400px) {
+
+  .container {
+    max-width: 1400px !important;
+  }
 }
