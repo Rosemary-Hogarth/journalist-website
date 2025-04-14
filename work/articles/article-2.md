@@ -1,6 +1,6 @@
 ---
 title: "brandeins KOMMUNIKATION 02/25: Miss Pompadour - Lebensrat inklusive"
-date: 20th April 2024
+date: "2024"
 tag: Sustainability
 summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
   nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
