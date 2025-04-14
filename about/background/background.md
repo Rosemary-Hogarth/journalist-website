@@ -5,7 +5,7 @@ background: >-
   Kommunikationsberaterin. Sie schreibt über Themen wie Kultur, Gesellschaft,
   Gründung, Nachhaltigkeit und Genuss für Medien wie DIE ZEIT, brand eins, SALON
   (**[Print](/work/#category-print-journalismus)**) sowie [gallerytalk.net](<>),
-  falstaff und next Media (\[Online] /work/#category-online-journalismus). Sie
+  falstaff und next Media (\[Online] (/work/#category-online-journalismus)). Sie
   absolvierte Praktika beim ZDF München, ZDF New York, Goethe-Institut Paris,
   Radio Energy Nürnberg und den Nürnberger Nachrichten.
 
