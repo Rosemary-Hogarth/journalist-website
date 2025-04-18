@@ -1,8 +1,12 @@
 ---
-title: Article 7
+title: "next.media: RETELL: Ready to make Podcasts licensable?"
 date: "2024"
-summary: hgjhgjhg
-link: ww.artnews.com
+published: 16.10.1024
+tag: Start-up
+summary: Mit RETELL entsteht die erste globale Podcast-Plattform, die durch
+  Lizenzvergaben und KI-übersetzte Skripte international relevante Inhalte
+  weltweit zugänglich macht.
+link: https://nextmedia-hamburg.de/magazin/retell/
 categories:
-  - multimedia
+  - online-journalismus
 ---
