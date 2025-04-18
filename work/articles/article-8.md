@@ -1,17 +1,13 @@
 ---
-title: Article 8
+title: "next.media: Media for Equity neu gedacht mit NextGen Innovators"
 date: "2024"
-published: 05.08.2023
-tag: Food
-summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-  diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-  clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-  kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-link: www.artforum.com
+published: 16.10.2024
+tag: Start-up
+summary: >-
+  Langfristige Bindung statt kurzfristiger Werbedeals
+
+  Die Ära kurzfristiger Werbedeals wandelt sich mit NextGen Innovators (NGI), einem Unternehmen, das langfristige Partnerschaften zwischen Startups und Content-Creatoren fördert. Sarah Kübler und Sebastian Niemann nutzen dabei ihre tiefgreifenden Erfahrungen im Social Media und Influencer-Marketing.
+link: https://nextmedia-hamburg.de/magazin/nextgen-innovators/
 categories:
   - online-journalismus
 ---
