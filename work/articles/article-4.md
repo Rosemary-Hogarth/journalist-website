@@ -2,7 +2,7 @@
 title: YouTube-Reportage über niederländische Community Minitopia
 date: "2024"
 published: 03.10.2022
-tag: Sustainability
+tag: YouTube, Sustainability
 summary: >-
   In dem Video nehmen wir euch mit nach Minitopia - eine Gemeinschaft in den
   Niederlanden, die Wohnen völlig neu denkt. Hier gibt es keine Zäune, keine
