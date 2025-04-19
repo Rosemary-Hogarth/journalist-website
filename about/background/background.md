@@ -14,6 +14,6 @@ background: >-
   Marie-Louise ist regelmäßig als Reporterin auf Konferenzen unterwegs, zum Beispiel für die Hamburg Kreativgesellschaft, den Journalistinnenbund oder die ZEIT Verlagsgruppe, für die sie bis 2024 vier Jahre lang tätig war. Sie Teil des YouTube-Kollektivs „An das Leben“, arbeitet aktuell an einem Audioprojekt, liebt Multimedia und fühlt sich sowohl vor der Kamera als auch hinter dem Mikrofon wohl. (**[Multimedia](<>)**)
 
 
-  Marie-Louise schloss ihr Masterstudium 2020 an der Universität Potsdam ab. Ihre Masterarbeit drehte sich um die Gründung der Redaktion „ZEIT im Osten“, publiziert von der Wochenzeitung DIE ZEIT. Zuvor studierte sie Politikwissenschaft und Geschichte (B.A.) an der Technischen Universität Dresden. Während ihres Bachelorstudiums leitete sie Führungen und Planspiele im Sächsischen Landtag und entwickelte gemeinsam mit Kommiliton:innen den politischen Podcast „Sachstopia“.
+  Marie-Louise schloss ihr Masterstudium (M.A.) 2020 an der Universität Potsdam ab. Ihre Abschlussarbeit drehte sich um die Gründung der Redaktion „ZEIT im Osten“, publiziert von der Wochenzeitung DIE ZEIT. Zuvor studierte sie Politikwissenschaft und Geschichte (B.A.) an der Technischen Universität Dresden. Während ihres Bachelorstudiums leitete sie Führungen und Planspiele im Sächsischen Landtag und entwickelte gemeinsam mit Kommiliton:innen den politischen Podcast „Sachstopia“.
 cv: /images/uploads/cv-und-arbeitsproben_schlutius.pdf
 ---
