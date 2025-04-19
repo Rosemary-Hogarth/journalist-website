@@ -1,5 +1,5 @@
 ---
-title: Reiseführer für Paris
+title: Getting lost in Paris
 date: "2024"
 published: 16.04.2025
 tag: Travel
