@@ -1,5 +1,5 @@
 ---
-title: Reiseführer für Nürnberg
+title: Getting lost in Nuernberg
 published: 26.04.2024
 tag: Travel
 summary: Meine liebsten Orte in Nürnberg - festgehalten in einem bunten Reiseführer.
