@@ -1,17 +1,16 @@
 ---
 title: "kulturbotschaft.de: Kulturwende: Schluss mit dem Schweigen"
 date: "2024"
-published: 03.10.2022
-tag: Art
-summary: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-  nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
-  diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-  clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-  eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
-  voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita
-  kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+published: 26.08.2024
+tag: Kultur
+summary: "In der Welt der Kultur, wo jedes Wort zählt und jede Geste
+  interpretiert wird, ist Schweigen oft das lauteste Geräusch. Die aktuellen
+  Diskussionen rund um Rassismus, Antisemitismus und Sexismus führen zu heftigen
+  Debatten, die die Glaubwürdigkeit eines Museums, einer Kulturbehörde oder
+  Kunsthochschule schnell erschüttern können. Deshalb ist es wichtig, dort
+  präsent zu sein, wo die Diskussion stattfindet: In den sozialen Medien. Und
+  zwar nicht durch bloße Anwesenheit, sondern durch Interaktion. "
 link: https://kulturbotschaft.berlin/magazin/kulturwende-schluss-mit-dem-schweigen/
 categories:
-  - print-journalismus
+  - online-journalismus
 ---
