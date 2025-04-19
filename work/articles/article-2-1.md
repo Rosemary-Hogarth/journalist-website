@@ -1,12 +1,11 @@
 ---
-title: "next.media: Digitale Wahrheiten sichern; Wie können manipulierte Videos
-  und Fake News entlarvt werden?"
+title: "Hamburg Kreativgesellschaft: Wie wird Stadtplanung zugänglicher?"
 date: Tech & KI
-published: 01.02.2025
-tag: Culture
-summary: Wie können manipulierte Videos und Fake News entlarvt werden? Ein
-  Interview mit Konstantin Graf, Geschäftsführer des Hamburger
-  Softwareunternehmens Chainstep.
+published: 20.03.2025
+tag: City, Architektur
+summary: Wie lässt sich eine klimafreundliche und partizipative Stadtplanung
+  besser umsetzen? Architektin Marta Toscano und Ökonom Alexander Werle wagen
+  ein Experiment.
 link: https://nextmedia-hamburg.de/magazin/digitale-wahrheiten-sichern/
 categories:
   - online-journalismus
