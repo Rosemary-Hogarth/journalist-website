@@ -1,7 +1,7 @@
 ---
 title: YouTube-Reportage über Silas Tinyhouse in Minitopia
 date: "2025"
-published: 05.08.2023
+published: 25.03.2025
 tag: YouTube, Sustainability
 summary: >-
   In diesem Video zeigen wir euch, wie Silas in der Community Minitopia lebt,
