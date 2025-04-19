@@ -15,7 +15,7 @@ summary: >-
 
 
   Minitopia ist ein Spielplatz für Erwachsene, auf dem jeder sein eigenes Ding macht - und die Gemeinschaft trotzdem funktioniert. Doch die Zukunft dieses besonderen Ortes ist aktuell leider noch ungewiss…
-link: " Minitopia: https://www.youtube.com/watch?v=nDAlahWo3Oo"
+link: https://www.youtube.com/watch?v=nDAlahWo3Oo
 categories:
   - multimedia
 ---
