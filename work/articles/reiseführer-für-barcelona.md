@@ -1,5 +1,5 @@
 ---
-title: Reiseführer für Barcelona
+title: Getting lost in Barcelona
 published: 03.04.2024
 tag: Travel
 summary: Meine liebsten Orte in Barcelona - festgehalten in einem bunten Reiseführer.
