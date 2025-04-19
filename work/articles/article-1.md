@@ -1,8 +1,8 @@
 ---
 title: "next.media: Vom Silicon Valley an die Alster"
 date: Tech
-published: 05.08.2023
-tag: Food
+published: 03.02.2025
+tag: Media, AI
 summary: >-
   “Ich habe TikTok schnell wieder gelöscht. Der Algorithmus war zu gut für mich”
 
