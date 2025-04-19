@@ -1,5 +1,5 @@
 ---
-title: Reiseführer für Wien
+title: Getting lost in Vienna
 published: 28.04.2024
 tag: Travel
 summary: Meine liebsten Orte in Wien - festgehalten in einem bunten Reiseführer.
