@@ -1,7 +1,7 @@
 ---
 title: "next.media: Audience Suite: Daten als Schlüssel zur Zielgruppe"
 date: "2024"
-published: "2024"
+published: 16.10.2024
 tag: Start-up
 summary: >-
   Know your Audienc. Audience Suite bietet eine Plattform, die
