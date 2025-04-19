@@ -1,8 +1,9 @@
 ---
 title: "brandeins KOMMUNIKATION 02/25: Miss Pompadour - Lebenshilfe inklusive"
 year: 17.04.2024
-tag: Sustainability
+tag: Wirtschaft
 date: Wirtschaft
+published: brand eins 02/2025
 summary: >+
   Die Firma Miss Pompadour ist erfolgreich, weil sie ihren Kundinnen neben
   Farben und Tapeten etwas sehr Wertvolles anbietet: ein offenes Ohr.
