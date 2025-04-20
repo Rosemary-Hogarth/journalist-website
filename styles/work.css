@@ -1,3 +1,54 @@
+.filter-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.filter-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3em;
+  display: flex;
+  align-items: center;
+}
+
+.filter-dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 2.5em;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 100;
+  min-width: 150px;
+  padding: 0.5em 0;
+}
+
+.filter-dropdown-menu.active {
+  display: block;
+}
+
+.filter-button {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.6em 1em;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.filter-button.active,
+.filter-button:hover {
+  background: #f0f4fa;
+  color:#D1BCFF;
+}
 
 
 .card-container {
@@ -6,21 +57,26 @@
   border-radius: none !important;
 
 }
-#category-digitale-kommunikation {
-  background-color: #D1BCFF;
-}
-
-#category-multimedia {
-  background-color:  #B0C3E5;
-}
-
-#category-online-journalismus {
-  background-color:  #F3F2E3;
-}
 
 #category-print-journalismus {
   background-color: #FFB3EB;
 }
+
+#category-online-journalismus {
+  background-color: #F3F2E2 ;
+}
+
+#category-digitale-kommunikation {
+  background-color:#AFC1E5;
+}
+
+#category-multimedia {
+  background-color: #D1BCFF;
+}
+
+
+
+
 #category-articles {
   background-color: #F3F2E3
 }
@@ -143,42 +199,9 @@
   text-align: left;
 }
 
-.filter {
-  font-size: 0.8em;
-  margin-bottom: 1.5em;
-}
 
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 0 auto;
-  border-bottom: 2px solid black;
-}
 
-.filter-button  {
-  border: none;
-  cursor: pointer;
-  color: #9d9d9c;
-  font-size: 1.6em;
-  padding-right: 11px;
-  padding-left: 11px;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  margin: 0;
-  background-color: white;
-  outline: none;
-}
 
-.filter-button:focus:not(:focus-visible) {
-  outline: none; /* Removes outline for mouse interactions */
-}
-
-.filter-button.active, .filter-button:hover {
-
-  color: black;
-}
 
 /* 📱 Small Screens (Mobile) */
 @media (max-width: 768px) {
