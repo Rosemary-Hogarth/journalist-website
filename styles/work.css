@@ -31,6 +31,9 @@
   display: none;
 }
 
+.hidden-card {
+  display: none;
+}
 
 
 .work-card.hidden-card {
@@ -55,6 +58,9 @@
   margin: 0;
 }
 
+.work-card .tag {
+  margin-right: 10px;
+}
 .arrow-card {
   height: 60px;
   border-bottom: 2px solid black;
@@ -197,11 +203,13 @@
 
 
   .work-card .article-btn {
-    margin-top: 10px; /* Optional: space the button from the title on smaller screens */
+    margin-top: 10px;
+
   }
 
+
   .work-card .tag {
-    margin-right: 10px; /* Optional: add space between date and other elements */
+    display: none;
   }
 
   .category-title, .heading {

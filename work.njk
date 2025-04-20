@@ -23,13 +23,15 @@ title: work
      <div class="work-cards-container {{ category.slug }}">
       {% if category.works.length > 0 %}
         {% for work in category.works %}
+
           <div class="work-card {% if loop.index > 3 %}hidden-card{% endif %}"
             data-title="{{ work.data.title }}"
             data-date="{{ work.data.published }}"
             data-summary="{{ work.data.summary }}"
             data-link="{{ work.data.link }}">
 
-            <p class="tag" data-tag="{work.data.tag}">{{ work.data.tag }}</p>
+            <p class="tag" data-tag="{{ work.data.tag }}">{{ work.data.tag }}</p>
+
             <p class="article-title">
               <a href="{{ work.data.link }}" target="_blank">{{ work.data.title }}</a>
             </p>

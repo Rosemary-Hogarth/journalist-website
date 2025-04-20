@@ -1,7 +1,7 @@
 ---
 title: YouTube-Reportage über Silas Tinyhouse in Minitopia
 published: 25.03.2025
-tag: YouTube, Sustainability
+tag: Sustainability
 summary: >-
   In diesem Video zeigen wir euch, wie Silas in der Community Minitopia lebt,
   einem Ort in den Niederlanden, wo das Konzept von Wohnen neu gedacht wird.

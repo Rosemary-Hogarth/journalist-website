@@ -120,8 +120,24 @@ function styleCategoriesWithRandomColor() {
 document.addEventListener('DOMContentLoaded', () => {
   styleCategoriesWithRandomColor();
   setupExpandableWorkCards();
+  setupFilters();
+  updateArrowCardsVisibility();
 
   })
+
+  function updateArrowCardsVisibility() {
+    document.querySelectorAll('.work-cards-container').forEach(container => {
+      const visibleCards = container.querySelectorAll('.work-card:not(.arrow-card):not(.hidden-card)');
+      const arrowCard = container.querySelector('.arrow-card');
+      if (!arrowCard) return;
+
+      if (visibleCards.length === 0 || visibleCards.length <= 3) {
+        arrowCard.style.display = 'none';
+      } else {
+        arrowCard.style.display = '';
+      }
+    });
+  }
 
   // ⭐️ Filter Functionality
   function setupFilters() {
@@ -132,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!filterButtonsContainer) return;
 
 // Create a set of unique categories from the data-category attribute of work items
-    const tagsSet = new Set([...works].map(work => work.getAttribute("data-tag")).filter(Boolean));
+const tagsSet = new Set([...works].map(work => work.querySelector('.tag')?.getAttribute('data-tag')).filter(Boolean));
 
     filterButtonsContainer.innerHTML = ""; // Clear existing buttons
 
@@ -154,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Add event listeners for filtering
-    filterButtonsContainer.addEventListener("click", (event) => {
+    filterButtonsContainer.addEventListener("click", (e) => {
         const target = e.target;
         if (!target.classList.contains("filter-button")) return;
 
@@ -165,8 +181,11 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get the selected filter
         const filter = target.getAttribute("data-filter");
    // Show or hide work cards based on the selected filter
+
+
+   const workCardsContainer = document.querySelector(".work-cards-container");
    works.forEach(work => {
-    const workTag = work.getAttribute("data-tag").toLowerCase();
+    const workTag = work.querySelector('.tag')?.getAttribute('data-tag').toLowerCase();
 
     if (filter === "" || workTag === filter) {
       work.classList.remove("hidden-card");

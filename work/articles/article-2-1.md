@@ -1,7 +1,7 @@
 ---
 title: "Hamburg Kreativgesellschaft: Wie wird Stadtplanung zugänglicher?"
 published: 20.03.2025
-tag: City, Architektur
+tag: City
 summary: Wie lässt sich eine klimafreundliche und partizipative Stadtplanung
   besser umsetzen? Architektin Marta Toscano und Ökonom Alexander Werle wagen
   ein Experiment.

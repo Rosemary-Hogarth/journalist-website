@@ -2,7 +2,7 @@
 title: "next.media: Digitale Wahrheiten sichern; Wie können manipulierte Videos
   und Fake News entlarvt werden?"
 published: 27.01.2025
-tag: AI , Tech
+tag: AI
 summary: >-
   Wie können manipulierte Videos und Fake News entlarvt werden? Ein Interview
   mit Konstantin Graf, Geschäftsführer des Hamburger Softwareunternehmens

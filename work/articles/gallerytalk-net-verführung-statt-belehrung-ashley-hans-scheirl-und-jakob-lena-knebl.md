@@ -2,7 +2,7 @@
 title: "gallerytalk.net: Verführung statt Belehrung: Ashley Hans Scheirl und
   Jakob Lena Knebl"
 published: 25.07.2024
-tag: Kunst, Gesellschaft
+tag: Kunst
 summary: "Das renommierte Wiener Künstlerduo Ashley Hans Scheirl und Jakob Lena
   Knebl präsentiert in Hamburg die Ausstellung „Passage“. Die Sammlung
   Falckenberg glänzt durch sie als schillernder Kunstort, der sich mit Körper,

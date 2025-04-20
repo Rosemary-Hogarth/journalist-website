@@ -1,7 +1,7 @@
 ---
 title: "ZEIT ONLINE: Packender Begleiter"
 published: 09.02.2024
-tag: Livestyle
+tag: Lifestyle
 summary: >-
   Funktionskleidung kann nicht ästhetisch sein, das dachte zumindest unsere
   Autorin. Bis dieser Rucksack aus Lkw-Plane ihre Meinung änderte. Von

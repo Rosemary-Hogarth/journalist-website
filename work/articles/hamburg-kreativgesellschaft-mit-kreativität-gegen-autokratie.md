@@ -1,7 +1,7 @@
 ---
 title: "Hamburg Kreativgesellschaft: Mit Kreativität gegen Autokratie"
 published: 18.03.2025
-tag: Politik, Kultur
+tag: Politik
 summary: Londons Botschafter der Kreativwirtschaft Prof. John Newbigin über den
   amerikanischen Diskurswandel, die ukrainische Kulturszene und kreative
   Freiräume im Irak.
