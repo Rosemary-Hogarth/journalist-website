@@ -5,7 +5,7 @@ background: >-
   **Kommunikationsberaterin**. 
 
 
-  Sie schreibt über Themen aus Kultur, Gesellschaft, Wirtschaft und Nachhaltigkeit für Medien wie DIE ZEIT, brand eins, SALON (**[Print-Journalismus](/work/#category-print-journalismus)**) (<span class="zeit-link">Print-Journalismus</span>)sowie falstaff, next Media und gallerytalk (**[Online-Journalismus](/work/#category-online-journalismus)**). Sie absolvierte Praktika beim ZDF München, ZDF New York, Goethe-Institut Paris und den Nürnberger Nachrichten.
+  Sie schreibt über Themen aus Kultur, Gesellschaft, Wirtschaft und Nachhaltigkeit für Medien wie DIE ZEIT, brand eins, SALON (**[Print-Journalismus](/work/#category-print-journalismus)**) sowie falstaff, next Media und gallerytalk (**[Online-Journalismus](/work/#category-online-journalismus)**). Sie absolvierte Praktika beim ZDF München, ZDF New York, Goethe-Institut Paris und den Nürnberger Nachrichten.
 
 
   Neben ihrer journalistischen Arbeit unterstützt Marie-Louise Unternehmen, Privatpersonen und Vereine dabei, ihre digitale Sichtbarkeit zu erhöhen. (**[Digitale Kommunikation](/work/#category-digitale-kommunikation)**)
