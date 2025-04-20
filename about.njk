@@ -15,7 +15,7 @@ layout: base.njk
     <div class="row">
       <div class="col-lg-6 box-1">
         <div class="fade-in-text">
-          <p class="about-me-text">{{ backgroundItem.background | markdownify | safe }}</p>
+          <div class="about-me-text">{{ backgroundItem.background | markdownify | safe }}</div>
         </div>
         <div class="cv-section">
           <a href="{{ backgroundItem.cv | url }}" target="_blank" rel="noopener noreferrer">
@@ -33,7 +33,7 @@ layout: base.njk
 
     <div class="contact-section">
       <h1 id="contact">Contact</h1>
-      <p class="ml-1">If you're interested in working together, send me an email or contact me on social media!</p>
+      <p class="contact-me">If you're interested in working together, send me an email or contact me on social media!</p>
       <div class="btn btn-branding">
         <a class="email-link" href="mailto:marie-louise@schlutius.net">marie-louise@schlutius.net</a>
       </div>

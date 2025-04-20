@@ -1,7 +1,6 @@
 ---
 title: "next.media: Digitale Wahrheiten sichern; Wie können manipulierte Videos
   und Fake News entlarvt werden?"
-date: "2024"
 published: 27.01.2025
 tag: AI , Tech
 summary: >-

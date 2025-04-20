@@ -1,6 +1,5 @@
 ---
 title: "next.media: Vom Silicon Valley an die Alster"
-date: Tech
 published: 03.02.2025
 tag: Media, AI
 summary: >-

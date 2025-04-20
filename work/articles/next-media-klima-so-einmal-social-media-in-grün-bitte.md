@@ -1,6 +1,5 @@
 ---
 title: "next.media: Mit GeoSci zum perfekten Wohnort"
-date: "2024"
 published: "2024"
 tag: Start-Up
 summary: Das Start-up GeoSci entwickelt eine Lösung, um detaillierte

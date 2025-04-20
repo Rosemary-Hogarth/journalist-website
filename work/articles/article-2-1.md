@@ -1,6 +1,5 @@
 ---
 title: "Hamburg Kreativgesellschaft: Wie wird Stadtplanung zugänglicher?"
-date: Tech & KI
 published: 20.03.2025
 tag: City, Architektur
 summary: Wie lässt sich eine klimafreundliche und partizipative Stadtplanung

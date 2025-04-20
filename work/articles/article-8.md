@@ -1,6 +1,5 @@
 ---
 title: "next.media: Media for Equity neu gedacht mit NextGen Innovators"
-date: "2024"
 published: 16.10.2024
 tag: Start-up
 summary: >-

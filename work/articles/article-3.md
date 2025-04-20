@@ -1,6 +1,5 @@
 ---
 title: "falstaff: AROMA Collective: Hier wird Essen zur multisensorischen Kunst"
-date: "2024"
 published: 07.04.2024
 tag: Genuss
 summary: "Kann der Klang eines Tones den Geschmack verändern? Das »AROMA

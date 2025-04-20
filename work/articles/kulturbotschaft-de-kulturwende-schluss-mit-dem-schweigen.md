@@ -1,6 +1,5 @@
 ---
 title: "kulturbotschaft.de: Kulturwende: Schluss mit dem Schweigen"
-date: "2024"
 published: 26.08.2024
 tag: Kultur
 summary: "In der Welt der Kultur, wo jedes Wort zählt und jede Geste

@@ -9,6 +9,12 @@ title: work
     <p class="heading">Work</p>
   </div>
 
+    <!-- Filter Buttons -->
+   <div id="filter-buttons" class="filter-buttons">
+    <button class="filter-button active" data-filter="">All</button>
+    <!-- Categories will be populated here by JavaScript -->
+  </div>
+
   <!-- Dynamically Rendered Categories -->
   {% for category in collections.workCategories %}
     <div class="category" id="category-{{ category.slug }}">
@@ -23,7 +29,7 @@ title: work
             data-summary="{{ work.data.summary }}"
             data-link="{{ work.data.link }}">
 
-            <p class="date">{{ work.data.tag }}</p>
+            <p class="tag" data-tag="{work.data.tag}">{{ work.data.tag }}</p>
             <p class="article-title">
               <a href="{{ work.data.link }}" target="_blank">{{ work.data.title }}</a>
             </p>

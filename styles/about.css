@@ -14,9 +14,38 @@ a {
   color: black;
 }
 
-a:hover {
-  color: #D1BCFF;
+
+.about-me-text a[href*="print-journalismus"] {
+  text-decoration: underline;
+  text-decoration-color: #FFB3EB;
+  text-decoration-thickness: 3px;
+  color: inherit;
 }
+
+.about-me-text a[href*="online-journalismus"] {
+  text-decoration: underline;
+  text-decoration-color: #F3F2E2;
+  text-decoration-thickness: 3px;
+  color: inherit;
+}
+
+.about-me-text a[href*="digitale-kommunikation"] {
+  text-decoration: underline;
+  text-decoration-color: #D0BCFF;
+  text-decoration-thickness: 3px;
+  color: inherit;
+}
+
+.about-me-text a[href*="multimedia"],
+.about-me-text a[href="#"] {
+  text-decoration: underline;
+  text-decoration-color: #B0C2E5;
+  text-decoration-thickness: 3px;
+  color: inherit;
+}
+
+
+
 .about-container {
   max-width: 100%;
   margin: 0 auto;
@@ -255,6 +284,10 @@ p.category-title-about {
 
 .work-card .date {
   display: none;
+}
+
+.contact-me {
+  font-size: 15px;
 }
 
 }

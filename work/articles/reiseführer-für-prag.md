@@ -1,6 +1,5 @@
 ---
 title: Getting lost in Prag
-date: "2024"
 published: 01.06.2024
 tag: Travel
 summary: Meine liebsten Orte in Prag - festgehalten in einem bunten Reiseführer.

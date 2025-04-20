@@ -137,6 +137,43 @@
   text-align: left;
 }
 
+.filter {
+  font-size: 0.8em;
+  margin-bottom: 1.5em;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  border-bottom: 2px solid black;
+}
+
+.filter-button  {
+  border: none;
+  cursor: pointer;
+  color: #9d9d9c;
+  font-size: 1.6em;
+  padding-right: 11px;
+  padding-left: 11px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin: 0;
+  background-color: white;
+  outline: none;
+}
+
+.filter-button:focus:not(:focus-visible) {
+  outline: none; /* Removes outline for mouse interactions */
+}
+
+.filter-button.active, .filter-button:hover {
+
+  color: black;
+}
+
 /* 📱 Small Screens (Mobile) */
 @media (max-width: 768px) {
 
@@ -163,7 +200,7 @@
     margin-top: 10px; /* Optional: space the button from the title on smaller screens */
   }
 
-  .work-card .date {
+  .work-card .tag {
     margin-right: 10px; /* Optional: add space between date and other elements */
   }
 

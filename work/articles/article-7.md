@@ -1,6 +1,5 @@
 ---
 title: "next.media: RETELL: Ready to make Podcasts licensable?"
-date: "2024"
 published: 16.10.1024
 tag: Start-up
 summary: Mit RETELL entsteht die erste globale Podcast-Plattform, die durch

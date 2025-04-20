@@ -102,10 +102,10 @@ document.addEventListener("click", (event) => {
 // Function to assign a random color to categories beyond the first four
 function styleCategoriesWithRandomColor() {
   const firstFourCategories = [
-    'category-digitale-kommunikation',
-    'category-multimedia',
+    'category-print-journalismus',
     'category-online-journalismus',
-    'category-print-journalismus'
+    'category-digitale-kommunikation',
+    'category-multimedia'
   ];
 
   document.querySelectorAll('.category').forEach(category => {
@@ -122,3 +122,57 @@ document.addEventListener('DOMContentLoaded', () => {
   setupExpandableWorkCards();
 
   })
+
+  // ⭐️ Filter Functionality
+  function setupFilters() {
+    const works = document.querySelectorAll(".work-card");
+
+    const filterButtonsContainer = document.getElementById("filter-buttons");
+
+    if (!filterButtonsContainer) return;
+
+// Create a set of unique categories from the data-category attribute of work items
+    const tagsSet = new Set([...works].map(work => work.getAttribute("data-tag")).filter(Boolean));
+
+    filterButtonsContainer.innerHTML = ""; // Clear existing buttons
+
+    // Include the "All" filter option
+  const allButton = document.createElement("button");
+  allButton.classList.add("filter-button", "active");
+  allButton.textContent = "All";
+  allButton.setAttribute("data-filter", "");
+  filterButtonsContainer.appendChild(allButton);
+
+
+   // Create buttons for each tag
+    tagsSet.forEach(tag => {
+      const button = document.createElement("button");
+      button.classList.add("filter-button");
+      button.textContent = tag;
+      button.setAttribute("data-filter", tag.toLowerCase());
+      filterButtonsContainer.appendChild(button)
+    });
+
+    // Add event listeners for filtering
+    filterButtonsContainer.addEventListener("click", (event) => {
+        const target = e.target;
+        if (!target.classList.contains("filter-button")) return;
+
+        // Remove active class from all buttons and add it to the clicked button
+        document.querySelectorAll(".filter-button").forEach(button => button.classList.remove("active"));
+        target.classList.add("active");
+
+        // Get the selected filter
+        const filter = target.getAttribute("data-filter");
+   // Show or hide work cards based on the selected filter
+   works.forEach(work => {
+    const workTag = work.getAttribute("data-tag").toLowerCase();
+
+    if (filter === "" || workTag === filter) {
+      work.classList.remove("hidden-card");
+    } else {
+      work.classList.add("hidden-card");
+    }
+  });
+});
+}

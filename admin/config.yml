@@ -40,6 +40,7 @@ collections:
     create: true
     slug: "{{categoryName | slugify}}"
     fields:
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the articles as you want them displayed." }
       - {label: "Category Name", name: "categoryName", widget: "string", required: true}
 
   - name: "services"

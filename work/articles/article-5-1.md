@@ -1,6 +1,5 @@
 ---
 title: YouTube-Reportage über Silas Tinyhouse in Minitopia
-date: "2025"
 published: 25.03.2025
 tag: YouTube, Sustainability
 summary: >-

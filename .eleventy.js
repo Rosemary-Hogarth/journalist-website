@@ -56,10 +56,7 @@ module.exports = function(eleventyConfig) {
   });
 
 
-  // Add cloudinaryUrl filter
-  eleventyConfig.addFilter("cloudinaryUrl", (imagePath) => {
-    return `https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/${imagePath}`;
-  });
+
 
   // Add YAML data file support
   eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
@@ -110,7 +107,9 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addCollection("workCategories", function (collectionApi) {
     const works = collectionApi.getFilteredByGlob("./work/articles/*.md");
-    const categories = collectionApi.getFilteredByGlob("./work/categories/*.md");
+    const categories = collectionApi.getFilteredByGlob("./work/categories/*.md")
+    .filter(item => item.data.order !== undefined)
+    .sort((a, b) => (a.data.order || 0) - (b.data.order || 0));
 
     return categories.map((category) => {
       const categorySlug = category.data.slug || eleventyConfig.getFilter("slugify")(category.data.categoryName);
