@@ -1,7 +1,7 @@
 ---
 title: "gallerytalk: Kunstvolle Seiten"
 published: 25.03.2024
-tag: Kunst
+tag: Kultur
 summary: "Das Pariser Kaufhaus “Le Bon Marché” ist seit mehr als einem
   Jahrhundert ein Ort, an dem Kultur und Kommerz miteinander verschmelzen. Die
   Ausstellung “Mise En Page” zeigt Werke des französischen Illustrators Jean
