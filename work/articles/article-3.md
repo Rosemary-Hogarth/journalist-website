@@ -1,7 +1,7 @@
 ---
 title: "falstaff: AROMA Collective: Hier wird Essen zur multisensorischen Kunst"
 published: 07.04.2024
-tag: Genuss
+tag: Kultur
 summary: "Kann der Klang eines Tones den Geschmack verändern? Das »AROMA
   Collective« sagt: Ja! Hier wird jedes Dinner zu einer multisensorischen
   Inszenierung, bei der Genuss auf ein völlig neues Level gehoben wird."
