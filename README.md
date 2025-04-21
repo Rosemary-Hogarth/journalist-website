@@ -65,4 +65,4 @@ The final site includes a vibrant homepage, an about page, and a dynamic works s
 
 📧 **Email:** rohogarth@gmail.com 
 🌐 **Portfolio:** [Portfolio](https://wondrous-sprite-d950e1.netlify.app/)  
-💼 **LinkedIn:** [linkedin.com/in/yourname](https://www.linkedin.com/in/rosemary-hogarth/)  
+💼 **LinkedIn:** [linkedin](https://www.linkedin.com/in/rosemary-hogarth/)  
