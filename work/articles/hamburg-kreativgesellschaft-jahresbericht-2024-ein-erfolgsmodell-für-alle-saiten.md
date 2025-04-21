@@ -2,7 +2,7 @@
 title: "Hamburg Kreativgesellschaft Jahresbericht 2024: Ein Erfolgsmodell für
   alle Saiten"
 published: 01.03.2025
-tag: Start-up
+tag: Kultur
 summary: "Mit Soundvest macht Philipp Klotz hochwertige Instrumente für alle
   zugänglich. Die Idee: Privatanleger*innen investieren in wertbeständige
   klassische Instrumente, die Musiker*innen über eine Leasing- Plattform
