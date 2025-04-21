@@ -63,6 +63,6 @@ The final site includes a vibrant homepage, an about page, and a dynamic works s
 
 ## 📞 Contact  
 
-📧 **Email:** your.email@example.com  
-🌐 **Portfolio:** [yourportfolio.com](https://yourportfolio.com)  
-💼 **LinkedIn:** [linkedin.com/in/yourname](https://linkedin.com/in/yourname)  
+📧 **Email:** rohogarth@gmail.com 
+🌐 **Portfolio:** [yourportfolio.com](https://wondrous-sprite-d950e1.netlify.app/)  
+💼 **LinkedIn:** [linkedin.com/in/yourname](https://www.linkedin.com/in/rosemary-hogarth/)  
