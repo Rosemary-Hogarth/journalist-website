@@ -1,7 +1,7 @@
 ---
 title: "next.media: Media for Equity neu gedacht mit NextGen Innovators"
 published: 16.10.2024
-tag: Start-up
+tag: Medien
 summary: >-
   Langfristige Bindung statt kurzfristiger Werbedeals
 
