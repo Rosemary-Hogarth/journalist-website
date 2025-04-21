@@ -19,10 +19,10 @@ The final site includes a vibrant homepage, an about page, and a dynamic works s
 ## 🖼️ Screenshots  
 
 ### 🖥️ Desktop View  
-![Desktop View](screenshots/homepage-desktop.png)  
+![Desktop View](readme/work.png)  ![Desktop View](readme/about.png)  
 
 ### 📱 Mobile View  
-![Mobile View](screenshots/works-mobile.png) ![Mobile View](screenshots/filter-dropdown.png)  
+![Mobile View](readme/home-mobile.png) ![Mobile View](screenshots/filter-dropdown.png)  
 
 ---
 
