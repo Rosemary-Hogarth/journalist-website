@@ -2,7 +2,7 @@
 title: YouTube-Reportage über rundes Tiny House auf einem Passivhaus über den
   Dächern Berlins
 published: 14.11.2024
-tag: Sustainability
+tag: Nachhaltigkeit
 summary: >-
   In diesem Video erleben Malo und Marc ihre erste gemeinsame Exkursion: Wir
   sind in Berlin Kreuzberg und erkunden eine außergewöhnliche Wohnkugel in
