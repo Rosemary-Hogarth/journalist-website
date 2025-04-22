@@ -1,7 +1,7 @@
 ---
 title: "gallerytalk.net: Interview mit Herlinde Koelbl"
 published: 30.07.2024
-tag: Kunst
+tag: Kultur
 summary: Die renommierte deutsche Fotografin Herlinde Koelbl zeigt in ihrer
   jüngsten Ausstellung “Faszination Wissenschaft” die persönliche und berufliche
   Seite von 60 Spitzenforscher:innen aus aller Welt. Über einen Zeitraum von
