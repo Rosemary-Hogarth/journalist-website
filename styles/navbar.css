@@ -63,12 +63,19 @@ body {
   font-size: 35px;
 }
 
+.menu-icon {
+  padding-bottom: 5px;
+}
+
+
 
 
 @media (max-width: 768px) {
-  .logo {
-    font-size: 25px;
+  .logo a {
+    font-size: 18px;
   }
+
+
 
   .menu a {
     padding:5px;
@@ -79,4 +86,17 @@ body {
     top: 0;
     right: 15px;
   }
+
+  .navbar {
+    padding: 0 10px;
+    height: 50px;
+  }
+
+  .navbar > * {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+
 }
