@@ -43,6 +43,10 @@
   transition: background 0.2s;
 }
 
+.filter-icon {
+  height: 25px;
+}
+
 .filter-button.active,
 .filter-button:hover {
   background: #f0f4fa;
@@ -243,6 +247,10 @@
 
   .filter-button {
     font-size: 15px;
+  }
+
+  .filter-icon {
+    height: 18px;
   }
 
   .heading {

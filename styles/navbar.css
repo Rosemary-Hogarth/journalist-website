@@ -35,13 +35,13 @@ body {
   justify-content: center;
   transition: right 0.5s ease-in-out;
   z-index: 1000;
-  background-color: #F3F2E3;
+  background-color:  #D1BCFF;
   border: 2px solid black;
 }
 
 .menu a {
   text-decoration: none;
-  color: #D1BCFF;
+  color: black;
   font-size: 50px;
   margin: 20px;
 }
@@ -56,7 +56,7 @@ body {
   right: 30px;
   font-size: 40px;
   cursor: pointer;
-  color: #D1BCFF;
+  color: black;
 }
 
 .logo {
@@ -72,7 +72,7 @@ body {
 
 @media (max-width: 768px) {
   .logo a {
-    font-size: 18px;
+    font-size: 20px;
   }
 
 

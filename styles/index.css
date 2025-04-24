@@ -1,38 +1,89 @@
-.full-screen-image {
-  width: 100vw;      /* 100% of the viewport width */
-  height: 100vh;     /* 100% of the viewport height */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  display: block;    /* Removes any default inline behavior */
+/* .full-screen-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
   margin: 0;
   cursor: pointer;
+} */
+
+.full-screen-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
 }
 
-.home-name {
-  position: absolute;
-  bottom: 20px; /* Adjust the distance from the bottom */
-  right: 20px;  /* Adjust the distance from the right */
-  font-size: 2rem; /* Adjust the size as needed */
-  color: #D1BCFF; /* Text color */
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Ensure it’s not visible */
-  transition: opacity 1s ease-in, visibility 0s linear 1s; /* Fade-in effect */
+
+
+.home-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home-name-columns {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.left-column {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.right-column {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 0;
+  z-index: 2;
+  background-color: #d1bcffef;
+  cursor: pointer;
+
+}
+
+.vertical-name {
+  writing-mode:vertical-lr;
+}
+
+
+.vertical-name span {
+  writing-mode:vertical-lr;
+  line-height: 1.5;
+  font-size: 40px;
+  font-weight: 600;
+  text-align: center;
+  margin: 10px 0;
   cursor: pointer;
 }
 
-.home-name.show {
-  opacity: 1;
-  visibility: visible; /* Make the name visible after 2 seconds */
-  transition: opacity 1s ease-in; /* Control the fade-in duration */
-}
 
-.home-name a {
-  text-decoration: none;
-  color: #D1BCFF;
-}
+
 
 
 @media (max-width: 768px) {
   .home-name a {
     font-size: 20px;
+  }
+
+  .name-box {
+    padding: 10px 20px;
+  }
+
+  .vertical-name span {
+    font-size: 28px;
+  }
+  .right-column {
+    width: 50px;
   }
 }

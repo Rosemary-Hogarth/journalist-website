@@ -1,7 +1,9 @@
 body {
   max-width: 100%;
   overflow-x: hidden;
-  font-family: Roboto;
+  /* font-family: Roboto; */
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
 }
 
 html, body {
