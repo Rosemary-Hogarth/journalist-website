@@ -20,7 +20,7 @@ function openModal(title, date, summary, link) {
 
   // Create the button
   const modalButton = document.createElement("a"); // Use <a> to make it a real link
-  modalButton.innerText = "Go to Article";
+  modalButton.innerText = "Zum Artikel";
   modalButton.href = link;
   modalButton.target = "_blank"; // Open in new tab
   modalButton.style.display = "inline-block";

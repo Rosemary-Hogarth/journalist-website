@@ -87,7 +87,9 @@ a {
 }
 
 
-
+.category-services {
+  border-bottom: 2px solid black;
+}
 
 .img-container {
   text-align: center;
