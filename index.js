@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-const image = document.querySelector(".full-screen-image")
+// const image = document.querySelector(".full-screen-image")
 
-if (image){
-image.addEventListener("click", function() {
-  window.location.pathname = "/about";
-})
-}
+// if (image){
+// image.addEventListener("click", function() {
+//   window.location.pathname = "/about";
+// })
+// }
 
 
   const navbar = document.querySelector(".navbar");
