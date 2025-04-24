@@ -212,9 +212,7 @@
   color: lightgreen;
 }
 
-#modal-summary {
-  text-align: left;
-}
+
 
 
 
@@ -252,7 +250,7 @@
     letter-spacing: 5px;
   }
 }
-/* 📱 Small Screens (Mobile) */
+
 @media (max-width: 768px) {
 
 .article-btn {
@@ -303,6 +301,11 @@
 
   .arrow-card {
     height: 45px;
+  }
+
+  svg {
+    width: 25px;
+    height: 25px;
   }
 
 }
