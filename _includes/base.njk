@@ -21,20 +21,27 @@
     <link rel="stylesheet" href="/styles/work.css">
 </head>
 <body>
-  <!-- this is the main content -->
   <div class="navbar">
     <div class="logo"><a href="/">Marie-Louise Schlutius</a></div>
     <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
 </div>
+<body class="{% if page.url == '/' %}home{% endif %}">
 
 <div class="menu" id="menu">
+  <div class="menu-handle" onclick="toggleMenu()">
+    <div class="vertical-name">
+      <span class="first-name">Marie-Louise</span>
+      <span class="last-name">Schlutius</span>
+    </div>
+  </div>
+
+  <div class="menu-content">
     <div class="close-btn" onclick="toggleMenu()">&times;</div>
     <a href="/work">Work</a>
     <a href="/about">About</a>
-
     <a href="/about#contact">Contact</a>
+  </div>
 </div>
-
 
 
     <div class="main-container {% if removeMainPadding %} no-padding{% endif %}">

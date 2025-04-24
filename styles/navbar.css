@@ -22,22 +22,53 @@ body {
   cursor: pointer;
 }
 
+
 .menu {
   position: fixed;
   top: 0;
-  right: -100%;
-  width: 100%;
+  right: -100vw; /* Fully offscreen by default */
+  width: 100vw;
   height: 100vh;
-  background: white;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   transition: right 0.5s ease-in-out;
   z-index: 1000;
-  background-color:  #D1BCFF;
-  border: 2px solid black;
+  background-color: #D1BCFF;
+  box-sizing: border-box;
 }
+
+/* On homepage, slide out just the handle */
+body.home .menu {
+  right: calc(-100vw + 80px);
+}
+
+.menu.open {
+  right: 0; /* This must come after the above rules */
+}
+
+
+.menu-handle {
+  width: 80px;
+  background-color: #D1BCFF;
+
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+body.home .menu.open {
+  right: 0;
+}
+
+
+
+.menu.open .menu-handle {
+  background-color: white;
+  display: flex;
+}
+
+
+
 
 .menu a {
   text-decoration: none;
@@ -48,6 +79,30 @@ body {
 
 .menu a:hover {
   text-decoration: underline;
+}
+
+.menu-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid black;
+}
+
+.menu-handle {
+  display: none;
+}
+body.home .menu-handle {
+  display: flex;
+}
+
+body.home .menu {
+  right: calc(-100vw + 80px);
+}
+
+body.home .menu-handle {
+  display: flex;
 }
 
 .close-btn {
@@ -98,5 +153,11 @@ body {
     align-items: center;
   }
 
+  .menu-handle {
+    width: 50px;
+  }
 
+  body.home .menu {
+    right: calc(-100vw + 50px);
+  }
 }
