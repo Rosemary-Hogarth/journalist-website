@@ -96,7 +96,9 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("./images/uploads/*.md");
   });
 
-
+  eleventyConfig.addCollection("homepage_slideshow", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("homepage_slideshow/*.md");
+  });
 
   eleventyConfig.addCollection("work", function (collectionApi) {
     return collectionApi.getFilteredByGlob("./work/*.md")
@@ -114,9 +116,13 @@ module.exports = function(eleventyConfig) {
 
     return categories.map((category) => {
       const categorySlug = category.data.slug || eleventyConfig.getFilter("slugify")(category.data.categoryName);
+
       const associatedWorks = works.filter((work) =>
         work.data.categories?.includes(categorySlug)
-      );
+    ).sort((a, b) => (a.data.order || 0) - (b.data.order || 0)); // Sort works by order field
+
+
+
 
       return {
         categoryName: category.data.categoryName,

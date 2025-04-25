@@ -46,8 +46,14 @@ a {
   color: inherit;
 }
 
+.about-me-text strong {
+  font-size: 16px;
+}
 
-
+.about-me-text {
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
 .about-container {
   max-width: 100%;
   margin: 0 auto;
@@ -273,6 +279,7 @@ p.category-title-about {
 }
 
 .impressum-container {
+  position: relative;
   margin: 40px 100px;
 
 }
@@ -281,8 +288,40 @@ p.category-title-about {
   margin: 40px 100px;
 }
 
-strong {
+
+.back-button {
+  position: absolute;
+
+  z-index: 10;
+}
+
+
+.back-arrow {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  padding-right: 10px;
+
+  transition: background-color 0.3s ease;
+}
+
+
+
+.datenschutz-content strong {
   font-size: 20px;
+}
+
+strong a {
+  font-size: 16px;
+}
+
+.datenschutz-content {
+  padding-top: 40px;
+}
+
+.impressum-content {
+  padding-top: 40px;
 }
 
 .datenschutz-content h3, .datenschutz-content h4 {
@@ -297,6 +336,18 @@ strong {
     margin: 20px;
   }
 
+  .impressum-container, .datenschutz-container {
+    margin: 30px 10px;
+    font-size: 15px;
+  }
+
+  .datenschutz-content strong {
+    font-size: 15px;
+  }
+
+  strong a {
+    font-size: 15px;
+  }
   .about-me-text {
     margin-top: 0;
     padding: 0;
@@ -364,18 +415,16 @@ strong {
   font-size: 15px;
 }
 .socials {
-  flex-direction: column; /* Stack items vertically */
-  justify-content: center;
+
+  justify-content: center !important;
   text-align: center;
-  margin-top: 25px !important;
 }
 
 .footer-links {
-  flex-direction: column;
   margin-top: 10px;
-  justify-content: center;
+  justify-content: center !important;
   align-items: center;
-
+  flex-direction: row;
 }
 
 .footer-links a {
@@ -385,10 +434,23 @@ strong {
 
 }
 
+.text-start {
+  text-align: center !important;
+}
 .social-icon {
   margin-right: 0;
   margin-bottom: 8px;
 }
+
+.social-icons {
+  padding-bottom: 0;
+}
+
+
+.about-me-text strong {
+  font-size: 15px;
+}
+
 
 
 }

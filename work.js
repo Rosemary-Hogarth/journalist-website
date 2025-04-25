@@ -1,6 +1,6 @@
 // Function to get a random color from a predefined list
 function getRandomHexColor() {
-  const colors = ["#B0C3E5", "#FFB3EB", "#F3F2E3", "#6CC59B"];
+  const colors = ["#B0C3E5", "#FFB3EB", "#F3F2E3", "#97D6B8"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
 

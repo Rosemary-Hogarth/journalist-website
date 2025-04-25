@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-// const image = document.querySelector(".full-screen-image")
-
-// if (image){
-// image.addEventListener("click", function() {
-//   window.location.pathname = "/about";
-// })
-// }
-
 
   const navbar = document.querySelector(".navbar");
 
@@ -14,6 +6,46 @@ document.addEventListener("DOMContentLoaded", function() {
     navbar.style.display = "none";
 
   }
+
+  const slides = document.querySelectorAll('.home-slide');
+  const nameSpans = document.querySelectorAll(".vertical-name span");
+  const colors = ["#97D6B8", "#FFB3EB", "#B0C3E5"];
+
+  let currentSlide = 0;
+
+  // handles homepage slideshow by adding/removing active class
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+
+    // Update name color
+    const color = colors[currentSlide % colors.length];
+    nameSpans.forEach(span => {
+      span.style.color = color;
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  // Show the first slide immediately and apply the first color
+  showSlide(0);
+
+
+  slides.forEach(slide => {
+    slide.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Slide clicked');
+      nextSlide();
+    });
+  });
+
+
+  setTimeout(() => {
+    setInterval(nextSlide, 3000);
+  }, 3000);
 
 
 });

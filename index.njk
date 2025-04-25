@@ -2,10 +2,19 @@
 layout: base
 ---
 
-{% set imageItem = collections.homeImage[0].data %}
 
-<div class="home-container">
-  <img src="{{ imageItem.homeImage | url }}" alt="Home Image" class="full-screen-image"  />
+{% set slideshow = collections.homepage_slideshow | sort(attribute='data.order') %}
+
+{% if slideshow.length > 0 %}
+  <div class="home-container">
+    {% for slide in slideshow %}
+      <div class="home-slide {% if loop.first %}active{% endif %}";">
+        <img src="{{ slide.data.image }}" alt="{{ slide.data.title }}" >
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
+
   <div class="home-name-columns">
   <div class="left-column"></div>
   <div class="right-column" onclick="toggleMenu()">

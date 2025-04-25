@@ -18,6 +18,7 @@ collections:
     create: true
     slug: '{{title | slugify}}'
     fields:
+      - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the articles as you want them displayed." }
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Published", name: "published", widget: "string", required: true }
       - { label: "Tag", name: "tag", widget: "string", required: true }
@@ -43,7 +44,15 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the articles as you want them displayed." }
       - {label: "Category Name", name: "categoryName", widget: "string", required: true}
 
-
+  - name: "homepage_slideshow"
+    label: "Homepage Slideshow"
+    folder: "homepage_slideshow"
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {label: "Order", name: "order", widget: "number", default: 1}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image"}
 
 
   - name: "background"

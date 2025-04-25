@@ -5,6 +5,11 @@ layout: base.njk
 ---
 
 <section class="datenschutz-container">
+<div class="back-button">
+    <a href="javascript:history.back()" class="back-arrow">
+      &#8592;
+    </a>
+  </div>
   <div class="datenschutz-content">
     {{ collections["privacy-policy"][0].data.body | markdownify | safe}}
   </div>
