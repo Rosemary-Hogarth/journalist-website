@@ -1,4 +1,5 @@
 ---
+order: 4
 title: YouTube-Reportage über Silas Tinyhouse in Minitopia
 published: 25.03.2025
 tag: Nachhaltigkeit
