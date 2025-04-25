@@ -1,4 +1,5 @@
 ---
+order: 2
 title: "Paris, Ausstellungstext Galerie Charraudeau: Is that all there is?"
 published: 27.02.2025
 tag: Kultur
