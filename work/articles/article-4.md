@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: YouTube-Reportage über niederländische Community Minitopia
 published: 03.10.2022
 tag: Nachhaltigkeit
