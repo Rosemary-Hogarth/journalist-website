@@ -1,4 +1,5 @@
 ---
+order: 3
 title: YouTube-Reportage über rundes Tiny House auf einem Passivhaus über den
   Dächern Berlins
 published: 14.11.2024
