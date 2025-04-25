@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   }
 
-  if (document.body.classList.contains('home-page')) {
-    const navbar = document.querySelector('.navbar');
-    navbar.style.display = 'none'; // Explicitly set to none
-  }
 
   const slides = document.querySelectorAll('.home-slide');
   const nameSpans = document.querySelectorAll(".vertical-name span");
