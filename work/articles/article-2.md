@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: "brandeins KOMMUNIKATION 02/25: Miss Pompadour - Lebenshilfe inklusive"
 published: 17.04.2024
 tag: Wirtschaft
