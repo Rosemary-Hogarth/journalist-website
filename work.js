@@ -7,25 +7,17 @@ function getRandomHexColor() {
 // Select all work cards
 const cards = document.querySelectorAll('.work-card');
 
-// Function to check if the device is mobile or desktop
-function isMobile() {
-  return window.innerWidth <= 768; // You can adjust this value based on your breakpoint
-}
-
 // Loop through each card and add interactivity
 cards.forEach(card => {
+
   // When mouse hovers over a card, apply a random background color
   card.addEventListener("mouseover", function () {
-    if (!isMobile()) {
-      this.style.backgroundColor = getRandomHexColor();
-    }
+    this.style.backgroundColor = getRandomHexColor();
   });
 
   // When mouse leaves the card, reset the background
   card.addEventListener("mouseout", function () {
-    if (!isMobile()) {
-      this.style.backgroundColor = ""; // Reset background color when mouse leaves (only on desktop)
-    }
+    this.style.backgroundColor = "";  // Reset background color when mouse leaves
   });
 
   // When a card is clicked
@@ -39,12 +31,8 @@ cards.forEach(card => {
     // Open modal and populate with data
     openModal(title, date, summary, link);
 
-    // Apply color change only on mobile
-    if (isMobile()) {
-      this.style.backgroundColor = getRandomHexColor();
-    } else {
-      this.style.backgroundColor = ""; // Reset background color on desktop
-    }
+    // Remove any background color after clicking (no color retention logic)
+    this.style.backgroundColor = "";
   });
 });
 
