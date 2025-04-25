@@ -43,16 +43,6 @@ collections:
       - { label: "Order", name: "order", widget: "number", required: true, hint: "Order the articles as you want them displayed." }
       - {label: "Category Name", name: "categoryName", widget: "string", required: true}
 
-  - name: "services"
-    label: "Services"
-    folder: "services"
-    create: true
-    slug: "{{title | slugify}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string", required: true }
-      - { label: "Description", name: "description", widget: "text", required: true }
-      - { label: "Link Text", name: "linkText", widget: "string", required: true }
-      - { label: "Link URL", name: "linkUrl", widget: "string", required: true }
 
 
 
@@ -85,3 +75,25 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string", required: true }
       - { label: "Image", name: "homeImage", widget: "image", required: true }
+
+  - name: "impressum"
+    label: "Impressum"
+    folder: "content/legal/impressum"
+    create: true
+    slug: "index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titel", name: "title", widget: "string", default: "Impressum" }
+      - { label: "Inhalt", name: "body", widget: "markdown" }
+
+  - name: "privacy-policy"
+    label: "Datenschutzerklärung"
+    folder: "content/legal/privacy-policy"
+    create: true
+    slug: "index"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titel", name: "title", widget: "string", default: "Datenschutzerklärung" }
+      - { label: "Inhalt", name: "body", widget: "markdown" }

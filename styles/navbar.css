@@ -26,18 +26,25 @@ body {
 .menu {
   position: fixed;
   top: 0;
-  right: -100vw; /* Fully offscreen by default */
+  right: -100vw;
   width: 100vw;
   height: 100vh;
   display: flex;
-  transition: right 0.5s ease-in-out;
+
   z-index: 1000;
   background-color: #D1BCFF;
   box-sizing: border-box;
+  visibility: hidden;
+  transition: none;
 }
 
+body.page-ready .menu {
+  visibility: visible;
+
+}
 /* On homepage, slide out just the handle */
 body.home .menu {
+  display: flex;
   right: calc(-100vw + 80px);
 }
 
@@ -55,18 +62,25 @@ body.home .menu {
   cursor: pointer;
 }
 
+.menu-handle {
+  display: none;
+}
+
 
 body.home .menu.open {
   right: 0;
 }
 
 
+body.home .menu-handle {
+  display: flex;
+}
+
 
 .menu.open .menu-handle {
   background-color: white;
   display: flex;
 }
-
 
 
 
@@ -90,25 +104,12 @@ body.home .menu.open {
   border-left: 2px solid black;
 }
 
-.menu-handle {
-  display: none;
-}
-body.home .menu-handle {
-  display: flex;
-}
 
-body.home .menu {
-  right: calc(-100vw + 80px);
-}
-
-body.home .menu-handle {
-  display: flex;
-}
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 0;
+  right: 20px;
   font-size: 40px;
   cursor: pointer;
   color: black;
@@ -138,8 +139,8 @@ body.home .menu-handle {
   }
 
   .close-btn {
-    top: 0;
-    right: 15px;
+    top: -12px;
+    right: 12px;
   }
 
   .navbar {

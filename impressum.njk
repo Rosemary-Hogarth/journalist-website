@@ -1,0 +1,11 @@
+---
+layout: base.njk
+
+---
+
+<section class="impressum-container">
+  <h1>{{ collections.impressum[0].title }}</h1>
+  <div class="impressum-content">
+    {{ collections.impressum[0].body | safe }}
+  </div>
+</section>
