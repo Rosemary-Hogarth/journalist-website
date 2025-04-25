@@ -1,4 +1,5 @@
 ---
+order: 1
 title: "next.media: klima&so: Einmal Social Media in grün, bitte!"
 published: 16.10.2024
 tag: Nachhaltigkeit
