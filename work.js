@@ -4,24 +4,28 @@ function getRandomHexColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// Track which card was last clicked, so we can manage background colors
-let lastClickedCard = null;
-
 // Select all work cards
 const cards = document.querySelectorAll('.work-card');
 
+// Function to check if the device is mobile or desktop
+function isMobile() {
+  return window.innerWidth <= 768; // You can adjust this value based on your breakpoint
+}
+
 // Loop through each card and add interactivity
 cards.forEach(card => {
-  let storedColor = ""; // This stores the color that was applied when the card was clicked
-
   // When mouse hovers over a card, apply a random background color
   card.addEventListener("mouseover", function () {
-    this.style.backgroundColor = getRandomHexColor();
+    if (!isMobile()) {
+      this.style.backgroundColor = getRandomHexColor();
+    }
   });
 
-  // When mouse leaves the card, reset the background unless it was clicked
+  // When mouse leaves the card, reset the background
   card.addEventListener("mouseout", function () {
-    this.style.backgroundColor = lastClickedCard === this ? storedColor : "";
+    if (!isMobile()) {
+      this.style.backgroundColor = ""; // Reset background color when mouse leaves (only on desktop)
+    }
   });
 
   // When a card is clicked
@@ -35,16 +39,12 @@ cards.forEach(card => {
     // Open modal and populate with data
     openModal(title, date, summary, link);
 
-    // Apply and store a random color to keep it highlighted
-    storedColor = getRandomHexColor();
-    this.style.backgroundColor = storedColor;
-
-    // Reset the previous card's background if it's not the current one
-    if (lastClickedCard && lastClickedCard !== this) {
-      lastClickedCard.style.backgroundColor = "";
+    // Apply color change only on mobile
+    if (isMobile()) {
+      this.style.backgroundColor = getRandomHexColor();
+    } else {
+      this.style.backgroundColor = ""; // Reset background color on desktop
     }
-
-    lastClickedCard = this;
   });
 });
 
