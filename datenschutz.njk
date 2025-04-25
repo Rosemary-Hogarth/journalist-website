@@ -1,11 +1,11 @@
 ---
 layout: base.njk
 
+
 ---
 
 <section class="datenschutz-container">
-  <h1>{{ collections.privacy-policy[0].title }}</h1>
   <div class="datenschutz-content">
-    {{ collections.privacy-policy[0].body | safe }}
+    {{ collections["privacy-policy"][0].data.body | markdownify | safe}}
   </div>
 </section>

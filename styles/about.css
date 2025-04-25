@@ -272,6 +272,22 @@ p.category-title-about {
   margin: 0;
 }
 
+.impressum-container {
+  margin: 40px 100px;
+
+}
+
+.datenschutz-container {
+  margin: 40px 100px;
+}
+
+strong {
+  font-size: 20px;
+}
+
+.datenschutz-content h3, .datenschutz-content h4 {
+  font-size: 16px;
+}
 /* Mobile Styles */
 @media (max-width: 992px) {
   .about-container {

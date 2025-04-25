@@ -4,8 +4,7 @@ layout: base.njk
 ---
 
 <section class="impressum-container">
-  <h1>{{ collections.impressum[0].title }}</h1>
   <div class="impressum-content">
-    {{ collections.impressum[0].body | safe }}
+    {{ collections.impressum[0].data.body | markdownify | safe }}
   </div>
 </section>

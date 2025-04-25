@@ -23,6 +23,7 @@ module.exports = function(eleventyConfig) {
   );
 
 
+
     eleventyConfig.addFilter("split", function(value, delimiter = '/') {
       // Check if value is a string
       if (typeof value === 'string') {
@@ -140,7 +141,13 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("images/uploads/*.md");
   });
 
+  eleventyConfig.addCollection("impressum", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("content/legal/impressum/*.md");
+  });
 
+  eleventyConfig.addCollection("privacy-policy", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("content/legal/privacy-policy/*.md");
+  });
 
 
   // Passthrough copy for assets
