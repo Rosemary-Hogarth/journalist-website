@@ -1,4 +1,5 @@
 ---
+order: 10
 title: "next.media: Audience Suite: Daten als Schlüssel zur Zielgruppe"
 published: 16.10.2024
 tag: Wirtschaft
