@@ -156,6 +156,7 @@ body.home .menu-handle {
 
   .menu-handle {
     width: 50px;
+    border-left: none;
   }
 
   body.home .menu {

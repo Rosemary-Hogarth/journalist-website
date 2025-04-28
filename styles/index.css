@@ -42,22 +42,6 @@ html, body {
   background-position: center;
 }
 
-.right-column {
-  width: 80px;
-  display: flex;
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 40px 0;
-  z-index: 2;
-  background-color: #d1bcffef;
-  cursor: pointer;
-
-}
 
 
 
@@ -102,7 +86,7 @@ html, body {
   max-height: 90%;
   object-fit: contain;
   margin: auto;
-  padding: 2rem; /* Add white space around */
+  padding: 2rem;
   display: block;
 }
 
@@ -117,23 +101,25 @@ html, body {
   }
 
   .vertical-name span {
-    font-size: 25px;
+    font-size: 38px;
   }
   .right-column {
     width: 50px;
   }
 
   .home-slide img {
-
       width: 100vw;
       height: 100vh;
-      object-fit: cover;
-      padding: 0;
+      padding-left: 10px;
       margin: 0;
       max-width: 100%;
       max-height: 100%;
 
   }
+}
 
-
+@media (min-width: 769px) and (max-width: 1024px) {
+  .home-slide img {
+    padding: 0;
+  }
 }
