@@ -1,4 +1,5 @@
 ---
+order: 15
 title: "gallerytalk.net: Verführung statt Belehrung: Ashley Hans Scheirl und
   Jakob Lena Knebl"
 published: 25.07.2024
