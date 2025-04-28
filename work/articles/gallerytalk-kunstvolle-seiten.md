@@ -1,4 +1,5 @@
 ---
+order: 17
 title: "gallerytalk: Kunstvolle Seiten"
 published: 25.03.2024
 tag: Kultur
