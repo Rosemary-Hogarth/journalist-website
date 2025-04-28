@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 1
 title: "ZEIT ONLINE: Einfach wachsen lassen"
 published: 30.06.2024
 tag: Nachhaltigkeit
