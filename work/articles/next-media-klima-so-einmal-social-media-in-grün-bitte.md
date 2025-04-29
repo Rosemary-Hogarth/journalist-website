@@ -1,4 +1,5 @@
 ---
+order: 13
 title: "next.media: Mit GeoSci zum perfekten Wohnort"
 published: 16.10.2024
 tag: Wirtschaft
