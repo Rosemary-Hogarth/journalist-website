@@ -1,4 +1,5 @@
 ---
+order: 9
 title: "kulturbotschaft.de: Kulturwende: Schluss mit dem Schweigen"
 published: 26.08.2024
 tag: Kultur
