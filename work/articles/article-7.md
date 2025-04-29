@@ -1,4 +1,5 @@
 ---
+order: 6
 title: "next.media: RETELL: Ready to make Podcasts licensable?"
 published: 16.10.1024
 tag: Medien

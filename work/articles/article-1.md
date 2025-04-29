@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: "next.media: Vom Silicon Valley an die Alster"
 published: 03.02.2025
 tag: Medien
