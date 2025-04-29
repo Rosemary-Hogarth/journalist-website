@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 10
 title: "gallerytalk.net: Interview mit Herlinde Koelbl"
 published: 30.07.2024
 tag: Kultur
