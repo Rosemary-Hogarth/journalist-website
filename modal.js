@@ -40,7 +40,7 @@ function openModal(title, date, summary, link) {
     modalDate.style.fontSize = "14px";
   } else {
     modalTitle.style.fontSize = "30px";
-    modalSummary.style.fontSize = "20px";
+    //modalSummary.style.fontSize = "20px";
   }
 
 
