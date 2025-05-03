@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 2
 title: "ZEIT ONLINE: Packender Begleiter"
 published: 09.02.2024
 tag: Kultur

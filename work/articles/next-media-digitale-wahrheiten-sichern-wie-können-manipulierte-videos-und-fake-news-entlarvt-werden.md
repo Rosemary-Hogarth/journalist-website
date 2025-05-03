@@ -1,4 +1,5 @@
 ---
+order: 5
 title: "next.media: Digitale Wahrheiten sichern; Wie können manipulierte Videos
   und Fake News entlarvt werden?"
 published: 27.01.2025

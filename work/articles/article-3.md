@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 6
 title: "falstaff: AROMA Collective: Hier wird Essen zur multisensorischen Kunst"
 published: 07.04.2024
 tag: Kultur

@@ -1,4 +1,5 @@
 ---
+order: 7
 title: "Hamburg Kreativgesellschaft: Mit Kreativität gegen Autokratie"
 published: 18.03.2025
 tag: Politik

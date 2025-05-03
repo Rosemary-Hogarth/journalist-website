@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 15
 title: "next.media: Media for Equity neu gedacht mit NextGen Innovators"
 published: 16.10.2024
 tag: Medien
