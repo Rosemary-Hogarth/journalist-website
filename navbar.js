@@ -3,6 +3,7 @@ function toggleMenu() {
   menu.classList.toggle("open");
 }
 
+
 window.addEventListener('DOMContentLoaded', function () {
   document.body.classList.add('page-ready');
 });
