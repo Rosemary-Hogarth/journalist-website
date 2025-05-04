@@ -1,6 +1,6 @@
 ---
 order: 2
-title: LinkedIn-Beiträge für die Kulturbotschaft
+title: LinkedIn - Kulturbotschaft
 published: 01.09.2024
 tag: Medien
 summary: >+
