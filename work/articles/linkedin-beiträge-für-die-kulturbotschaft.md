@@ -2,7 +2,7 @@
 order: 2
 title: LinkedIn - Kulturbotschaft
 published: 01.09.2024
-tag: Medien
+tag: Kultur
 summary: >+
   Weiter Beiträge für die Kulturbotschaft hier: 
 
