@@ -5,7 +5,7 @@ function getRandomHexColor() {
 }
 
 // Select all work cards
-const cards = document.querySelectorAll('.work-card');
+var cards = document.querySelectorAll('.work-card');
 
 // Loop through each card and add interactivity
 cards.forEach(card => {
@@ -51,9 +51,12 @@ const modal = document.getElementById("articleModal");
 const closeButton = document.querySelector(".close-modal");
 
 // Close when clicking the X button
-closeButton.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+if(closeButton) {
+  closeButton.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+}
+
 
 // Close when clicking outside the modal content
 window.addEventListener("click", (event) => {
@@ -152,8 +155,8 @@ function updateArrowCardsVisibility(currentFilter = "") {
 
     // Only show arrow if on the "All" filter and there are more than 3 cards
     if (currentFilter === "") {
-      arrowCard.style.display = allCards.length > 3 ? 'block' : 'none';
-      arrowCard.style.display = "flex";
+      arrowCard.style.display = allCards.length > 3 ? 'flex' : 'none';
+      // arrowCard.style.display = "flex";
       arrowCard.style.justifyContent = "center";
     } else {
       // Hide arrow on any filtered view

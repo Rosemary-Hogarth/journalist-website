@@ -67,6 +67,9 @@ body.home .menu {
 }
 
 
+.menu-handle:hover {
+  background-color: #FAF9F6;
+}
 body.home .menu.open {
   right: 0;
 }

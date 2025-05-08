@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener('DOMContentLoaded', (event) => {
+  // All code that interacts with DOM elements, including the showSlide function,
+  // should be within this event listener callback.
   const navbar = document.querySelector(".navbar");
 
   if (navbar && window.location.pathname === "/") {
     navbar.style.display = "none";
-
   }
 
 
@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let currentSlide = 0;
 
-  // handles homepage slideshow by adding/removing active class
   function showSlide(n) {
+    // We added a check in case no slide is found.
+    if(slides.length === 0) {
+      return;
+    }
     slides[currentSlide].classList.remove('active');
     currentSlide = (n + slides.length) % slides.length;
     slides[currentSlide].classList.add('active');
@@ -34,19 +37,21 @@ document.addEventListener("DOMContentLoaded", function() {
   // Show the first slide immediately and apply the first color
   showSlide(0);
 
-
-  slides.forEach(slide => {
-    slide.addEventListener('click', function(e) {
-      e.preventDefault();
-      console.log('Slide clicked');
-      nextSlide();
-    });
-  });
+   // Show the first slide immediately and apply the first color
+   showSlide(0);
 
 
-  setTimeout(() => {
-    setInterval(nextSlide, 3000);
-  }, 3000);
+   slides.forEach(slide => {
+     slide.addEventListener('click', function(e) {
+       e.preventDefault();
+       console.log('Slide clicked');
+       nextSlide();
+     });
+   });
 
+
+   setTimeout(() => {
+     setInterval(nextSlide, 3000);
+   }, 3000);
 
 });

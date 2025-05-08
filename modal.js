@@ -22,7 +22,7 @@ function openModal(title, date, summary, link) {
   const modalButton = document.createElement("a"); // Use <a> to make it a real link
   modalButton.innerText = "Zum Artikel";
   modalButton.href = link;
-  modalButton.target = "_blank"; // Open in new tab
+  modalButton.target = "_blank";
   modalButton.style.display = "inline-block";
   modalButton.style.padding = "6px 15px";
   modalButton.style.marginTop = "15px";
@@ -54,11 +54,11 @@ function openModal(title, date, summary, link) {
 
 // Function to close modal
 function closeModal() {
-  document.getElementById("articleModal").style.display = "none";
+  modal.style.display = "none";
 }
 
 // Attach event listener to all work cards
-document.querySelectorAll(".work-card").forEach((card) => {
+cards.forEach((card) => {
   card.addEventListener("click", function () {
     openModal(
       this.dataset.title,
@@ -70,7 +70,7 @@ document.querySelectorAll(".work-card").forEach((card) => {
 });
 
 // Close modal when clicking outside content
-document.getElementById("articleModal").addEventListener("click", function (event) {
+modal.addEventListener("click", function (event) {
   if (event.target === this) {
     closeModal();
   }
