@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title: "Instagram - Bildermächtig vom Journalistinnenbund "
 published: 12.12.2024
 tag: Medien
