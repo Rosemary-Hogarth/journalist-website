@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navbar.style.display = "none";
   }
 
-  // Slideshow logic (runs everywhere, but that's OK)
+  // Slideshow logic
   const slides = document.querySelectorAll('.home-slide');
   const nameSpans = document.querySelectorAll(".vertical-name span");
   const colors = ["#97D6B8", "#FFB3EB", "#B0C3E5"];
@@ -100,14 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(nextSlide, 3000);
   }, 3000);
 
-  // --- ONLY ON HOMEPAGE: click-outside-image redirect ---
+  // --- ONLY ON HOMEPAGE: click-outside-image/menu redirect ---
   if (window.location.pathname === "/") {
     const slideshow = document.getElementById('slideshow');
+    const menu = document.getElementById('menu');
+    const menuHandle = document.querySelector('.menu-handle');
+
     document.addEventListener('click', function(e) {
-      if (!(e.target.tagName === 'IMG' && slideshow && slideshow.contains(e.target))) {
+      // Allow clicks on <img> in slideshow, menu, or menu-handle
+      const clickedImg = e.target.tagName === 'IMG' && slideshow && slideshow.contains(e.target);
+      const clickedMenu = menu && menu.contains(e.target);
+      const clickedMenuHandle = menuHandle && menuHandle.contains(e.target);
+
+      if (!(clickedImg || clickedMenu || clickedMenuHandle)) {
         window.location.href = '/work';
       }
     });
   }
-
 });
+
+// Your toggleMenu function
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("open");
+}
