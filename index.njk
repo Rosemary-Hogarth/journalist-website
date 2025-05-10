@@ -6,7 +6,7 @@ layout: base
 {% set slideshow = collections.homepage_slideshow | sort(attribute='data.order') %}
 
 {% if slideshow.length > 0 %}
-  <div class="home-container">
+  <div class="home-container" id="slideshow">
     {% for slide in slideshow %}
       <div class="home-slide {% if loop.first %}active{% endif %}">
         <img src="{{ slide.data.image }}" alt="{{ slide.data.title }}" >
