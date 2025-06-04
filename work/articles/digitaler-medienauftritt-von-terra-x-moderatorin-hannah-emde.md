@@ -2,7 +2,7 @@
 order: 2
 title: Digitaler Medienauftritt von Terra X Moderatorin Hannah Emde
 published: 04.06.2025
-tag: Medien
+tag: Nachhaltigkeit
 summary: Ich begleite die strategische Ausrichtung der Social-Media-Kanäle von
   Hannah Emde rund um Artenvielfalt, Biodiversität und Tierschutz. Durch die
   Entwicklung einer klaren Positionierung, die Erarbeitung von Content-Rubriken
